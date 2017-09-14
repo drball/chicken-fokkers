@@ -13,24 +13,24 @@ public class BulletScript : MonoBehaviour {
 	void Start () {
 		Debug.Log("create new bullet");
 
-		rb.AddForce(transform.right * speed);
+		rb.AddForce(transform.up * speed);
 
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		Debug.Log("bullet hits = "+other.name);
+		Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name);
 
-        if (other.tag == "Player"){
+        if (other.tag == "PlayerCollider" && (other.transform.parent.name != Owner.name)){
 
         	if(other.GetComponent<DamageController>()){
         		other.GetComponent<DamageController>().HitByBullet();
 
         		Instantiate(Explosion, transform.position, transform.rotation);
+        		Debug.Log("hit the other player");
 
             	Destroy(gameObject);
     		} 
-
     		
         } else if (other.tag == "Ground"){
 			Instantiate(Explosion, transform.position, transform.rotation);

@@ -6,36 +6,51 @@ public class PlayerMovement : MonoBehaviour {
 
     public float speed = 1f; //--force
     public float upSpeed = 1f; //--force
-    public bool alive = true;
     public bool movingUp = false;
     public float defaultUpForce = 1;
     private Rigidbody2D rb;
     public Renderer rend;
     public TouchControls TouchControls;
+    public PlayerController PlayerController;
     public enum MovementDirections {Right = 0, Left = 1} 
     public MovementDirections MovementDirection= MovementDirections.Right & MovementDirections.Left;
+    private float startPosX; 
+    private float startPosY = 3f; 
+    public Camera cam;
+    private float buffer = 1f;
+    public int dir = 1;
+
+    private float leftConstraint;
+    private float rightConstraint;
 
     private float upForce;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+
+		leftConstraint = cam.ScreenToWorldPoint (new Vector3 (0.0f, 0.0f, 0)).x;
+        rightConstraint = cam.ScreenToWorldPoint (new Vector3 (Screen.width, 0.0f, 0)).x;
+
+        if(MovementDirection == MovementDirections.Left){
+			startPosX = rightConstraint;
+			transform.position = new Vector3(startPosX,startPosY,0);
+			dir = -1;
+    	} else {
+    		startPosX = leftConstraint;
+    		transform.position = new Vector3(startPosX,startPosY,0);
+    	}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	void FixedUpdate () {
 
-		if(alive){
-
+		if(PlayerController.alive){
 
 			movingUp = false;
 
-
 			if(MovementDirection == MovementDirections.Left){
+				//--moving right to left
 
 				if(TouchControls.RightPressed) {
 					movingUp = true;
@@ -44,28 +59,48 @@ public class PlayerMovement : MonoBehaviour {
 					upForce = defaultUpForce;
 				}
 
-				speed = -speed;
-
 			} else {
-
+				//--moving left to right
 				if(TouchControls.LeftPressed) {
 					movingUp = true;
 					upForce = defaultUpForce + upSpeed;
 				} else {
 					upForce = defaultUpForce;
 				}
-				
 			}
 
-			Debug.Log("add force. speed = "+speed+", up = "+upForce);
-			rb.AddForce(new Vector2(speed, upForce));
+			// Debug.Log("add force. speed = "+speed+", up = "+upForce);
+			rb.AddForce(new Vector2((speed * dir), upForce));
 
+			//--rotate to face direction of travel
 			Vector2 moveDirection = rb.velocity;
+			// Debug.Log("moveDir = "+moveDirection);
          	if (moveDirection != Vector2.zero) {
-            	float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            	transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            	
+
+            	if(MovementDirection == MovementDirections.Left){
+            		float angle = Mathf.Atan2(moveDirection.y, -moveDirection.x) * Mathf.Rad2Deg;
+					transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
+        		}else {
+        			float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        		}
+            	
          	}
 			
 		}
+
+		//--move nack onto screen when off the edge
+		if (transform.position.x < leftConstraint - buffer) {
+			transform.position = new Vector3 (rightConstraint + buffer, transform.position.y, transform.position.z);
+		}
+
+		if (transform.position.x > rightConstraint + buffer) {
+			transform.position = new Vector3 (leftConstraint - buffer, transform.position.y, transform.position.z);
+		}
+
+
 	}
+
+	
 }

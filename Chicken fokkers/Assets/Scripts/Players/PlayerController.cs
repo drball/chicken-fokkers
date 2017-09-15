@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public bool alive = true;
-
 	public int score = 0;
 
 	// Use this for initialization
@@ -22,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 		//--trigger a death animation
 		Destroy(gameObject);
 		Debug.Log(gameObject.name +" is dead");
+
+		alive = false;
 
 		//--show the scoreboard - or start another round
 	}

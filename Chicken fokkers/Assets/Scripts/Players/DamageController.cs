@@ -22,7 +22,7 @@ public class DamageController : MonoBehaviour {
 	public void HitByBullet(){
 		Debug.Log(gameObject.name+"hit by bullet");
 		health--;
-		Rend.color = new Color(255f, 0, 0, 1f); //--make it red
+		Rend.color = new Color(255, 0, 0, 1); //--make it red
 		Invoke("ResetColour", 0.06f);
 
 		if(health < 0){

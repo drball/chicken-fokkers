@@ -8,14 +8,14 @@ public class ShootController : MonoBehaviour {
 	public Transform ShootRayFrom;
 	public Transform ShootRayTo;
 	public bool shooting = false;
-	private float fireRate = 10f;
+	private float fireRate = 0.1f;
 	public GameObject Bullet; 
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log(gameObject.name+" dir="+PlayerMovement.MovementDirection);
+		// Debug.Log(gameObject.name+" dir="+PlayerMovement.MovementDirection);
 	}
 
 	void Update (){
@@ -23,12 +23,21 @@ public class ShootController : MonoBehaviour {
 		Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
 
 		if(shootingHit){
-			Debug.Log("hit");
-			shooting = true;
-			InvokeRepeating("FireBullet", 0, fireRate);
+			// Debug.Log("hit");
+			
+			if(!shooting){
+				shooting = true;
+				InvokeRepeating("FireBullet", 0, fireRate);
+				Debug.Log("start shooting");
+			}
+			
 		} else {
-			shooting = false;
-			CancelInvoke("FireBullet");
+			if(shooting){
+				shooting = false;
+				CancelInvoke("FireBullet");
+				Debug.Log("cancel shooting");
+			}
+			
 		}
 	}
 

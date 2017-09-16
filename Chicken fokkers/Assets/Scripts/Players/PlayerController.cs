@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 
 	public bool alive = true;
 	public int score = 0;
+	public GameController GameController;
+	public SpriteRenderer Rend;
 
 	// Use this for initialization
 	void Start () {
@@ -19,12 +21,15 @@ public class PlayerController : MonoBehaviour {
 
 	public void Die(){
 		//--trigger a death animation
-		Destroy(gameObject);
+		// Destroy(gameObject);
 		Debug.Log(gameObject.name +" is dead");
+		Rend.color = new Color(0, 0, 0, 1); //--make it black
 
 		alive = false;
 
 		//--show the scoreboard - or start another round
+		GameController.EndRoundCountdown();
+
 	}
 
 	public void ResetScore(){

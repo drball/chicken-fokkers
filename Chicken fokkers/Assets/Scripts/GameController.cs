@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI; //--enables us to access <Text>
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
@@ -10,29 +11,110 @@ public class GameController : MonoBehaviour {
 	public PlayerController Player2Controller;
 	public int leftEdge = 0;
 	public int rightEdge = 900;
-	public Camera cam;
+	public bool roundActive = false;
+	public GameObject ScoreModal;
+	public GameObject PlayAgainBtn;
+	public GameObject Player1ScoreText;
+	public GameObject Player2ScoreText;
+
+	private int winningScore = 5;
+	
 
 	// Use this for initialization
 	void Start () {
+
+		ScoreModal.SetActive(false);
+		PlayAgainBtn.SetActive(false);
+
 		Reset();
 
-		Player1.transform.position = new Vector3(0,0,0);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		// Player1.transform.position = new Vector3(0,0,0);
 	}
 
 	void Reset(){
+
+		Debug.Log("reset. Start the round");
+
+		//--start the round
 		
+		//--cancel their velocity
 		Player1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		Player2.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+		Player1.transform.rotation = Quaternion.identity;
+		Player2.transform.rotation = Quaternion.identity;
+
+		//--reset the players
+		Player1Controller.alive = true;
+		Player2Controller.alive = true;
+
+		roundActive = true;
+
+		//--make sure these are hidden so we can activate them later
+		ScoreModal.SetActive(false);
+		PlayAgainBtn.SetActive(false);
 	}
 
 	void EndGame(){
 		//--a game consists of 3 rounds, best of 3
 
+	}
+
+	public void EndRoundCountdown(){
+		//--start the countdown for the end of round
+		// Invoke("EndRound",3);
+		StartCoroutine("EndRound");
+		Debug.Log("Ending round in 3");
+
+    }
+
+	IEnumerator EndRound(){
+
+		yield return new WaitForSeconds(3.00f);
+
+		Debug.Log("The round has ended");
+
+		//--show modal
+		ScoreModal.SetActive(true);
+
+		//--determine who won
+		if(!Player1Controller.alive) {
+			Player2Controller.score++;
+		}
+		
+		if(!Player2Controller.alive) {
+			Player1Controller.score++;
+		}
+
+		//--update leaderboard after a few seconds 
+		yield return new WaitForSeconds(1.5f);
+		Player1ScoreText.GetComponent<Text>().text = Player1Controller.score.ToString();
+		Player2ScoreText.GetComponent<Text>().text = Player2Controller.score.ToString();
+
+		yield return new WaitForSeconds(1.5f);
+
+		//--decide if someone has won
+		if((Player1Controller.score >= winningScore) || (Player2Controller.score >= winningScore)){
+
+			//--someone has won
+			Debug.Log("someone has won");
+			
+			//--show "play again" button
+			PlayAgainBtn.SetActive(true);
+
+			yield return new WaitForSeconds(1f);
+
+			// AdvertController.ShowAdvert();
+			
+		}else {
+			//--keep playing
+			
+			//--animate out
+			ScoreModal.GetComponent<Animator>().Play("PanelSlideOut");
+			
+			Reset();
+			
+		}
 	}
 
 	void PlayAgain(){

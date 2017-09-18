@@ -385,7 +385,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1419091199
+  randomSeed: 1259541187
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4016,7 +4016,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081458011}
   m_LocalRotation: {x: -0, y: -0, z: -0.4330255, w: 0.90138173}
-  m_LocalPosition: {x: -7.16, y: -0.34, z: 0}
+  m_LocalPosition: {x: -3.26, y: 0.49, z: 0}
   m_LocalScale: {x: 0.280548, y: 0.28054798, z: 0.28054798}
   m_Children:
   - {fileID: 1310292691}
@@ -4093,6 +4093,8 @@ MonoBehaviour:
   alive: 1
   score: 0
   GameController: {fileID: 1254232638}
+  DamageController: {fileID: 1359445356}
+  PlayerMovement: {fileID: 1081458012}
   Rend: {fileID: 1081458014}
 --- !u!1 &1125448636
 GameObject:
@@ -4150,6 +4152,8 @@ MonoBehaviour:
   alive: 1
   score: 0
   GameController: {fileID: 1254232638}
+  DamageController: {fileID: 1479729148}
+  PlayerMovement: {fileID: 1125448637}
   Rend: {fileID: 1125448639}
 --- !u!212 &1125448639
 SpriteRenderer:
@@ -4200,7 +4204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1125448636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.13, y: -0.38, z: 0}
+  m_LocalPosition: {x: 3.14, y: 2.6, z: 0}
   m_LocalScale: {x: -0.280548, y: 0.28054798, z: 0.28054798}
   m_Children:
   - {fileID: 2027885954}
@@ -7850,7 +7854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1081458011}
-  health: 10
+  health: 10000
   Rend: {fileID: 1081458014}
   PlayerController: {fileID: 1081458018}
 --- !u!61 &1359445357

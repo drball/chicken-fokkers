@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour {
 	public bool alive = true;
 	public int score = 0;
 	public GameController GameController;
+	public DamageController DamageController;
+	public PlayerMovement PlayerMovement;
 	public SpriteRenderer Rend;
 
 	// Use this for initialization
 	void Start () {
-		
+		score = 0;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +34,12 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	public void ResetScore(){
-		score = 0;
+	public void ResetPlayer(){
+		
+		alive = true;
+
+		DamageController.ResetHealth();
+
+		PlayerMovement.MoveToStartPos();
 	}
 }

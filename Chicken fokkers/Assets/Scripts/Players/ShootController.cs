@@ -28,14 +28,14 @@ public class ShootController : MonoBehaviour {
 			if(!shooting){
 				shooting = true;
 				InvokeRepeating("FireBullet", 0, fireRate);
-				Debug.Log("start shooting");
+				// Debug.Log("start shooting");
 			}
 			
 		} else {
 			if(shooting){
 				shooting = false;
 				CancelInvoke("FireBullet");
-				Debug.Log("cancel shooting");
+				// Debug.Log("cancel shooting");
 			}
 			
 		}
@@ -43,7 +43,7 @@ public class ShootController : MonoBehaviour {
 
 	void FireBullet() {
 
-		Debug.Log("fire bullet from "+Player.name+" at rotation "+Player.transform.rotation.z);
+		// Debug.Log("fire bullet from "+Player.name+" at rotation "+Player.transform.rotation.z);
 		
 		if(PlayerMovement.MovementDirection == PlayerMovement.MovementDirections.Left){
 			GameObject newBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z+90));

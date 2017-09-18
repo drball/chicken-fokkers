@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log("create new bullet");
+		// Debug.Log("create new bullet");
 
 		rb.AddForce(transform.up * speed);
 
@@ -19,7 +19,7 @@ public class BulletScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name);
+		// Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name);
 
         if (other.tag == "PlayerCollider" && (other.transform.parent.name != Owner.name)){
 
@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour {
         		other.GetComponent<DamageController>().HitByBullet();
 
         		Instantiate(Explosion, transform.position, transform.rotation);
-        		Debug.Log("hit the other player");
+        		// Debug.Log("hit the other player");
 
             	Destroy(gameObject);
     		} 

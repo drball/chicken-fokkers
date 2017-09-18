@@ -32,13 +32,19 @@ public class PlayerMovement : MonoBehaviour {
 		leftConstraint = cam.ScreenToWorldPoint (new Vector3 (0.0f, 0.0f, 0)).x;
         rightConstraint = cam.ScreenToWorldPoint (new Vector3 (Screen.width, 0.0f, 0)).x;
 
+	}
+
+	public void MoveToStartPos(){
+
+		Debug.Log("Move"+gameObject.name+" to start pos");
+		//--start positions
         if(MovementDirection == MovementDirections.Left){
 			startPosX = rightConstraint;
-			transform.position = new Vector3(startPosX,startPosY,0);
+			// transform.position = new Vector3(startPosX,startPosY,0);
 			dir = -1;
     	} else {
     		startPosX = leftConstraint;
-    		transform.position = new Vector3(startPosX,startPosY,0);
+    		// transform.position = new Vector3(startPosX,startPosY,0);
     	}
 	}
 	

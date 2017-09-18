@@ -27,8 +27,6 @@ public class GameController : MonoBehaviour {
 		PlayAgainBtn.SetActive(false);
 
 		Reset();
-
-		// Player1.transform.position = new Vector3(0,0,0);
 	}
 
 	void Reset(){
@@ -44,15 +42,15 @@ public class GameController : MonoBehaviour {
 		Player1.transform.rotation = Quaternion.identity;
 		Player2.transform.rotation = Quaternion.identity;
 
-		//--reset the players
-		Player1Controller.alive = true;
-		Player2Controller.alive = true;
-
 		roundActive = true;
 
 		//--make sure these are hidden so we can activate them later
 		ScoreModal.SetActive(false);
 		PlayAgainBtn.SetActive(false);
+
+		//--each player has it's own reset function
+		Player1Controller.ResetPlayer();
+		Player2Controller.ResetPlayer();
 	}
 
 	void EndGame(){
@@ -118,9 +116,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	void PlayAgain(){
-		Reset();
-
-		Player1Controller.ResetScore();
-		Player2Controller.ResetScore();
+		
 	}
 }

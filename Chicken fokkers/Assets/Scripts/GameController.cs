@@ -16,8 +16,9 @@ public class GameController : MonoBehaviour {
 	public GameObject PlayAgainBtn;
 	public GameObject Player1ScoreText;
 	public GameObject Player2ScoreText;
+	public LevelsController LevelsController;
 
-	private int winningScore = 5;
+	private int winningScore = 2;
 	
 
 	// Use this for initialization
@@ -25,6 +26,8 @@ public class GameController : MonoBehaviour {
 
 		ScoreModal.SetActive(false);
 		PlayAgainBtn.SetActive(false);
+
+		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
 
 		Reset();
 	}
@@ -34,14 +37,6 @@ public class GameController : MonoBehaviour {
 		Debug.Log("reset. Start the round");
 
 		//--start the round
-		
-		//--cancel their velocity
-		Player1.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-		Player2.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-		Player1.transform.rotation = Quaternion.identity;
-		Player2.transform.rotation = Quaternion.identity;
-
 		roundActive = true;
 
 		//--make sure these are hidden so we can activate them later
@@ -115,7 +110,37 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void PlayAgain(){
+	public void PlayAgain(){
+
+		//--a full reset
+
+		Debug.Log("play again "+LevelsController.currentLevel);
 		
+		// Reset();
+		
+		// Player1.score = 0;
+		// Player2.score = 0;
+		
+		// //--animate these away
+		// PlayAgainBtn.GetComponent.<Animator>().Play("PanelSlideOut");
+		// ScoreModal.GetComponent.<Animator>().Play("PanelSlideOut");
+		
+		// //--reset the text boxes
+		// Player1ScoreText.GetComponent.<Text>().text = "0";
+		// Player2ScoreText.GetComponent.<Text>().text = "0";
+
+		// LevelsController.Knob();
+
+		
+		//--reload entire scene
+		// LevelsController.LoadSelectedLevel();
+	}
+
+	void FixedUpdate () {
+
+
+		if(Input.GetKey("f")){
+			Player1Controller.Die();
+		}
 	}
 }

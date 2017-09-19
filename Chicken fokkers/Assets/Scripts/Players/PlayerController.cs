@@ -35,11 +35,28 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void ResetPlayer(){
+
+		//--called when the round begins again - also on the 1st round
 		
 		alive = true;
 
 		DamageController.ResetHealth();
 
 		PlayerMovement.MoveToStartPos();
+
+		PlayerMovement.autoPilot = true;
+
+		Invoke("CancelAutopilot", 2);
+	}
+
+	void CancelAutopilot(){
+		PlayerMovement.autoPilot = false;
+	}
+
+	void FixedUpdate () {
+		if(Input.GetKey("s")){
+			PlayerMovement.MoveToStartPos();
+		}
+
 	}
 }

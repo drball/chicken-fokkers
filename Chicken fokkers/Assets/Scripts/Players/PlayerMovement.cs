@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour {
     private float startPosY = 3f; 
     public Camera cam;
     private float buffer = 1f;
-    public int dir = 1;
+    private int dir = 1;
+    public bool autoPilot = true;
 
     private float leftConstraint;
     private float rightConstraint;
@@ -37,23 +38,30 @@ public class PlayerMovement : MonoBehaviour {
 	public void MoveToStartPos(){
 
 		Debug.Log("Move"+gameObject.name+" to start pos");
+
 		//--start positions
         if(MovementDirection == MovementDirections.Left){
 			startPosX = rightConstraint;
-			// transform.position = new Vector3(startPosX,startPosY,0);
+			transform.position = new Vector3(startPosX,startPosY,0);
 			dir = -1;
     	} else {
     		startPosX = leftConstraint;
-    		// transform.position = new Vector3(startPosX,startPosY,0);
+    		transform.position = new Vector3(startPosX,startPosY,0);
     	}
+
+    	//--cancel their velocity
+		rb.velocity = Vector2.zero;
+
+		gameObject.transform.rotation = Quaternion.identity;
 	}
 	
 
 	void FixedUpdate () {
 
-		if(PlayerController.alive){
+		upForce = defaultUpForce;
+		movingUp = false;
 
-			movingUp = false;
+		if(PlayerController.alive){
 
 			if(MovementDirection == MovementDirections.Left){
 				//--moving right to left
@@ -61,42 +69,40 @@ public class PlayerMovement : MonoBehaviour {
 				if(TouchControls.RightPressed) {
 					movingUp = true;
 					upForce = defaultUpForce + upSpeed;
-				} else {
-					upForce = defaultUpForce;
-				}
+				} 
 
 			} else {
 				//--moving left to right
 				if(TouchControls.LeftPressed) {
 					movingUp = true;
 					upForce = defaultUpForce + upSpeed;
-				} else {
-					upForce = defaultUpForce;
-				}
+				} 
 			}
-
-			// Debug.Log("add force. speed = "+speed+", up = "+upForce);
-			rb.AddForce(new Vector2((speed * dir), upForce));
-
-			//--rotate to face direction of travel
-			Vector2 moveDirection = rb.velocity;
-			// Debug.Log("moveDir = "+moveDirection);
-         	if (moveDirection != Vector2.zero) {
-            	
-
-            	if(MovementDirection == MovementDirections.Left){
-            		float angle = Mathf.Atan2(moveDirection.y, -moveDirection.x) * Mathf.Rad2Deg;
-					transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
-        		}else {
-        			float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-        			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        		}
-            	
-         	}
 			
 		}
 
-		//--move nack onto screen when off the edge
+		//--check if on autopilot - if not, fall
+		if(autoPilot){
+			upForce = defaultUpForce + upSpeed/1.85f;
+		} 
+
+		rb.AddForce(new Vector2((speed * dir), upForce));
+
+		//--rotate to face direction of travel
+		Vector2 moveDirection = rb.velocity;
+
+     	if (moveDirection != Vector2.zero) {
+        	
+        	if(MovementDirection == MovementDirections.Left){
+        		float angle = Mathf.Atan2(moveDirection.y, -moveDirection.x) * Mathf.Rad2Deg;
+				transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
+    		}else {
+    			float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+    			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    		}
+     	}
+
+		//--move back onto screen when off the edge
 		if (transform.position.x < leftConstraint - buffer) {
 			transform.position = new Vector3 (rightConstraint + buffer, transform.position.y, transform.position.z);
 		}

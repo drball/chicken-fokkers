@@ -8,7 +8,7 @@ public class ShootController : MonoBehaviour {
 	public Transform ShootRayFrom;
 	public Transform ShootRayTo;
 	public bool shooting = false;
-	private float fireRate = 0.1f;
+	private float fireRate = 0.04f;
 	public GameObject Bullet; 
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;

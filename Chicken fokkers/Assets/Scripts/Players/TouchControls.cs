@@ -39,7 +39,7 @@ public class TouchControls : MonoBehaviour {
 
 			if(Input.GetKey("left") && Input.GetKey("right") )
 			{
-				Debug.Log("both pressed");
+				// Debug.Log("both pressed");
 				RightPressed = true;
 				LeftPressed = true;
 

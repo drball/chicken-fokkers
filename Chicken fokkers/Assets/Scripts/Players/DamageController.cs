@@ -8,13 +8,22 @@ public class DamageController : MonoBehaviour {
 	public int health = 100;
 	public SpriteRenderer Rend;
 	public PlayerController PlayerController;
+	public ParticleSystem InjuredSmoke;
+	public ParticleSystem DeadSmoke;
 	private int initialHealth;
+	private float smokeEmissionRate;
 
 	// Use this for initialization
 	void Awake () {
 		ResetColour();
 
 		initialHealth = health;
+	}
+
+	void Start(){
+		smokeEmissionRate = InjuredSmoke.emissionRate;
+		InjuredSmoke.emissionRate = 0;
+		Debug.Log("emission rate = "+smokeEmissionRate);
 	}
 	
 	// Update is called once per frame
@@ -33,6 +42,11 @@ public class DamageController : MonoBehaviour {
 
 			if(health <= 0 ){
 				PlayerController.Die();
+			} else if (health <= 50){
+				InjuredSmoke.emissionRate = smokeEmissionRate;
+			} else if (health <= 0){
+				InjuredSmoke.emissionRate = 0;
+				DeadSmoke.emissionRate = smokeEmissionRate;
 			}
 		}
 	}
@@ -43,6 +57,8 @@ public class DamageController : MonoBehaviour {
 
 	public void ResetHealth(){
 		health = initialHealth;
+		InjuredSmoke.emissionRate = 0;
+		DeadSmoke.emissionRate = 0;
 	}
 
 

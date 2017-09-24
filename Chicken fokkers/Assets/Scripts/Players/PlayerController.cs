@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour {
 		Invoke("CancelAutopilot", 2);
 	}
 
+	public void StartAutopilot(){
+		Debug.Log("start autopilot");
+		PlayerMovement.autoPilot = true;
+	}
+
 	void CancelAutopilot(){
 		PlayerMovement.autoPilot = false;
 	}

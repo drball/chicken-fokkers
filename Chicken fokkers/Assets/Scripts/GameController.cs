@@ -73,14 +73,17 @@ public class GameController : MonoBehaviour {
 		//--determine who won
 		if(!Player1Controller.alive) {
 			Player2Controller.score++;
+			Player2Controller.StartAutopilot();
 		}
 		
 		if(!Player2Controller.alive) {
 			Player1Controller.score++;
+			Player1Controller.StartAutopilot();
 		}
 
 		//--update leaderboard after a few seconds 
 		yield return new WaitForSeconds(1.5f);
+		
 		Player1ScoreText.GetComponent<Text>().text = Player1Controller.score.ToString();
 		Player2ScoreText.GetComponent<Text>().text = Player2Controller.score.ToString();
 
@@ -89,7 +92,7 @@ public class GameController : MonoBehaviour {
 		//--decide if someone has won
 		if((Player1Controller.score >= winningScore) || (Player2Controller.score >= winningScore)){
 
-			//--someone has won
+			//--someone has won the game
 			Debug.Log("someone has won");
 			
 			//--show "play again" button
@@ -100,7 +103,7 @@ public class GameController : MonoBehaviour {
 			// AdvertController.ShowAdvert();
 			
 		}else {
-			//--keep playing
+			//--keep playing. Start next round
 			
 			//--animate out
 			ScoreModal.GetComponent<Animator>().Play("PanelSlideOut");

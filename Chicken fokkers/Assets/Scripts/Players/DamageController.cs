@@ -21,9 +21,11 @@ public class DamageController : MonoBehaviour {
 	}
 
 	void Start(){
-		smokeEmissionRate = InjuredSmoke.emissionRate;
-		InjuredSmoke.emissionRate = 0;
-		Debug.Log("emission rate = "+smokeEmissionRate);
+		// smokeEmissionRate = InjuredSmoke.emission.rate;
+		InjuredSmoke.Stop();
+		DeadSmoke.Stop();
+		// Debug.Log("emission rate = "+smokeEmissionRate);
+
 	}
 	
 	// Update is called once per frame
@@ -41,13 +43,12 @@ public class DamageController : MonoBehaviour {
 			Invoke("ResetColour", 0.06f);
 
 			if(health <= 0 ){
+				InjuredSmoke.Stop();
+				DeadSmoke.Play();
 				PlayerController.Die();
-			} else if (health <= 50){
-				InjuredSmoke.emissionRate = smokeEmissionRate;
-			} else if (health <= 0){
-				InjuredSmoke.emissionRate = 0;
-				DeadSmoke.emissionRate = smokeEmissionRate;
-			}
+			} else if ((health <= 50) && (health > 0)){
+				InjuredSmoke.Play();
+			} 
 		}
 	}
 
@@ -57,8 +58,8 @@ public class DamageController : MonoBehaviour {
 
 	public void ResetHealth(){
 		health = initialHealth;
-		InjuredSmoke.emissionRate = 0;
-		DeadSmoke.emissionRate = 0;
+		InjuredSmoke.Stop();
+		DeadSmoke.Stop();
 	}
 
 

@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 06a3ffb8adce04281b2d0747287e01a2
-timeCreated: 1506263616
+guid: 872c604fb339e4207ab499d9de2c2a99
+timeCreated: 1506582606
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: dialog_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -41,11 +42,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 200
+  spriteBorder: {x: 135, y: 109, z: 128, w: 135}
+  spritePixelsToUnits: 400
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -97,7 +98,21 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: dialog_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 715
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 56, y: 62, z: 52, w: 50}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 99bc86519d0444c388cd54727fef5557
+timeCreated: 1506545904
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Barloesius Schrift
+  fontNames:
+  - Barloesius Schrift
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

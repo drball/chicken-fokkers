@@ -5,6 +5,8 @@ using UnityEngine;
 public class MenuScript : MonoBehaviour {
 
 	public GameObject LoadingPanel;
+	public GameObject CreditsPanel;
+	public GameObject MoreGamesPanel;
 
 	// Use this for initialization
 	void Start () {
@@ -18,19 +20,23 @@ public class MenuScript : MonoBehaviour {
 		Application.LoadLevel("main");
 	}
 
-	void RateBtnPressed(){
+	public void RateBtnPressed(){
 
 	}
 
-	void TwitterBtnPressed(){
+	public void TwitterBtnPressed(){
 		Application.OpenURL("https://www.twitter.com/davidonionball");
 	}
 
-	void LikeBtnPressed(){
+	public void LikeBtnPressed(){
 		Application.OpenURL("https://www.facebook.com/BotSumoGame/");
 	}
 
-	void FacebookBtnPressed(){
+	public void FacebookBtnPressed(){
+
+	}
+
+	public void PlayBtnPressed(){
 
 	}
 }

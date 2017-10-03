@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: 6182a9870ed5a48b7a68388b3a82c7e8
-timeCreated: 1506263069
+guid: 63e4c9b33c62c44f080744f79dc68e5f
+timeCreated: 1506975466
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: scarf-sprite_0
+    21300002: scarf-sprite_1
+    21300004: scarf-sprite_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -97,7 +100,49 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: scarf-sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 120
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scarf-sprite_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 120
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: scarf-sprite_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 122
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

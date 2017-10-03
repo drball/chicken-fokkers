@@ -16,7 +16,7 @@ public class MenuScript : MonoBehaviour {
 	void StartGame(){
 		//--show loading panel because there's a delay
 		LoadingPanel.SetActive(true);
-		
+		Debug.Log("hello");
 		Application.LoadLevel("main");
 	}
 
@@ -37,6 +37,6 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void PlayBtnPressed(){
-
+		StartGame();
 	}
 }

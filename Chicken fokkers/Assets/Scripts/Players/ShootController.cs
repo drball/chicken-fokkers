@@ -8,14 +8,16 @@ public class ShootController : MonoBehaviour {
 	public Transform ShootRayFrom;
 	public Transform ShootRayTo;
 	public bool shooting = false;
-	private float fireRate = 0.04f;
+	private float fireRate = 0.05f; //--smaller number = faster
 	public GameObject Bullet; 
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;
+	private Rigidbody2D rb; //--to get player velocity
 
 	// Use this for initialization
 	void Start () {
 		// Debug.Log(gameObject.name+" dir="+PlayerMovement.MovementDirection);
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void Update (){
@@ -23,23 +25,44 @@ public class ShootController : MonoBehaviour {
 		Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
 
 		if(shootingHit){
-			// Debug.Log("hit");
-			
-			if(!shooting){
-				shooting = true;
-				InvokeRepeating("FireBullet", 0, fireRate);
-				// Debug.Log("start shooting");
+			if(shootingHit.collider.name != gameObject.name){
+							
+				if(!shooting){
+					shooting = true;
+					InvokeRepeating("FireBullet", 0, fireRate);
+					Debug.Log("start shooting");
+				}
 			}
 			
 		} else {
 			if(shooting){
 				shooting = false;
 				CancelInvoke("FireBullet");
-				// Debug.Log("cancel shooting");
+			Debug.Log("cancel shooting");
 			}
-			
 		}
 	}
+
+	// void FixedUpdate() {
+ //        RaycastHit2D shootingHit = Physics2D.Raycast(ShootRayFrom.position, rb.velocity);
+
+ //        if ((shootingHit.collider != null) && (shootingHit.collider.tag == "Player") && (shootingHit.collider.name != gameObject.name)) {
+ //        	Debug.Log(gameObject.name+" hit "+shootingHit.collider.name);
+ //            if(!shooting){
+	// 			shooting = true;
+	// 			InvokeRepeating("FireBullet", 0, fireRate);
+	// 			// Debug.Log("start shooting");
+	// 		}
+ //        } else {
+ //        	if(shooting){
+	// 			shooting = false;
+	// 			CancelInvoke("FireBullet");
+	// 			// Debug.Log("cancel shooting");
+	// 		}
+ //        }
+ //    }
+
+
 
 	void FireBullet() {
 

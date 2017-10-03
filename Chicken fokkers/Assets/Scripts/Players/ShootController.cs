@@ -22,7 +22,7 @@ public class ShootController : MonoBehaviour {
 
 	void Update (){
 		RaycastHit2D shootingHit = Physics2D.Linecast(ShootRayFrom.position, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
-		Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
+		// Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
 
 		if(shootingHit){
 			if(shootingHit.collider.name != gameObject.name){
@@ -38,7 +38,7 @@ public class ShootController : MonoBehaviour {
 			if(shooting){
 				shooting = false;
 				CancelInvoke("FireBullet");
-			Debug.Log("cancel shooting");
+				Debug.Log("cancel shooting");
 			}
 		}
 	}

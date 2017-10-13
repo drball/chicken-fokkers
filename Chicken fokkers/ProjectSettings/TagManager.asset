@@ -43,6 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hills
+    uniqueID: 4204821253
+    locked: 0
+  - name: Trees
+    uniqueID: 3248798031
+    locked: 0
   - name: Explosions
     uniqueID: 4107094139
+    locked: 0
+  - name: Characters
+    uniqueID: 3614652153
     locked: 0

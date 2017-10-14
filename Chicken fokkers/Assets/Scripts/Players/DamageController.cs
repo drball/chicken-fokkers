@@ -62,27 +62,18 @@ public class DamageController : MonoBehaviour {
 		DeadSmoke.Stop();
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnCollisionEnter2D(Collision2D coll) {
 
-		// Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name);
+		// Debug.Log("player collided with "+coll.name);
+		Debug.Log("2player collided with name "+coll.gameObject.name);
+		Debug.Log("3player collided with tag "+coll.gameObject.tag);
 
-        if (other.tag == "PlayerCollider" && (other.transform.parent.name != Player.name)){
-
-        	if(other.GetComponent<DamageController>()){
-        		other.GetComponent<DamageController>().HitByBullet();
-        		Debug.Log("head on collision!!!!!");
-
-        		// Instantiate(Explosion, transform.position, transform.rotation);
-        		// Debug.Log("hit the other player");
-
-            	// Destroy(gameObject);
-    		} 
-    		
-        } else if (other.tag == "Ground"){
-			// Instantiate(Explosion, transform.position, transform.rotation);
-
-        	Destroy(gameObject);
-        } 
+        if (coll.gameObject.tag == "Player"){
+			Debug.Log("head on collision!!!!!");
+			Destroy(gameObject);
+        } else if(coll.gameObject.tag == "Ground"){
+			Debug.Log("hit ground!!!!!");
+        }
     }
 
 }

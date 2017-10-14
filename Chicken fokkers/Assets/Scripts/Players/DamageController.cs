@@ -73,6 +73,7 @@ public class DamageController : MonoBehaviour {
 			Destroy(gameObject);
         } else if(coll.gameObject.tag == "Ground"){
 			Debug.Log("hit ground!!!!!");
+			PlayerController.Die();
         }
     }
 

@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour {
 	public DamageController DamageController;
 	public PlayerMovement PlayerMovement;
 	public SpriteRenderer Rend;
+	public GameObject DeathExplosion;
+	public GameObject Vfx;
+	public GameObject colliderObj;
 
 	// Use this for initialization
 	void Start () {
@@ -22,16 +25,32 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Die(){
-		//--trigger a death animation
-		// Destroy(gameObject);
 		Debug.Log(gameObject.name +" is dead");
-		Rend.color = new Color(0, 0, 0, 1); //--make it black
 
 		alive = false;
 
+		colliderObj.SetActive(false);
+
 		//--show the scoreboard - or start another round
 		GameController.EndRoundCountdown();
+	}
 
+	public void LoseControl(){
+		//--player killed by shooting - now fall to ground
+		Rend.color = new Color(0, 0, 0, 1); //--make it black
+		DeathExplosion.SetActive(true);
+		Invoke("HideExplosion",1);
+	}
+
+	public void Explode(){
+		//--player has hit ground or had a mid-air collision
+		DeathExplosion.SetActive(true);
+		Vfx.SetActive(false);
+	}
+
+	void HideExplosion(){
+		//--so that we can use it again later
+		DeathExplosion.SetActive(false);
 	}
 
 	public void ResetPlayer(){
@@ -47,6 +66,10 @@ public class PlayerController : MonoBehaviour {
 		PlayerMovement.autoPilot = true;
 
 		Invoke("CancelAutopilot", 2);
+
+		DeathExplosion.SetActive(false);
+
+		colliderObj.SetActive(true);
 	}
 
 	public void StartAutopilot(){

@@ -46,6 +46,8 @@ public class DamageController : MonoBehaviour {
 				InjuredSmoke.Stop();
 				DeadSmoke.Play();
 				PlayerController.Die();
+				PlayerController.LoseControl();
+
 			} else if ((health <= 50) && (health > 0)){
 				InjuredSmoke.Play();
 			} 
@@ -70,10 +72,22 @@ public class DamageController : MonoBehaviour {
 
         if (coll.gameObject.tag == "Player"){
 			Debug.Log("head on collision!!!!!");
-			Destroy(gameObject);
+			// Debug.Log("health = "+health+" other's health = "+coll.gameObject.GetComponent<PlayerController>().GetComponent<DamageController>().health);
+
+			// if(){
+
+			// }
+			PlayerController.Explode();
+			PlayerController.Die();
+			InjuredSmoke.Stop();
+			DeadSmoke.Stop();
+
         } else if(coll.gameObject.tag == "Ground"){
 			Debug.Log("hit ground!!!!!");
+			PlayerController.Explode();
 			PlayerController.Die();
+			InjuredSmoke.Stop();
+			DeadSmoke.Stop();
         }
     }
 

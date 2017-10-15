@@ -49,9 +49,9 @@ TagManager:
   - name: Trees
     uniqueID: 3248798031
     locked: 0
-  - name: Explosions
-    uniqueID: 4107094139
-    locked: 0
   - name: Characters
     uniqueID: 3614652153
+    locked: 0
+  - name: Explosions
+    uniqueID: 4107094139
     locked: 0

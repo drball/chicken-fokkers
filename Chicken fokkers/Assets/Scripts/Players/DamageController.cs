@@ -5,19 +5,16 @@ using UnityEngine;
 public class DamageController : MonoBehaviour {
 
 	public GameObject Player;
-	public int health = 100;
 	public SpriteRenderer Rend;
 	public PlayerController PlayerController;
 	public ParticleSystem InjuredSmoke;
 	public ParticleSystem DeadSmoke;
-	private int initialHealth;
+	
 	private float smokeEmissionRate;
 
 	// Use this for initialization
 	void Awake () {
 		ResetColour();
-
-		initialHealth = health;
 	}
 
 	void Start(){
@@ -27,28 +24,23 @@ public class DamageController : MonoBehaviour {
 		// Debug.Log("emission rate = "+smokeEmissionRate);
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void HitByBullet(){
 
 		// Debug.Log("hot by bullet called");
-		if(health > 0) {
+		if(PlayerController.health > 0) {
 			// Debug.Log(gameObject.name+"hit by bullet");
-			health--;
+			PlayerController.health--;
 			Rend.color = new Color(255, 0, 0, 1); //--make it red
 			Invoke("ResetColour", 0.06f);
 
-			if(health <= 0 ){
+			if(PlayerController.health <= 0 ){
 				InjuredSmoke.Stop();
 				DeadSmoke.Play();
 				PlayerController.Die();
 				PlayerController.LoseControl();
 
-			} else if ((health <= 50) && (health > 0)){
+			} else if ((PlayerController.health <= 50) && (PlayerController.health > 0)){
 				InjuredSmoke.Play();
 			} 
 		}
@@ -58,31 +50,28 @@ public class DamageController : MonoBehaviour {
 		Rend.color = new Color(255f, 255f, 255f, 1f);
 	}
 
-	public void ResetHealth(){
-		health = initialHealth;
+	public void ResetDamage(){
 		InjuredSmoke.Stop();
 		DeadSmoke.Stop();
 	}
 
-	void OnCollisionEnter2D(Collision2D coll) {
+	void OnTriggerEnter2D(Collider2D other) {
 
-		// Debug.Log("player collided with "+coll.name);
-		Debug.Log("2player collided with name "+coll.gameObject.name);
-		Debug.Log("3player collided with tag "+coll.gameObject.tag);
-
-        if (coll.gameObject.tag == "Player"){
+        if (other.tag == "Player"){
 			Debug.Log("head on collision!!!!!");
-			// Debug.Log("health = "+health+" other's health = "+coll.gameObject.GetComponent<PlayerController>().GetComponent<DamageController>().health);
 
-			// if(){
+			int otherHealth = other.GetComponent<PlayerController>().health;
+			Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
 
-			// }
-			PlayerController.Explode();
-			PlayerController.Die();
-			InjuredSmoke.Stop();
-			DeadSmoke.Stop();
+			if(PlayerController.health <= otherHealth ){
+				PlayerController.Explode();
+				PlayerController.Die();
+				InjuredSmoke.Stop();
+				DeadSmoke.Stop();
+			}
+			
 
-        } else if(coll.gameObject.tag == "Ground"){
+        } else if(other.tag == "Ground"){
 			Debug.Log("hit ground!!!!!");
 			PlayerController.Explode();
 			PlayerController.Die();

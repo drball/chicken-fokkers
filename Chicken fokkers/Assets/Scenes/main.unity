@@ -3032,6 +3032,7 @@ MonoBehaviour:
   DeathExplosion: {fileID: 1364670326}
   Vfx: {fileID: 1832986388}
   colliderObj: {fileID: 1359445354}
+  health: 100
 --- !u!1 &1125448636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3094,7 @@ MonoBehaviour:
   DeathExplosion: {fileID: 2050483263}
   Vfx: {fileID: 1554141931}
   colliderObj: {fileID: 1479729145}
+  health: 10
 --- !u!4 &1125448640
 Transform:
   m_ObjectHideFlags: 0
@@ -3797,7 +3799,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1081458011}
-  health: 10000
   Rend: {fileID: 1832986390}
   PlayerController: {fileID: 1081458018}
   InjuredSmoke: {fileID: 1252488427}
@@ -3811,7 +3812,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4217,7 +4218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1125448636}
-  health: 10
   Rend: {fileID: 1554141933}
   PlayerController: {fileID: 1125448638}
   InjuredSmoke: {fileID: 798040911}
@@ -4231,7 +4231,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

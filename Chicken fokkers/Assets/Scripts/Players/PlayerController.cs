@@ -13,10 +13,14 @@ public class PlayerController : MonoBehaviour {
 	public GameObject DeathExplosion;
 	public GameObject Vfx;
 	public GameObject colliderObj;
+	public int health = 100;
+
+	private int initialHealth;
 
 	// Use this for initialization
 	void Start () {
 		score = 0;
+		initialHealth = health;
 	}
 	
 	// Update is called once per frame
@@ -59,7 +63,9 @@ public class PlayerController : MonoBehaviour {
 		
 		alive = true;
 
-		DamageController.ResetHealth();
+		DamageController.ResetDamage();
+
+		health = initialHealth;
 
 		PlayerMovement.MoveToStartPos();
 
@@ -70,6 +76,8 @@ public class PlayerController : MonoBehaviour {
 		DeathExplosion.SetActive(false);
 
 		colliderObj.SetActive(true);
+
+		initialHealth = health;
 	}
 
 	public void StartAutopilot(){
@@ -85,6 +93,11 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey("s")){
 			PlayerMovement.MoveToStartPos();
 		}
+
+	}
+
+	public void ResetHealth(){
+		
 
 	}
 }

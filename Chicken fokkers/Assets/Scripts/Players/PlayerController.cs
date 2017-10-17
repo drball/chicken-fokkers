@@ -76,8 +76,6 @@ public class PlayerController : MonoBehaviour {
 		DeathExplosion.SetActive(false);
 
 		colliderObj.SetActive(true);
-
-		initialHealth = health;
 	}
 
 	public void StartAutopilot(){

@@ -13,6 +13,7 @@ public class ShootController : MonoBehaviour {
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;
 	private Rigidbody2D rb; //--to get player velocity
+	public PlayerController PlayerController;
 
 	// Use this for initialization
 	void Start () {
@@ -21,26 +22,30 @@ public class ShootController : MonoBehaviour {
 	}
 
 	void Update (){
-		RaycastHit2D shootingHit = Physics2D.Linecast(ShootRayFrom.position, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
-		// Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
 
-		if(shootingHit){
-			if(shootingHit.collider.name != gameObject.name){
-							
-				if(!shooting){
-					shooting = true;
-					InvokeRepeating("FireBullet", 0, fireRate);
-					Debug.Log("start shooting");
+		if(PlayerController.alive == true){
+			RaycastHit2D shootingHit = Physics2D.Linecast(ShootRayFrom.position, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
+			// Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
+
+			if(shootingHit){
+				if(shootingHit.collider.name != gameObject.name){
+								
+					if(!shooting){
+						shooting = true;
+						InvokeRepeating("FireBullet", 0, fireRate);
+						Debug.Log("start shooting");
+					}
+				}
+				
+			} else {
+				if(shooting){
+					shooting = false;
+					CancelInvoke("FireBullet");
+					Debug.Log("cancel shooting");
 				}
 			}
-			
-		} else {
-			if(shooting){
-				shooting = false;
-				CancelInvoke("FireBullet");
-				Debug.Log("cancel shooting");
-			}
 		}
+		
 	}
 
 	// void FixedUpdate() {

@@ -8,7 +8,6 @@ public class DamageController : MonoBehaviour {
 	public SpriteRenderer Rend;
 	public PlayerController PlayerController;
 	public ParticleSystem InjuredSmoke;
-	public ParticleSystem DeadSmoke;
 	
 	private float smokeEmissionRate;
 
@@ -20,7 +19,6 @@ public class DamageController : MonoBehaviour {
 	void Start(){
 		// smokeEmissionRate = InjuredSmoke.emission.rate;
 		InjuredSmoke.Stop();
-		DeadSmoke.Stop();
 		// Debug.Log("emission rate = "+smokeEmissionRate);
 
 	}
@@ -36,9 +34,7 @@ public class DamageController : MonoBehaviour {
 
 			if(PlayerController.health <= 0 ){
 				InjuredSmoke.Stop();
-				DeadSmoke.Play();
 				PlayerController.Die();
-				PlayerController.LoseControl();
 
 			} else if ((PlayerController.health <= 50) && (PlayerController.health > 0)){
 				InjuredSmoke.Play();
@@ -52,7 +48,6 @@ public class DamageController : MonoBehaviour {
 
 	public void ResetDamage(){
 		InjuredSmoke.Stop();
-		DeadSmoke.Stop();
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -61,22 +56,16 @@ public class DamageController : MonoBehaviour {
 			Debug.Log("head on collision!!!!!");
 
 			int otherHealth = other.GetComponent<PlayerController>().health;
-			Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
+			// Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
 
 			if(PlayerController.health <= otherHealth ){
-				PlayerController.Explode();
 				PlayerController.Die();
-				InjuredSmoke.Stop();
-				DeadSmoke.Stop();
 			}
 			
 
         } else if(other.tag == "Ground"){
 			Debug.Log("hit ground!!!!!");
-			PlayerController.Explode();
 			PlayerController.Die();
-			InjuredSmoke.Stop();
-			DeadSmoke.Stop();
         }
     }
 

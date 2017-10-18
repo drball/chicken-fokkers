@@ -19,7 +19,7 @@ public class CloudMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// transform.position = transform.position + speed;
-		Debug.Log("speed of "+gameObject.name+" is "+speed);
+		// Debug.Log("speed of "+gameObject.name+" is "+speed);
 
 		transform.Translate(Vector2.right * Time.deltaTime * speed);
 

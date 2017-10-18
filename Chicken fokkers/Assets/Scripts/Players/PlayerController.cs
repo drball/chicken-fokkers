@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject Vfx;
 	public GameObject colliderObj;
 	public int health = 100;
+	public GameObject CrashingPlayer;
+	public Rigidbody2D rb;
 
 	private int initialHealth;
 
@@ -35,26 +37,18 @@ public class PlayerController : MonoBehaviour {
 
 		colliderObj.SetActive(false);
 
+		Vector2 vel = rb.velocity;
+		Debug.Log("vel = "+vel);
+
+		gameObject.SetActive(false);
+
+		GameObject crashingPlayer = Instantiate(CrashingPlayer, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
+		Instantiate(DeathExplosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
+
+		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
+		
 		//--show the scoreboard - or start another round
 		GameController.EndRoundCountdown();
-	}
-
-	public void LoseControl(){
-		//--player killed by shooting - now fall to ground
-		Rend.color = new Color(0, 0, 0, 1); //--make it black
-		DeathExplosion.SetActive(true);
-		Invoke("HideExplosion",1);
-	}
-
-	public void Explode(){
-		//--player has hit ground or had a mid-air collision
-		DeathExplosion.SetActive(true);
-		Vfx.SetActive(false);
-	}
-
-	void HideExplosion(){
-		//--so that we can use it again later
-		DeathExplosion.SetActive(false);
 	}
 
 	public void ResetPlayer(){
@@ -73,9 +67,11 @@ public class PlayerController : MonoBehaviour {
 
 		Invoke("CancelAutopilot", 2);
 
-		DeathExplosion.SetActive(false);
+		// DeathExplosion.SetActive(false);
 
 		colliderObj.SetActive(true);
+
+		Vfx.SetActive(true);
 	}
 
 	public void StartAutopilot(){

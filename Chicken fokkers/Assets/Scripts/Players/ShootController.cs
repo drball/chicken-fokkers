@@ -12,13 +12,11 @@ public class ShootController : MonoBehaviour {
 	public GameObject Bullet; 
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;
-	private Rigidbody2D rb; //--to get player velocity
 	public PlayerController PlayerController;
 
 	// Use this for initialization
 	void Start () {
 		// Debug.Log(gameObject.name+" dir="+PlayerMovement.MovementDirection);
-		rb = GetComponent<Rigidbody2D>();
 	}
 
 	void Update (){
@@ -47,27 +45,6 @@ public class ShootController : MonoBehaviour {
 		}
 		
 	}
-
-	// void FixedUpdate() {
- //        RaycastHit2D shootingHit = Physics2D.Raycast(ShootRayFrom.position, rb.velocity);
-
- //        if ((shootingHit.collider != null) && (shootingHit.collider.tag == "Player") && (shootingHit.collider.name != gameObject.name)) {
- //        	Debug.Log(gameObject.name+" hit "+shootingHit.collider.name);
- //            if(!shooting){
-	// 			shooting = true;
-	// 			InvokeRepeating("FireBullet", 0, fireRate);
-	// 			// Debug.Log("start shooting");
-	// 		}
- //        } else {
- //        	if(shooting){
-	// 			shooting = false;
-	// 			CancelInvoke("FireBullet");
-	// 			// Debug.Log("cancel shooting");
-	// 		}
- //        }
- //    }
-
-
 
 	void FireBullet() {
 

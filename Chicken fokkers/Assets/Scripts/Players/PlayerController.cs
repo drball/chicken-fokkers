@@ -24,11 +24,6 @@ public class PlayerController : MonoBehaviour {
 		score = 0;
 		initialHealth = health;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void Die(){
 		Debug.Log(gameObject.name +" is dead");
@@ -71,7 +66,9 @@ public class PlayerController : MonoBehaviour {
 
 		colliderObj.SetActive(true);
 
-		Vfx.SetActive(true);
+		// Vfx.SetActive(true);
+
+		gameObject.SetActive(true);
 	}
 
 	public void StartAutopilot(){

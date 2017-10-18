@@ -44,24 +44,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1325428164247680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4768169648598780}
-  - component: {fileID: 61288532922110614}
-  - component: {fileID: 114165943692579818}
-  - component: {fileID: 60220742314443288}
-  m_Layer: 8
-  m_Name: Collider
-  m_TagString: DeadPlayer
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1366800084131872
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +87,8 @@ GameObject:
   - component: {fileID: 4883019879998010}
   - component: {fileID: 114596152113669490}
   - component: {fileID: 50191371941555798}
+  - component: {fileID: 114283453684327564}
+  - component: {fileID: 60707223518907348}
   m_Layer: 8
   m_Name: Player 2 crashing
   m_TagString: DeadPlayer
@@ -140,7 +124,7 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4883019879998010}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4265853089748954
 Transform:
@@ -181,19 +165,6 @@ Transform:
   m_Father: {fileID: 4790971534074056}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4768169648598780
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325428164247680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4883019879998010}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4790971534074056
 Transform:
   m_ObjectHideFlags: 1
@@ -208,7 +179,7 @@ Transform:
   - {fileID: 4265853089748954}
   - {fileID: 4468305860524844}
   m_Father: {fileID: 4883019879998010}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4883019879998010
 Transform:
@@ -220,7 +191,6 @@ Transform:
   m_LocalPosition: {x: 3.14, y: 2.6, z: 0}
   m_LocalScale: {x: -0.7, y: 0.7, z: 1}
   m_Children:
-  - {fileID: 4768169648598780}
   - {fileID: 4113247870915306}
   - {fileID: 4790971534074056}
   m_Father: {fileID: 0}
@@ -246,12 +216,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60220742314443288
+--- !u!60 &60707223518907348
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325428164247680}
+  m_GameObject: {fileID: 1817372834507888}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -281,31 +251,6 @@ PolygonCollider2D:
       - {x: 1.034571, y: -0.26097092}
       - {x: 1.0592606, y: 0.03668921}
       - {x: 0.907293, y: 0.35980427}
---- !u!61 &61288532922110614
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325428164247680}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!95 &95360654205950762
 Animator:
   serializedVersion: 3
@@ -340,21 +285,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114165943692579818
+--- !u!114 &114283453684327564
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325428164247680}
+  m_GameObject: {fileID: 1817372834507888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204e24f4333f042cd82489e640260ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: 82864a28ae9bb411c9d3c391d3b2ab36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1817372834507888}
-  Rend: {fileID: 212940765454513494}
-  PlayerController: {fileID: 0}
-  InjuredSmoke: {fileID: 0}
+  speed: 11
+  upSpeed: 17
+  MovementDirection: 1
+  defaultUpForce: 50
 --- !u!114 &114596152113669490
 MonoBehaviour:
   m_ObjectHideFlags: 1

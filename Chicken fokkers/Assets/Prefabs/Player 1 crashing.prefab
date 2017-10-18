@@ -78,23 +78,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1417989503137372
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4336668062366818}
-  - component: {fileID: 114386995214212190}
-  - component: {fileID: 60829076570805838}
-  m_Layer: 8
-  m_Name: Collider
-  m_TagString: DeadPlayer
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1517893512116448
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +88,8 @@ GameObject:
   - component: {fileID: 4060268911000580}
   - component: {fileID: 50483548872533740}
   - component: {fileID: 114261960225404408}
+  - component: {fileID: 114329180585376064}
+  - component: {fileID: 60945241237601304}
   m_Layer: 8
   m_Name: Player 1 crashing
   m_TagString: DeadPlayer
@@ -138,23 +123,9 @@ Transform:
   m_LocalPosition: {x: -3.26, y: 0.49, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
-  - {fileID: 4336668062366818}
   - {fileID: 4549851490189364}
   - {fileID: 4811186821864192}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4336668062366818
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417989503137372}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 0.16, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4060268911000580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4549851490189364
@@ -168,7 +139,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4060268911000580}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4629519209108562
 Transform:
@@ -210,7 +181,7 @@ Transform:
   - {fileID: 4897183776236306}
   - {fileID: 4629519209108562}
   m_Father: {fileID: 4060268911000580}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4897183776236306
 Transform:
@@ -245,12 +216,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60829076570805838
+--- !u!60 &60945241237601304
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417989503137372}
+  m_GameObject: {fileID: 1517893512116448}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -333,21 +304,21 @@ MonoBehaviour:
   MovementDirection: 0
   cam: {fileID: 0}
   autoPilot: 0
---- !u!114 &114386995214212190
+--- !u!114 &114329180585376064
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417989503137372}
+  m_GameObject: {fileID: 1517893512116448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204e24f4333f042cd82489e640260ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: 82864a28ae9bb411c9d3c391d3b2ab36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1517893512116448}
-  Rend: {fileID: 212553805889013272}
-  PlayerController: {fileID: 0}
-  InjuredSmoke: {fileID: 0}
+  speed: 11
+  upSpeed: 17
+  MovementDirection: 0
+  defaultUpForce: 1
 --- !u!198 &198435806787366162
 ParticleSystem:
   m_ObjectHideFlags: 1

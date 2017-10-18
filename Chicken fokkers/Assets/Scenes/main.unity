@@ -3005,6 +3005,7 @@ MonoBehaviour:
   Bullet: {fileID: 1987139757378726, guid: ec853463019984c3e979568a2892734a, type: 2}
   PlayerMovement: {fileID: 1081458012}
   Player: {fileID: 1081458011}
+  PlayerController: {fileID: 1081458018}
 --- !u!114 &1081458018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3039,10 +3040,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1125448640}
   - component: {fileID: 1125448637}
-  - component: {fileID: 1125448641}
   - component: {fileID: 1125448638}
-  - component: {fileID: 1125448642}
   - component: {fileID: 1125448643}
+  - component: {fileID: 1125448642}
+  - component: {fileID: 1125448641}
   m_Layer: 8
   m_Name: Player 2
   m_TagString: Player
@@ -3178,6 +3179,7 @@ MonoBehaviour:
   Bullet: {fileID: 1987139757378726, guid: ec853463019984c3e979568a2892734a, type: 2}
   PlayerMovement: {fileID: 1125448637}
   Player: {fileID: 1125448636}
+  PlayerController: {fileID: 1125448638}
 --- !u!1 &1155891425
 GameObject:
   m_ObjectHideFlags: 0

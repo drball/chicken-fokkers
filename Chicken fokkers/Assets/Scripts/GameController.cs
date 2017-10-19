@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-	public GameObject Player1;
-	public GameObject Player2;
+	// public GameObject Player1;
+	// public GameObject Player2;
 	public PlayerController Player1Controller;
 	public PlayerController Player2Controller;
 	public int leftEdge = 0;
@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator EndRound(){
 
-		yield return new WaitForSeconds(3.00f);
+		yield return new WaitForSeconds(1.00f);
 
 		Debug.Log("The round has ended");
 
@@ -105,9 +105,6 @@ public class GameController : MonoBehaviour {
 		}else {
 			//--keep playing. Start next round
 			
-			//--animate out
-			ScoreModal.GetComponent<Animator>().Play("PanelSlideOut");
-			
 			Reset();
 			
 		}
@@ -119,31 +116,25 @@ public class GameController : MonoBehaviour {
 
 		Debug.Log("play again "+LevelsController.currentLevel);
 		
-		// Reset();
+		Reset();
 		
-		// Player1.score = 0;
-		// Player2.score = 0;
-		
-		// //--animate these away
-		// PlayAgainBtn.GetComponent.<Animator>().Play("PanelSlideOut");
-		// ScoreModal.GetComponent.<Animator>().Play("PanelSlideOut");
+		Player1Controller.score = 0;
+		Player2Controller.score = 0;
 		
 		// //--reset the text boxes
-		// Player1ScoreText.GetComponent.<Text>().text = "0";
-		// Player2ScoreText.GetComponent.<Text>().text = "0";
-
-		// LevelsController.Knob();
-
+		Debug.Log("reset text values");
+		Player1ScoreText.GetComponent<Text>().text = "0";
+		Player2ScoreText.GetComponent<Text>().text = "0";
 		
 		//--reload entire scene
-		// LevelsController.LoadSelectedLevel();
+		LevelsController.LoadSelectedLevel();
 	}
 
 	void FixedUpdate () {
 
 
-		if(Input.GetKey("f")){
-			Player1Controller.Die();
-		}
+		// if(Input.GetKey("f")){
+		// 	Player1Controller.Die();
+		// }
 	}
 }

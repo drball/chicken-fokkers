@@ -319,7 +319,7 @@ MonoBehaviour:
   speed: 11
   upSpeed: 17
   MovementDirection: 0
-  defaultUpForce: 1
+  defaultUpForce: 30
   Explosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339, type: 2}
 --- !u!198 &198435806787366162
 ParticleSystem:

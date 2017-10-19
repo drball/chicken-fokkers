@@ -56,11 +56,11 @@ public class ShootController : MonoBehaviour {
 		// Debug.Log("fire bullet from "+Player.name+" at rotation "+Player.transform.rotation.z);
 		
 		if(PlayerMovement.MovementDirection == PlayerMovement.MovementDirections.Left){
-			GameObject newBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z+90));
+			GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z+90));
 			//--set the owner of this bullet
 			newBullet.GetComponent<BulletScript>().Owner = gameObject;
 		} else {
-			GameObject newBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z-90));
+			GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z-90));
 			//--set the owner of this bullet
 			newBullet.GetComponent<BulletScript>().Owner = gameObject;
 		}

@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4629519209108562}
   - component: {fileID: 212587184628732022}
   - component: {fileID: 95784058446349336}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Prop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,8 +89,8 @@ GameObject:
   - component: {fileID: 50483548872533740}
   - component: {fileID: 114261960225404408}
   - component: {fileID: 114329180585376064}
-  - component: {fileID: 60945241237601304}
-  m_Layer: 8
+  - component: {fileID: 60143948924436970}
+  m_Layer: 0
   m_Name: Player 1 crashing
   m_TagString: DeadPlayer
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4811186821864192}
   - component: {fileID: 212553805889013272}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60945241237601304
+--- !u!60 &60143948924436970
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -240,15 +240,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.2663742, y: 0.06777212}
-      - {x: 1.0333666, y: -0.18559958}
-      - {x: 0.19171545, y: -0.114671886}
-      - {x: -0.23840728, y: 0.24220774}
-      - {x: -0.55938864, y: 0.22387198}
-      - {x: -0.7751039, y: -0.3747766}
-      - {x: -0.42706648, y: -0.55324984}
-      - {x: 1.4222088, y: -0.34071833}
-      - {x: 1.4959861, y: -0.02304919}
+    - - {x: 0.51002157, y: 0.5117183}
+      - {x: 0.48254418, y: 0.24190424}
+      - {x: -0.7126198, y: 0.14840738}
+      - {x: -0.8549993, y: 0.33264115}
+      - {x: -1.1759808, y: 0.37185404}
+      - {x: -1.0299617, y: -0.021263786}
+      - {x: 0.35394973, y: -0.21617956}
+      - {x: 0.8056167, y: -0.5873551}
+      - {x: 1.118023, y: 0.021015745}
+      - {x: 0.8876156, y: 0.5771002}
 --- !u!95 &95595133490388598
 Animator:
   serializedVersion: 3
@@ -319,6 +320,7 @@ MonoBehaviour:
   upSpeed: 17
   MovementDirection: 0
   defaultUpForce: 1
+  Explosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339, type: 2}
 --- !u!198 &198435806787366162
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -378,7 +380,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2014584699
+  randomSeed: 89503249
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3708,7 +3710,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 06a3ffb8adce04281b2d0747287e01a2, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0

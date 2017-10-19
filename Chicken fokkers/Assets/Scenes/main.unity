@@ -635,7 +635,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226154380}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.23, y: 0.1, z: 0}
+  m_LocalPosition: {x: 13.43, y: 0.1, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1125448640}
@@ -2403,7 +2403,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 923985965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.33, y: 0.15, z: 0}
+  m_LocalPosition: {x: 13.53, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1081458015}
@@ -2879,6 +2879,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114292222992357016, guid: c166c2c13327b46ef93104e941a9bcbd,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c166c2c13327b46ef93104e941a9bcbd, type: 2}
   m_IsPrefabParent: 0
@@ -2950,7 +2955,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1081458011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.26, y: 0.49, z: 0}
+  m_LocalPosition: {x: -5.5, y: 0.49, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 1310292691}
@@ -3022,12 +3027,12 @@ MonoBehaviour:
   GameController: {fileID: 1254232638}
   DamageController: {fileID: 1359445356}
   PlayerMovement: {fileID: 1081458012}
+  ShootController: {fileID: 1081458017}
   Rend: {fileID: 1832986390}
   DeathExplosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339,
     type: 2}
   Vfx: {fileID: 1832986388}
-  colliderObj: {fileID: 1359445354}
-  health: 100
+  health: 1
   CrashingPlayer: {fileID: 1517893512116448, guid: ebe9b68c510b2430e9ef4a6435a2a5f6,
     type: 2}
   rb: {fileID: 1081458013}
@@ -3088,11 +3093,11 @@ MonoBehaviour:
   GameController: {fileID: 1254232638}
   DamageController: {fileID: 1479729148}
   PlayerMovement: {fileID: 1125448637}
+  ShootController: {fileID: 1125448643}
   Rend: {fileID: 1554141933}
   DeathExplosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339,
     type: 2}
   Vfx: {fileID: 1554141931}
-  colliderObj: {fileID: 1479729145}
   health: 10
   CrashingPlayer: {fileID: 1817372834507888, guid: c26505dfab9e640b89b6762b5f35d7c5,
     type: 2}
@@ -3573,7 +3578,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1310292690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0.97, y: 0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1081458015}
@@ -3730,6 +3735,21 @@ Prefab:
     - target: {fileID: 4165550895461396, guid: 1c0245e18fd4d4768bf83b8a6b60a9a3, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20488814719270180, guid: 1c0245e18fd4d4768bf83b8a6b60a9a3,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 20488814719270180, guid: 1c0245e18fd4d4768bf83b8a6b60a9a3,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.68235296
+      objectReference: {fileID: 0}
+    - target: {fileID: 20488814719270180, guid: 1c0245e18fd4d4768bf83b8a6b60a9a3,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.8862746
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c0245e18fd4d4768bf83b8a6b60a9a3, type: 2}
@@ -5107,6 +5127,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1899102086}
+--- !u!1 &1903532944 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1491384423536168, guid: f1df7f4954f3c4588bfcfb08d73ca354,
+    type: 2}
+  m_PrefabInternal: {fileID: 1994041163}
+--- !u!61 &1903532948
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1903532944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.64}
+  m_EdgeRadius: 0
 --- !u!1 &1907528986
 GameObject:
   m_ObjectHideFlags: 0
@@ -5333,6 +5383,21 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212559200297257480, guid: f1df7f4954f3c4588bfcfb08d73ca354,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212559200297257480, guid: f1df7f4954f3c4588bfcfb08d73ca354,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.43529415
+      objectReference: {fileID: 0}
+    - target: {fileID: 212559200297257480, guid: f1df7f4954f3c4588bfcfb08d73ca354,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.29306933
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1df7f4954f3c4588bfcfb08d73ca354, type: 2}
   m_IsPrefabParent: 0
@@ -5358,7 +5423,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027885953}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.95, y: 0.26, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1125448640}

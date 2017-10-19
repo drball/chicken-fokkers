@@ -9,10 +9,10 @@ public class PlayerController : MonoBehaviour {
 	public GameController GameController;
 	public DamageController DamageController;
 	public PlayerMovement PlayerMovement;
+	public ShootController ShootController;
 	public SpriteRenderer Rend;
 	public GameObject DeathExplosion;
 	public GameObject Vfx;
-	public GameObject colliderObj;
 	public int health = 100;
 	public GameObject CrashingPlayer;
 	public Rigidbody2D rb;
@@ -30,17 +30,17 @@ public class PlayerController : MonoBehaviour {
 
 		alive = false;
 
-		colliderObj.SetActive(false);
-
 		Vector2 vel = rb.velocity;
 		Debug.Log("vel = "+vel);
 
-		gameObject.SetActive(false);
+		ShootController.CancelShooting();
 
 		GameObject crashingPlayer = Instantiate(CrashingPlayer, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 		Instantiate(DeathExplosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 
 		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
+
+		gameObject.SetActive(false);
 		
 		//--show the scoreboard - or start another round
 		GameController.EndRoundCountdown();
@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour {
 		
 		alive = true;
 
+		gameObject.SetActive(true);
+
 		DamageController.ResetDamage();
 
 		health = initialHealth;
@@ -62,13 +64,9 @@ public class PlayerController : MonoBehaviour {
 
 		Invoke("CancelAutopilot", 2);
 
-		// DeathExplosion.SetActive(false);
-
-		colliderObj.SetActive(true);
-
 		// Vfx.SetActive(true);
 
-		gameObject.SetActive(true);
+		
 	}
 
 	public void StartAutopilot(){

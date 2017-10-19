@@ -24,6 +24,7 @@ public class ShootController : MonoBehaviour {
 		if(PlayerController.alive == true){
 			RaycastHit2D shootingHit = Physics2D.Linecast(ShootRayFrom.position, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
 			// Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
+			// Debug.Log("shooting hit = "+shootingHit);
 
 			if(shootingHit){
 				if(shootingHit.collider.name != gameObject.name){
@@ -38,13 +39,17 @@ public class ShootController : MonoBehaviour {
 			} else {
 				if(shooting){
 					shooting = false;
-					CancelInvoke("FireBullet");
+					CancelShooting();
 					Debug.Log("cancel shooting");
 				}
 			}
-		}
-		
+		} 
 	}
+
+	public void CancelShooting(){
+		Debug.Log("cencel shooting tho");
+		CancelInvoke("FireBullet");
+	}	
 
 	void FireBullet() {
 

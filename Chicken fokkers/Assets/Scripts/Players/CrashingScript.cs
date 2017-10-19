@@ -10,6 +10,7 @@ public class CrashingScript : MonoBehaviour {
     public enum MovementDirections {Right = 0, Left = 1} 
     public MovementDirections MovementDirection= MovementDirections.Right & MovementDirections.Left;
     public float defaultUpForce = 1;
+    public GameObject Explosion;
     // public Camera cam;
     // private float buffer = 1f;
     private int dir = 1;
@@ -51,4 +52,23 @@ public class CrashingScript : MonoBehaviour {
      	}
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+
+        if (other.tag == "Ground"){
+			Debug.Log("crashed to ground");
+
+			Instantiate(Explosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
+
+			Destroy(gameObject);
+			// int otherHealth = other.GetComponent<PlayerController>().health;
+			// // Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
+
+			// if(PlayerController.health <= otherHealth ){
+			// 	PlayerController.Die();
+			// }
+			
+
+        }
+    }
 }

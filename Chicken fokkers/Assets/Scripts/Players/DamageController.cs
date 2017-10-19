@@ -52,21 +52,22 @@ public class DamageController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.tag == "Player"){
-			Debug.Log("head on collision!!!!!");
+		if(PlayerController.alive){
+	        if (other.tag == "Player"){
+				Debug.Log("head on collision!!!!!");
 
-			int otherHealth = other.GetComponent<PlayerController>().health;
-			// Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
+				int otherHealth = other.GetComponent<PlayerController>().health;
+				// Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
 
-			if(PlayerController.health <= otherHealth ){
+				if(PlayerController.health <= otherHealth ){
+					PlayerController.Die();
+				}
+				
+
+	        } else if(other.tag == "Ground"){
+				Debug.Log("hit ground!!!!!");
 				PlayerController.Die();
-			}
-			
-
-        } else if(other.tag == "Ground"){
-			Debug.Log("hit ground!!!!!");
-			PlayerController.Die();
-        }
+	        }
+		}
     }
-
 }

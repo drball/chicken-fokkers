@@ -57,4 +57,11 @@ public class LevelsController : MonoBehaviour {
 		Debug.Log("hide loading");
 		LoadingDialog.SetActive(false);
 	}
+
+	void Update () {
+
+		if(Input.GetKeyDown(KeyCode.Escape) == true) {
+			Application.LoadLevel("menu");
+		}
+	}
 }

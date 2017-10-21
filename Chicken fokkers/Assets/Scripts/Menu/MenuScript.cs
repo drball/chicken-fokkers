@@ -11,12 +11,14 @@ public class MenuScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		LoadingPanel.SetActive(false);
+		CreditsPanel.SetActive(false);
+		MoreGamesPanel.SetActive(false);
 	}
 	
 	void StartGame(){
 		//--show loading panel because there's a delay
 		LoadingPanel.SetActive(true);
-		Debug.Log("hello");
+		// Debug.Log("hello");
 		Application.LoadLevel("main");
 	}
 
@@ -29,14 +31,21 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void LikeBtnPressed(){
-		Application.OpenURL("https://www.facebook.com/BotSumoGame/");
+		// Application.OpenURL("https://www.facebook.com/BotSumoGame/");
 	}
 
 	public void FacebookBtnPressed(){
+		Application.OpenURL("https://www.facebook.com/davidonionball");
+
+	}
+
+	public void WebsiteBtnPressed(){
+		Application.OpenURL("http://daviddickball.uk");
 
 	}
 
 	public void PlayBtnPressed(){
 		StartGame();
 	}
+
 }

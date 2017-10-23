@@ -13,11 +13,11 @@ public class PlayerController : MonoBehaviour {
 	public SpriteRenderer Rend;
 	public GameObject DeathExplosion;
 	public GameObject Vfx;
-	public int health = 100;
+	public float health = 100;
 	public GameObject CrashingPlayer;
 	public Rigidbody2D rb;
 
-	private int initialHealth;
+	[HideInInspector] public float initialHealth;
 
 	// Use this for initialization
 	void Start () {

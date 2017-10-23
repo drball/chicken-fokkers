@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DamageController : MonoBehaviour {
 
-	public GameObject Player;
-	public SpriteRenderer Rend;
-	public PlayerController PlayerController;
-	public ParticleSystem InjuredSmoke;
+	[HideInInspector] public GameObject Player;
+	[HideInInspector] public SpriteRenderer Rend;
+	[HideInInspector] public PlayerController PlayerController;
+	[HideInInspector] public ParticleSystem InjuredSmoke;
+
+	[Header("Unity stuff")]
+	public Image healthBar;
 	
 	private float smokeEmissionRate;
 
@@ -31,6 +35,9 @@ public class DamageController : MonoBehaviour {
 			PlayerController.health--;
 			Rend.color = new Color(255, 0, 0, 1); //--make it red
 			Invoke("ResetColour", 0.06f);
+			healthBar.fillAmount = PlayerController.health / PlayerController.initialHealth;
+			// healthBar.fillAmount = 0.5f;
+			Debug.Log("hit. health = "+PlayerController.health+"/"+PlayerController.initialHealth);
 
 			if(PlayerController.health <= 0 ){
 				InjuredSmoke.Stop();
@@ -56,7 +63,7 @@ public class DamageController : MonoBehaviour {
 	        if (other.tag == "Player"){
 				Debug.Log("head on collision!!!!!");
 
-				int otherHealth = other.GetComponent<PlayerController>().health;
+				float otherHealth = other.GetComponent<PlayerController>().health;
 				// Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
 
 				if(PlayerController.health <= otherHealth ){

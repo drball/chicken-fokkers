@@ -30,8 +30,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 
-		leftConstraint = cam.ScreenToWorldPoint (new Vector3 (0.0f, 0.0f, 0)).x;
-        rightConstraint = cam.ScreenToWorldPoint (new Vector3 (Screen.width, 0.0f, 0)).x;
+		leftConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0)).x;
+        rightConstraint = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0)).x;
 
 	}
 

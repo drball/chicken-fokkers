@@ -21,7 +21,7 @@ public class ShootController : MonoBehaviour {
 
 	void Update (){
 
-		if(PlayerController.alive == true){
+		if(PlayerController.alive == true && PlayerMovement.autoPilot == false){
 			RaycastHit2D shootingHit = Physics2D.Linecast(ShootRayFrom.position, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
 			// Debug.DrawLine(ShootRayFrom.position, ShootRayTo.position, Color.red);
 			// Debug.Log("shooting hit = "+shootingHit);

@@ -55,6 +55,7 @@ public class DamageController : MonoBehaviour {
 
 	public void ResetDamage(){
 		InjuredSmoke.Stop();
+		healthBar.fillAmount = 1;
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

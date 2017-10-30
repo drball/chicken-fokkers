@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public float health = 100;
 	public GameObject CrashingPlayer;
 	public Rigidbody2D rb;
-
+	
 	[HideInInspector] public float initialHealth;
 
 	// Use this for initialization
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
 
 		gameObject.SetActive(false);
-		
+
 		//--show the scoreboard - or start another round
 		GameController.EndRoundCountdown();
 	}

@@ -6,8 +6,10 @@ public class BulletScript : MonoBehaviour {
 
 	public GameObject Owner;
 	private float speed = 500f;
+	public Renderer rend;
 	public Rigidbody2D rb;
 	public GameObject Explosion;
+
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +17,12 @@ public class BulletScript : MonoBehaviour {
 
 		rb.AddForce(transform.up * speed);
 
+	}
+
+	void Update(){
+		if (!rend.isVisible){
+			Destroy(gameObject);
+		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {

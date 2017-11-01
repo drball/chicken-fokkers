@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Player2ScoreText;
 	public LevelsController LevelsController;
 
-	private int winningScore = 2;
+	private int winningScore = 5;
 	
 
 	// Use this for initialization

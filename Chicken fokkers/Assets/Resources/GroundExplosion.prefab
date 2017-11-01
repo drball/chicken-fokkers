@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114291941848614688}
   - component: {fileID: 82601656303855996}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: GroundExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 86516d530b20b424d9681bd51657a29f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b940a4c38528940d29eb7e9a3ba5b42e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.504
   m_Pitch: 1
@@ -215,7 +215,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.3
+      scalar: 0.35
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -360,7 +360,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2

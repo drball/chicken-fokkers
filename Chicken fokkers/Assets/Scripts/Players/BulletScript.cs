@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour {
 	public Renderer rend;
 	public Rigidbody2D rb;
 	public GameObject Explosion;
+	public GameObject GroundExplosion;
 
 
 	// Use this for initialization
@@ -41,7 +42,7 @@ public class BulletScript : MonoBehaviour {
     		} 
     		
         } else if (other.tag == "Ground"){
-			Instantiate(Explosion, transform.position, transform.rotation);
+			Instantiate(GroundExplosion, transform.position, transform.rotation);
 
         	Destroy(gameObject);
         } 

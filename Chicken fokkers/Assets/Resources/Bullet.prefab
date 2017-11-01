@@ -131,7 +131,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b2142230f2f35470baf75341d96f6a01, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.561
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   rend: {fileID: 212466722161532330}
   rb: {fileID: 50655785452660398}
   Explosion: {fileID: 1654621613391498, guid: 56e5a8dbdf49a4a0bb08b6a5bb22cbb7, type: 2}
+  GroundExplosion: {fileID: 0}
 --- !u!114 &114608167910941064
 MonoBehaviour:
   m_ObjectHideFlags: 1

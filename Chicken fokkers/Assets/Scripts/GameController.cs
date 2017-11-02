@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Player1ScoreText;
 	public GameObject Player2ScoreText;
 	public LevelsController LevelsController;
+	public GameObject Countdown;
 
 	private int winningScore = 5;
 	
@@ -38,6 +39,7 @@ public class GameController : MonoBehaviour {
 
 		//--start the round
 		roundActive = true;
+		Countdown.SetActive(true);
 
 		//--make sure these are hidden so we can activate them later
 		ScoreModal.SetActive(false);
@@ -46,6 +48,8 @@ public class GameController : MonoBehaviour {
 		//--each player has it's own reset function
 		Player1Controller.ResetPlayer();
 		Player2Controller.ResetPlayer();
+
+
 	}
 
 	void EndGame(){

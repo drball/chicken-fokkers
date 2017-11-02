@@ -1800,7 +1800,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17083126, y: 0.030430317}
+  m_Offset: {x: -0.1708312, y: 0.16943482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1811,7 +1811,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.973452, y: 1.6722765}
+  m_Size: {x: 2.973452, y: 1.3942676}
   m_EdgeRadius: 0
 --- !u!50 &1125448642
 Rigidbody2D:
@@ -2175,6 +2175,7 @@ MonoBehaviour:
   Player1ScoreText: {fileID: 1899102086}
   Player2ScoreText: {fileID: 1014102861}
   LevelsController: {fileID: 0}
+  Countdown: {fileID: 1881595695}
 --- !u!1 &1279301447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,6 +3436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881595696}
   - component: {fileID: 1881595697}
+  - component: {fileID: 1881595698}
   m_Layer: 5
   m_Name: Countdown
   m_TagString: Untagged
@@ -3480,6 +3482,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1881595698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1881595695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55f426fd322f46f7b98661314d8aa45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899102086
 GameObject:
   m_ObjectHideFlags: 0

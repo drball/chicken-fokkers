@@ -62,11 +62,13 @@ public class DamageController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 
+		Debug.Log("damage collision with "+other.name);
+
 		if(PlayerController.alive){
-	        if (other.tag == "Player"){
+	        if (other.tag == "PlayerCollider" /*&& (other.transform.parent.name != Owner.name)*/){
 				Debug.Log("head on collision!!!!!");
 
-				float otherHealth = other.GetComponent<PlayerController>().health;
+				float otherHealth = other.transform.parent.GetComponent<PlayerController>().health;
 
 				if(PlayerController.health <= otherHealth ){
 					PlayerController.Die();

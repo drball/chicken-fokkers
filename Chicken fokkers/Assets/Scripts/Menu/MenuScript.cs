@@ -41,7 +41,18 @@ public class MenuScript : MonoBehaviour {
 
 	public void WebsiteBtnPressed(){
 		Application.OpenURL("http://daviddickball.uk");
+	}
 
+	public void BotsumoBtnPressed(){
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.RoboSumo");
+	}
+
+	public void BattleAreanBtnPressed(){
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.BotSumoBattleArena");
+	}
+
+	public void ETSBtnPressed() {
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.EscapeTheSector");
 	}
 
 	public void PlayBtnPressed(){

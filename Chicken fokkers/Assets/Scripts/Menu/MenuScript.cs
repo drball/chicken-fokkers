@@ -39,6 +39,10 @@ public class MenuScript : MonoBehaviour {
 
 	}
 
+	public void MusicCreditBtnPressed(){
+		Application.OpenURL("https://www.newgrounds.com/audio/listen/729086");
+	}
+
 	public void WebsiteBtnPressed(){
 		Application.OpenURL("http://daviddickball.uk");
 	}

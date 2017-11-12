@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Player1ScoreText;
 	public GameObject Player2ScoreText;
 	public LevelsController LevelsController;
+	public AdvertsController AdvertsController;
 	public GameObject Countdown;
 
 	private int winningScore = 5;
@@ -104,7 +105,7 @@ public class GameController : MonoBehaviour {
 
 			yield return new WaitForSeconds(1f);
 
-			// AdvertController.ShowAdvert();
+			AdvertsController.ShowAdvert();
 			
 		}else {
 			//--keep playing. Start next round

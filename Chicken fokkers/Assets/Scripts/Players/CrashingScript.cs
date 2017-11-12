@@ -11,21 +11,13 @@ public class CrashingScript : MonoBehaviour {
     public MovementDirections MovementDirection= MovementDirections.Right & MovementDirections.Left;
     public float defaultUpForce = 1;
     public GameObject Explosion;
-    // public Camera cam;
-    // private float buffer = 1f;
+    public GameObject Wheel;
     private int dir = 1;
-
-    // private float leftConstraint;
-    // private float rightConstraint;
-
     private float upForce;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-
-		// leftConstraint = cam.ScreenToWorldPoint (new Vector3 (0.0f, 0.0f, 0)).x;
-  //       rightConstraint = cam.ScreenToWorldPoint (new Vector3 (Screen.width, 0.0f, 0)).x;
 
         if(MovementDirection == MovementDirections.Left){
 			dir = -1;
@@ -61,14 +53,11 @@ public class CrashingScript : MonoBehaviour {
 			Instantiate(Explosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 
 			Destroy(gameObject);
-			// int otherHealth = other.GetComponent<PlayerController>().health;
-			// // Debug.Log("health = "+PlayerController.health+" other's health = "+otherHealth);
-
-			// if(PlayerController.health <= otherHealth ){
-			// 	PlayerController.Die();
-			// }
-			
 
         }
+    }
+
+    public void RemoveWheel(){
+        Wheel.SetActive(false);
     }
 }

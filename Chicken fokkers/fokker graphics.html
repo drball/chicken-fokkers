@@ -43,10 +43,10 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.fokkergraphics();
-	stage = new lib.Stage(canvas);
-	stage.addChild(exportRoot);	
+	stage = new lib.Stage(canvas);	
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
 		createjs.Ticker.setFPS(lib.properties.fps);
 		createjs.Ticker.addEventListener("tick", stage);
 	}	    
@@ -80,7 +80,10 @@ function handleComplete(evt,comp) {
 			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
 			stage.scaleX = pRatio*sRatio;			
 			stage.scaleY = pRatio*sRatio;			
-			lastW = iw; lastH = ih; lastS = sRatio;		
+			lastW = iw; lastH = ih; lastS = sRatio;            
+			stage.tickOnUpdate = false;            
+			stage.update();            
+			stage.tickOnUpdate = true;		
 		}
 	}
 	makeResponsive(false,'both',false,1);	

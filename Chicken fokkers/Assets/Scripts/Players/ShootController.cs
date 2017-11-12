@@ -13,6 +13,7 @@ public class ShootController : MonoBehaviour {
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;
 	public PlayerController PlayerController;
+	public bool shootingHit = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,20 +23,15 @@ public class ShootController : MonoBehaviour {
 	void Update (){
 
 		if(PlayerController.alive == true && PlayerMovement.autoPilot == false){
-			RaycastHit2D shootingHit = Physics2D.Linecast(ShootRayFrom.position, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
-			// RaycastHit2D shootingHit = Physics2D.CircleCast(ShootRayFrom.position, 0.0002f, ShootRayTo.position, 1 << LayerMask.NameToLayer("Player"));
-
 
 			if(shootingHit){
-				if(shootingHit.collider.name != gameObject.name){
-								
-					if(!shooting){
-						shooting = true;
-						InvokeRepeating("FireBullet", 0, fireRate);
-						Debug.Log("start shooting");
-					}
+			
+				if(!shooting){
+					shooting = true;
+					InvokeRepeating("FireBullet", 0, fireRate);
+					Debug.Log("start shooting");
 				}
-				
+
 			} else {
 				if(shooting){
 					shooting = false;
@@ -43,8 +39,22 @@ public class ShootController : MonoBehaviour {
 					Debug.Log("cancel shooting");
 				}
 			}
+
+			shootingHit = false;
 		} 
 	}
+
+	void OnTriggerStay2D(Collider2D other) {
+
+		// Debug.Log(gameObject.name+" touching!!!!"+other.name);
+		// Debug.Log(transform.parent.name+" touching "+other.transform.parent.name+" "+other.name);
+
+        if (other.tag == "Player" && (other.transform.parent.name != transform.parent.name)){
+        	// Debug.Log("detector hit "+other.name);
+    		shootingHit = true;
+        }
+
+    }
 
 	public void CancelShooting(){
 		Debug.Log("cencel shooting tho");
@@ -58,11 +68,11 @@ public class ShootController : MonoBehaviour {
 		if(PlayerMovement.MovementDirection == PlayerMovement.MovementDirections.Left){
 			GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z+90));
 			//--set the owner of this bullet
-			newBullet.GetComponent<BulletScript>().Owner = gameObject;
+			newBullet.GetComponent<BulletScript>().Owner = Player;
 		} else {
 			GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z-90));
 			//--set the owner of this bullet
-			newBullet.GetComponent<BulletScript>().Owner = gameObject;
+			newBullet.GetComponent<BulletScript>().Owner = Player;
 		}
 
 	}

@@ -28,7 +28,7 @@ public class BulletScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		// Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name);
+		// Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name+" on "+other.transform.parent.name);
 
         if (other.tag == "PlayerCollider" && (other.transform.parent.name != Owner.name)){
 

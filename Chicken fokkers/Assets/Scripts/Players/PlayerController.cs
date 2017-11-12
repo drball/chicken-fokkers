@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public DamageController DamageController;
 	public PlayerMovement PlayerMovement;
 	public ShootController ShootController;
+	public DetachableWheelScript DetachableWheelScript;
 	public SpriteRenderer Rend;
 	public GameObject DeathExplosion;
 	public GameObject Vfx;
@@ -31,7 +32,6 @@ public class PlayerController : MonoBehaviour {
 		alive = false;
 
 		Vector2 vel = rb.velocity;
-		Debug.Log("vel = "+vel);
 
 		ShootController.CancelShooting();
 
@@ -40,7 +40,13 @@ public class PlayerController : MonoBehaviour {
 
 		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
 
+		//--check if the player had a wheel showing - if not, hide on crashingPlayer too
+		if(!DetachableWheelScript.hasWheel){
+			crashingPlayer.GetComponent<CrashingScript>().RemoveWheel();
+		}
+
 		gameObject.SetActive(false);
+
 
 		//--show the scoreboard - or start another round
 		GameController.EndRoundCountdown();
@@ -64,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 
 		Invoke("CancelAutopilot", 2);
 
-		// Vfx.SetActive(true);
+		DetachableWheelScript.Reset();
 
 		
 	}

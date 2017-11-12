@@ -215,7 +215,8 @@ MonoBehaviour:
   rend: {fileID: 212466722161532330}
   rb: {fileID: 50655785452660398}
   Explosion: {fileID: 1654621613391498, guid: 56e5a8dbdf49a4a0bb08b6a5bb22cbb7, type: 2}
-  GroundExplosion: {fileID: 0}
+  GroundExplosion: {fileID: 1654621613391498, guid: c3c284c904785458ab524e58675cebbc,
+    type: 2}
 --- !u!114 &114608167910941064
 MonoBehaviour:
   m_ObjectHideFlags: 1

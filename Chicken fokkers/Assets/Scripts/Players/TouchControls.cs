@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; //--enables us to use image color
 
 //--onscreen controls for whether left or right is being pressed
 
@@ -8,12 +9,29 @@ public class TouchControls : MonoBehaviour {
 
 	public bool LeftPressed = false;
 	public bool RightPressed = false;
+	public GameObject LBtn;
+	public GameObject RBtn;
+	public Color LBtnColour;
+	public Color RBtnColour;
+	public Color LBtnStartColour;
+	public Color RBtnStartColour;
+	public float TintAmt = 0.25f;
+
+	void Start(){
+		LBtnStartColour = LBtn.GetComponent<Image>().color;
+		RBtnStartColour = RBtn.GetComponent<Image>().color;
+	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		RightPressed = false;
 		LeftPressed = false;
+
+		// LBtn.GetComponent<Image>().color.a = LBtnColour.a;
+		// RBtn.GetComponent<Image>().color.a = RBtnColour.a;
+		LBtnColour = LBtnStartColour;
+		RBtnColour = RBtnStartColour;
 		
 		//--touch controls
 		if (Input.touchCount > 0){
@@ -26,11 +44,14 @@ public class TouchControls : MonoBehaviour {
 				if ((touch.position.x < Screen.width/2) )
 				{
 		        	LeftPressed = true;
+		        	LBtnColour.a = RBtnColour.a + TintAmt;
+		        	
 		        } 
 		        
 		        if ((touch.position.x > Screen.width/2) )
 		        {
 		        	RightPressed = true;
+		        	RBtnColour.a = RBtnColour.a + TintAmt;
 		        } 
 			}
 
@@ -42,6 +63,8 @@ public class TouchControls : MonoBehaviour {
 				// Debug.Log("both pressed");
 				RightPressed = true;
 				LeftPressed = true;
+				LBtnColour.a = LBtnColour.a + TintAmt;
+				RBtnColour.a = RBtnColour.a + TintAmt;
 
 				return;
 	        }
@@ -51,13 +74,18 @@ public class TouchControls : MonoBehaviour {
 			{
 				// Debug.Log("L pressed");
 				LeftPressed = true;
+				LBtnColour.a = LBtnColour.a + TintAmt;
 	        } 
 			
 			if(Input.GetKey("right"))
 			{
 				// Debug.Log("R pressed");
 				RightPressed = true;
+				RBtnColour.a = RBtnColour.a + TintAmt;
 	        } 
 		}
+
+		LBtn.GetComponent<Image>().color = LBtnColour;
+		RBtn.GetComponent<Image>().color = RBtnColour;
 	}
 }

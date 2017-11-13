@@ -20,9 +20,10 @@ public class PlayerMovement : MonoBehaviour {
     private float buffer = 1f;
     private int dir = 1;
     public bool autoPilot = true;
-
     private float leftConstraint;
     private float rightConstraint;
+    public bool hasMoved = false;
+    public GameObject Instruction;
 
     private float upForce;
 
@@ -69,6 +70,11 @@ public class PlayerMovement : MonoBehaviour {
 				if(TouchControls.RightPressed) {
 					movingUp = true;
 					upForce = defaultUpForce + upSpeed;
+
+					if(!hasMoved){
+						hasMoved = true;
+						Instruction.GetComponent<Animator>().Play("FadeOut");
+					}
 				} 
 
 			} else {
@@ -76,6 +82,11 @@ public class PlayerMovement : MonoBehaviour {
 				if(TouchControls.LeftPressed) {
 					movingUp = true;
 					upForce = defaultUpForce + upSpeed;
+
+					if(!hasMoved){
+						hasMoved = true;
+						Instruction.GetComponent<Animator>().Play("FadeOut");
+					}
 				} 
 			}
 			

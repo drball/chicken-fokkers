@@ -11,11 +11,11 @@ public class TouchControls : MonoBehaviour {
 	public bool RightPressed = false;
 	public GameObject LBtn;
 	public GameObject RBtn;
-	public Color LBtnColour;
-	public Color RBtnColour;
-	public Color LBtnStartColour;
-	public Color RBtnStartColour;
-	public float TintAmt = 0.25f;
+	private Color LBtnColour;
+	private Color RBtnColour;
+	private Color LBtnStartColour;
+	private Color RBtnStartColour;
+	private float TintAmt = 0.25f;
 
 	void Start(){
 		LBtnStartColour = LBtn.GetComponent<Image>().color;
@@ -28,8 +28,6 @@ public class TouchControls : MonoBehaviour {
 		RightPressed = false;
 		LeftPressed = false;
 
-		// LBtn.GetComponent<Image>().color.a = LBtnColour.a;
-		// RBtn.GetComponent<Image>().color.a = RBtnColour.a;
 		LBtnColour = LBtnStartColour;
 		RBtnColour = RBtnStartColour;
 		

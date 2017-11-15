@@ -23,7 +23,7 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void RateBtnPressed(){
-
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.ChickenFokkers");
 	}
 
 	public void TwitterBtnPressed(){
@@ -36,7 +36,6 @@ public class MenuScript : MonoBehaviour {
 
 	public void FacebookBtnPressed(){
 		Application.OpenURL("https://www.facebook.com/davidonionball");
-
 	}
 
 	public void MusicCreditBtnPressed(){

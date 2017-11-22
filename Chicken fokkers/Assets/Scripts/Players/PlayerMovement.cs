@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool autoPilot = true;
     private float leftConstraint;
     private float rightConstraint;
+    private float topConstraint;
     public bool hasMoved = false;
     public GameObject Instruction;
 
@@ -33,6 +34,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		leftConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0)).x;
         rightConstraint = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0)).x;
+        topConstraint = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - 0.5f;
+        Debug.Log("top constraint"+topConstraint);
 
 	}
 
@@ -68,9 +71,14 @@ public class PlayerMovement : MonoBehaviour {
 				//--moving right to left
 
 				if(TouchControls.RightPressed) {
-					movingUp = true;
-					upForce = defaultUpForce + upSpeed;
 
+					if(transform.position.y < topConstraint){
+						movingUp = true;
+						upForce = defaultUpForce + upSpeed;
+					}
+					Debug.Log("position "+transform.position.y);
+					Debug.Log("toppos "+topConstraint);
+					
 					if(!hasMoved){
 						hasMoved = true;
 						Instruction.GetComponent<Animator>().Play("FadeOut");
@@ -80,9 +88,12 @@ public class PlayerMovement : MonoBehaviour {
 			} else {
 				//--moving left to right
 				if(TouchControls.LeftPressed) {
-					movingUp = true;
-					upForce = defaultUpForce + upSpeed;
 
+					if(transform.position.y < topConstraint){
+						movingUp = true;
+						upForce = defaultUpForce + upSpeed;
+					}
+					
 					if(!hasMoved){
 						hasMoved = true;
 						Instruction.GetComponent<Animator>().Play("FadeOut");
@@ -121,7 +132,6 @@ public class PlayerMovement : MonoBehaviour {
 		if (transform.position.x > rightConstraint + buffer) {
 			transform.position = new Vector3 (leftConstraint - buffer, transform.position.y, transform.position.z);
 		}
-
 
 	}
 

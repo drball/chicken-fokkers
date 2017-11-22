@@ -18,15 +18,15 @@ public class DetachableWheelScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		Debug.Log("wheel has collided with "+other.name);
+		// Debug.Log("wheel has collided with "+other.name);
 
 		if(PlayerController.alive){
 
 			if (other.tag == "PlayerCollider" && (other.transform.parent.name != transform.parent.name)){
-				Debug.Log("hit the wheel");
+				// Debug.Log("hit the wheel");
 				gameObject.SetActive(false);
 				GameObject newWheel = Instantiate(NewWheel, transform.position, Quaternion.identity);
-				Debug.Log("give wheel force of "+playerForce);
+				// Debug.Log("give wheel force of "+playerForce);
 				newWheel.GetComponent<Rigidbody2D>().AddForce(playerForce, ForceMode2D.Impulse);
 				GameObject newWheelExplosion = Instantiate(WheelExplosion, transform.position, Quaternion.identity);
 				hasWheel = false;

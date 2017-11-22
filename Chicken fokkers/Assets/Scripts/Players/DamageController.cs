@@ -38,8 +38,7 @@ public class DamageController : MonoBehaviour {
 			PlayerController.health--;
 			Rend.color = new Color(255, 0, 0, 1); //--make it red
 			Invoke("ResetColour", 0.06f);
-			healthBar.fillAmount = PlayerController.health / PlayerController.initialHealth;
-			// Debug.Log("hit. health = "+PlayerController.health+"/"+PlayerController.initialHealth);
+			UpdateHealthBar();
 
 			if(PlayerController.health <= 0 ){
 				InjuredSmoke.Stop();
@@ -62,8 +61,6 @@ public class DamageController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 
-		Debug.Log("damage collision with "+other.name);
-
 		if(PlayerController.alive){
 	        if (other.tag == "PlayerCollider" /*&& (other.transform.parent.name != Owner.name)*/){
 				Debug.Log("head on collision!!!!!");
@@ -71,14 +68,21 @@ public class DamageController : MonoBehaviour {
 				float otherHealth = other.transform.parent.GetComponent<PlayerController>().health;
 
 				if(PlayerController.health <= otherHealth ){
+					PlayerController.health = 0;
+					UpdateHealthBar();
 					PlayerController.Die();
 				}
 				
-
 	        } else if(other.tag == "Ground"){
 				Debug.Log("hit ground!!!!!");
+				PlayerController.health = 0;
+				UpdateHealthBar();
 				PlayerController.Die();
 	        }
 		}
+    }
+
+    void UpdateHealthBar(){
+    	healthBar.fillAmount = PlayerController.health / PlayerController.initialHealth;
     }
 }

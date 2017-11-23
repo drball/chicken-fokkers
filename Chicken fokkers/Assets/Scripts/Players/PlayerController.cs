@@ -6,18 +6,16 @@ public class PlayerController : MonoBehaviour {
 
 	public bool alive = true;
 	public int score = 0;
-	public GameController GameController;
-	public DamageController DamageController;
-	public PlayerMovement PlayerMovement;
-	public ShootController ShootController;
-	public DetachableWheelScript DetachableWheelScript;
-	public SpriteRenderer Rend;
-	public GameObject DeathExplosion;
-	public GameObject Vfx;
 	public float health = 100;
-	public GameObject CrashingPlayer;
-	public Rigidbody2D rb;
-	
+	[HideInInspector] public GameObject DeathExplosion;
+	[HideInInspector] public GameController GameController;
+	[HideInInspector] public DamageController DamageController;
+	[HideInInspector] public PlayerMovement PlayerMovement;
+	[HideInInspector] public ShootController ShootController;
+	[HideInInspector] public DetachableWheelScript DetachableWheelScript;
+	[HideInInspector] public GameObject Vfx;
+	[HideInInspector] public GameObject CrashingPlayer;
+	[HideInInspector] public Rigidbody2D rb;
 	[HideInInspector] public float initialHealth;
 
 	// Use this for initialization
@@ -88,11 +86,6 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey("s")){
 			PlayerMovement.MoveToStartPos();
 		}
-
-	}
-
-	public void ResetHealth(){
-		
 
 	}
 }

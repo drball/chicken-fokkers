@@ -5,19 +5,21 @@ using UnityEngine;
 public class ShootController : MonoBehaviour {
 
 	public Transform shootPos; 
-	public Transform ShootRayFrom;
-	public Transform ShootRayTo;
 	public bool shooting = false;
-	private float fireRate = 0.05f; //--smaller number = faster
 	public GameObject Bullet; 
+	public GameObject BulletLarge; 
+	public GameObject DefaultBullet; 
 	public PlayerMovement PlayerMovement;
 	public GameObject Player;
 	public PlayerController PlayerController;
 	public bool shootingHit = false;
+	private float defaultFireRate = 0.15f;
+	public float fireRate; //--smaller number = faster
+	private float fireRateIncrement = 0.015f;
 
 	// Use this for initialization
-	void Start () {
-		// Debug.Log(gameObject.name+" dir="+PlayerMovement.MovementDirection);
+	void Awake () {
+		ResetFireRate();
 	}
 
 	void Update (){
@@ -29,14 +31,14 @@ public class ShootController : MonoBehaviour {
 				if(!shooting){
 					shooting = true;
 					InvokeRepeating("FireBullet", 0, fireRate);
-					Debug.Log("start shooting");
+					// Debug.Log("start shooting");
 				}
 
 			} else {
 				if(shooting){
 					shooting = false;
 					CancelShooting();
-					Debug.Log("cancel shooting");
+					// Debug.Log("cancel shooting");
 				}
 			}
 
@@ -57,9 +59,37 @@ public class ShootController : MonoBehaviour {
     }
 
 	public void CancelShooting(){
-		Debug.Log("cencel shooting tho");
+		// Debug.Log("cencel shooting tho");
 		CancelInvoke("FireBullet");
 	}	
+
+	public void ResetFireRate(){
+		fireRate = defaultFireRate;
+
+		Bullet = DefaultBullet;
+	}
+
+	public void IncreaseFireRate(){
+		fireRate = fireRate - fireRateIncrement;
+
+		//--if we're currently shooting, cancel the interval and start it again with new firerate
+		CancelShooting();
+
+		if(shootingHit){
+			Debug.Log("start shooting again");
+			
+			InvokeRepeating("FireBullet", 0, fireRate);
+		
+			if(!shooting){
+				shooting = true;
+			}
+		} 
+	}
+
+	public void ChangeBulletToLarge(){
+		Debug.Log("change bullet to large");
+		Bullet = BulletLarge;
+	}
 
 	void FireBullet() {
 

@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - PlayerCollider
   - DeadPlayer
+  - Pickup
+  - PlayerWheel
   layers:
   - Default
   - TransparentFX

@@ -76,8 +76,8 @@ public class PlayerMovement : MonoBehaviour {
 						movingUp = true;
 						upForce = defaultUpForce + upSpeed;
 					}
-					Debug.Log("position "+transform.position.y);
-					Debug.Log("toppos "+topConstraint);
+					// Debug.Log("position "+transform.position.y);
+					// Debug.Log("toppos "+topConstraint);
 					
 					if(!hasMoved){
 						hasMoved = true;

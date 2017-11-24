@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SpawnPickups : MonoBehaviour {
 
-	private float appearAfter = 0.22f;
+	private float appearAfter = 5f;
 	private float edgeBuffer = 2f;
 	public Camera cam;
 	public GameObject Pickup;
 	public Vector2 location;
+	private int pickupMaxAmt = 2;
+	private int pickupAmt;
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating("CreatePickup",0, appearAfter);
+		InvokeRepeating("CreatePickupIntent",appearAfter, appearAfter);
+	}
+
+	void CreatePickupIntent(){
+		//--check we can make a new pickup
+
+		pickupAmt = GameObject.FindGameObjectsWithTag("Pickup").Length;
+		// Debug.Log("pickup amt = "+pickupAmt+" / "+pickupMaxAmt);
+
+		if(pickupAmt < pickupMaxAmt)
+		{
+			CreatePickup();
+		}
+
 	}
 	
 	void CreatePickup(){
@@ -23,15 +38,13 @@ public class SpawnPickups : MonoBehaviour {
 		);
 
 		Instantiate(Pickup, location, Quaternion.identity);
-
-		
 	}
 
 	void FixedUpdate () {
 
 		//--debug
-		if(Input.GetKey("s") ) {
-			CreatePickup();
+		if(Input.GetKey("p") ) {
+			CreatePickupIntent();
 		}
 	}
 }

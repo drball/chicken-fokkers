@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	[HideInInspector] public PlayerMovement PlayerMovement;
 	[HideInInspector] public ShootController ShootController;
 	[HideInInspector] public DetachableWheelScript DetachableWheelScript;
+	[HideInInspector] public PlayerAbility PlayerAbility;
 	[HideInInspector] public GameObject Vfx;
 	[HideInInspector] public GameObject CrashingPlayer;
 	[HideInInspector] public Rigidbody2D rb;
@@ -55,20 +56,15 @@ public class PlayerController : MonoBehaviour {
 		//--called when the round begins again - also on the 1st round
 		
 		alive = true;
-
 		gameObject.SetActive(true);
-
 		DamageController.ResetDamage();
-
 		health = initialHealth;
-
 		PlayerMovement.MoveToStartPos();
-
+		ShootController.ResetFireRate();
 		PlayerMovement.autoPilot = true;
-
 		Invoke("CancelAutopilot", 2);
-
 		DetachableWheelScript.Reset();
+		PlayerAbility.ResetAbility();
 
 		
 	}

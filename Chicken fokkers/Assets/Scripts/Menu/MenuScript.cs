@@ -47,15 +47,15 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void BotsumoBtnPressed(){
-		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.RoboSumo");
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.RoboSumo&referrer=utm_source%3Dinapp%26utm_medium%3Dlink%26utm_campaign%3Dfokker");
 	}
 
 	public void BattleAreanBtnPressed(){
-		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.BotSumoBattleArena");
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.BotSumoBattleArena&referrer=utm_source%3Dinapp%26utm_medium%3Dlink%26utm_campaign%3Dfokker");
 	}
 
 	public void ETSBtnPressed() {
-		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.EscapeTheSector");
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.EscapeTheSector&referrer=utm_source%3Dinapp%26utm_medium%3Dlink%26utm_campaign%3Dfokker");
 	}
 
 	public void PlayBtnPressed(){

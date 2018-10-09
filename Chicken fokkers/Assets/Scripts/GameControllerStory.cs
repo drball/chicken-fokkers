@@ -12,11 +12,35 @@ public class GameControllerStory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
+
+		Debug.Log("start game controller story");
+
+		Reset();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Reset(){
+
+		Debug.Log("reset. Start the game! ");
+		Countdown.SetActive(true);
+
+		//--each player has it's own reset function
+		Player1Controller.ResetPlayer();
+	}
+
+	public void PlayAgain(){
+
+		//--a full reset
+
+		Debug.Log("play again "+LevelsController.currentLevel);
 		
+		Reset();
+		
+		Player1Controller.score = 0;
+		
+		//--reload entire scene
+		LevelsController.LoadSelectedLevel();
 	}
 }
+
+

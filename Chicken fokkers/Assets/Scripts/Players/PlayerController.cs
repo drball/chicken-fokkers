@@ -25,32 +25,6 @@ public class PlayerController : MonoBehaviour {
 		initialHealth = health;
 	}
 
-	public void Die(){
-		Debug.Log(gameObject.name +" is dead");
-
-		alive = false;
-
-		Vector2 vel = rb.velocity;
-
-		ShootController.CancelShooting();
-
-		GameObject crashingPlayer = Instantiate(CrashingPlayer, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
-		Instantiate(DeathExplosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
-
-		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
-
-		//--check if the player had a wheel showing - if not, hide on crashingPlayer too
-		if(!DetachableWheelScript.hasWheel){
-			crashingPlayer.GetComponent<CrashingScript>().RemoveWheel();
-		}
-
-		gameObject.SetActive(false);
-
-
-		//--show the scoreboard - or start another round
-		GameController.EndRoundCountdown();
-	}
-
 	public void ResetPlayer(){
 
 		//--called when the round begins again - also on the 1st round
@@ -65,8 +39,6 @@ public class PlayerController : MonoBehaviour {
 		Invoke("CancelAutopilot", 2);
 		DetachableWheelScript.Reset();
 		PlayerAbility.ResetAbility();
-
-		
 	}
 
 	public void StartAutopilot(){
@@ -75,12 +47,36 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void CancelAutopilot(){
+		Debug.Log("cancel autopilot");
 		PlayerMovement.autoPilot = false;
+	}
+
+	public void Die(){
+		Debug.Log(gameObject.name +" is dead");
+
+		alive = false;
+
+		Vector2 vel = rb.velocity;
+		ShootController.CancelShooting();
+		GameObject crashingPlayer = Instantiate(CrashingPlayer, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
+		Instantiate(DeathExplosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
+
+		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
+
+		//--check if the player had a wheel showing - if not, hide on crashingPlayer too
+		if(!DetachableWheelScript.hasWheel){
+			crashingPlayer.GetComponent<CrashingScript>().RemoveWheel();
+		}
+
+		gameObject.SetActive(false);
+
+		//--show the scoreboard - or start another round
+		GameController.EndRoundCountdown();
 	}
 
 	void FixedUpdate () {
 		if(Input.GetKey("s")){
-			PlayerMovement.MoveToStartPos();
+			// PlayerMovement.MoveToStartPos();
 		}
 
 	}

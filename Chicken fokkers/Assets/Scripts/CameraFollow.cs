@@ -27,8 +27,11 @@ public class CameraFollow : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        m_LastTargetPosition = target.position;
+        Debug.Log("transform "+transform.position);
+        // m_LastTargetPosition = transform.position;
         m_OffsetZ = (transform.position - target.position).z;
+        transform.position = new Vector3(target.position.x, target.position.y, m_OffsetZ);
+        Debug.Log("transform now "+transform.position);
         transform.parent = null;
 
         zoomTarget = closeZoom;

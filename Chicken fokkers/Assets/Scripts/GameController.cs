@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Debug.Log("start gamecontroller normal");
+
 		ScoreModal.SetActive(false);
 		PlayAgainBtn.SetActive(false);
 

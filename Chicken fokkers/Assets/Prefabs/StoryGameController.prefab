@@ -535,10 +535,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4024944899122322}
-  - component: {fileID: 114634151098234152}
   - component: {fileID: 114022597843399300}
-  - component: {fileID: 114550094160411512}
   - component: {fileID: 114332653113837622}
+  - component: {fileID: 114352200112100038}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -1445,7 +1444,7 @@ MonoBehaviour:
   movingUp: 0
   defaultUpForce: 50
   rend: {fileID: 212016286676490432}
-  TouchControls: {fileID: 0}
+  TouchControls: {fileID: 114352200112100038}
   PlayerController: {fileID: 114191774857787752}
   MovementDirection: 0
   cam: {fileID: 20153714413362686}
@@ -1558,7 +1557,7 @@ MonoBehaviour:
   health: 30
   DeathExplosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339,
     type: 2}
-  GameController: {fileID: 114634151098234152}
+  GameController: {fileID: 0}
   DamageController: {fileID: 114029892361870618}
   PlayerMovement: {fileID: 114055855585887182}
   ShootController: {fileID: 114985948327431104}
@@ -1693,10 +1692,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1Controller: {fileID: 114191774857787752}
   roundActive: 0
-  PlayAgainBtn: {fileID: 0}
   LevelsController: {fileID: 0}
   AdvertsController: {fileID: 0}
-  Countdown: {fileID: 0}
+  Countdown: {fileID: 1047021724941384}
 --- !u!114 &114342663980952870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1724,6 +1722,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114352200112100038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1862513915551836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274dc06e142564b369627cc53ee58d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftPressed: 0
+  RightPressed: 0
+  LBtn: {fileID: 0}
+  RBtn: {fileID: 0}
+  showButtons: 0
 --- !u!114 &114397182636436474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1757,19 +1771,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3
---- !u!114 &114550094160411512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1862513915551836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f0e0d21383740a980f24ffa0ec1afa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LeftPressed: 0
-  LBtn: {fileID: 1982160058399642}
 --- !u!114 &114594087698801176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1842,7 +1843,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114634151098234152}
+      - m_Target: {fileID: 0}
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:
@@ -1882,28 +1883,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114634151098234152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1862513915551836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad79cc4fa1ef427a9a3649d7eb131b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player1Controller: {fileID: 114191774857787752}
-  Player2Controller: {fileID: 0}
-  leftEdge: 0
-  roundActive: 0
-  ScoreModal: {fileID: 1108795137287232}
-  PlayAgainBtn: {fileID: 1116100951835000}
-  Player1ScoreText: {fileID: 1249144229347454}
-  Player2ScoreText: {fileID: 1985813371470266}
-  LevelsController: {fileID: 0}
-  AdvertsController: {fileID: 0}
-  Countdown: {fileID: 1047021724941384}
 --- !u!114 &114642567926078420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7657,7 +7636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19500001, y: 0.078}
   m_AnchorMax: {x: 0.37758738, y: 0.28360915}
-  m_AnchoredPosition: {x: 17.899872, y: 2}
+  m_AnchoredPosition: {x: 17.899902, y: 2}
   m_SizeDelta: {x: -79, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &225376083185704648

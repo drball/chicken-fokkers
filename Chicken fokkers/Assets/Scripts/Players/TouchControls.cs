@@ -11,6 +11,7 @@ public class TouchControls : MonoBehaviour {
 	public bool RightPressed = false;
 	public GameObject LBtn;
 	public GameObject RBtn;
+	public bool showButtons = true;
 	private Color LBtnColour;
 	private Color RBtnColour;
 	private Color LBtnStartColour;
@@ -18,8 +19,11 @@ public class TouchControls : MonoBehaviour {
 	private float TintAmt = 0.25f;
 
 	void Start(){
-		LBtnStartColour = LBtn.GetComponent<Image>().color;
-		RBtnStartColour = RBtn.GetComponent<Image>().color;
+
+		if(showButtons){
+			LBtnStartColour = LBtn.GetComponent<Image>().color;
+			RBtnStartColour = RBtn.GetComponent<Image>().color;
+		}
 	}
 	
 	// Update is called once per frame
@@ -28,8 +32,10 @@ public class TouchControls : MonoBehaviour {
 		RightPressed = false;
 		LeftPressed = false;
 
-		LBtnColour = LBtnStartColour;
-		RBtnColour = RBtnStartColour;
+		if(showButtons){
+			LBtnColour = LBtnStartColour;
+			RBtnColour = RBtnStartColour;
+		}
 		
 		//--touch controls
 		if (Input.touchCount > 0){
@@ -42,14 +48,20 @@ public class TouchControls : MonoBehaviour {
 				if ((touch.position.x < Screen.width/2) )
 				{
 		        	LeftPressed = true;
-		        	LBtnColour.a = RBtnColour.a + TintAmt;
+
+		        	if(showButtons){
+			        	LBtnColour.a = RBtnColour.a + TintAmt;
+			        }
 		        	
 		        } 
 		        
 		        if ((touch.position.x > Screen.width/2) )
 		        {
 		        	RightPressed = true;
-		        	RBtnColour.a = RBtnColour.a + TintAmt;
+
+		        	if(showButtons){
+		        		RBtnColour.a = RBtnColour.a + TintAmt;
+		        	}
 		        } 
 			}
 
@@ -61,8 +73,11 @@ public class TouchControls : MonoBehaviour {
 				// Debug.Log("both pressed");
 				RightPressed = true;
 				LeftPressed = true;
-				LBtnColour.a = LBtnColour.a + TintAmt;
-				RBtnColour.a = RBtnColour.a + TintAmt;
+
+				if(showButtons){
+					LBtnColour.a = LBtnColour.a + TintAmt;
+					RBtnColour.a = RBtnColour.a + TintAmt;
+				}
 
 				return;
 	        }
@@ -72,18 +87,26 @@ public class TouchControls : MonoBehaviour {
 			{
 				// Debug.Log("L pressed");
 				LeftPressed = true;
-				LBtnColour.a = LBtnColour.a + TintAmt;
+
+				if(showButtons){
+					LBtnColour.a = LBtnColour.a + TintAmt;
+				}
 	        } 
 			
 			if(Input.GetKey("right"))
 			{
 				// Debug.Log("R pressed");
 				RightPressed = true;
-				RBtnColour.a = RBtnColour.a + TintAmt;
+
+				if(showButtons){
+					RBtnColour.a = RBtnColour.a + TintAmt;
+				}
 	        } 
 		}
 
-		LBtn.GetComponent<Image>().color = LBtnColour;
-		RBtn.GetComponent<Image>().color = RBtnColour;
+		if(showButtons){
+			LBtn.GetComponent<Image>().color = LBtnColour;
+			RBtn.GetComponent<Image>().color = RBtnColour;
+		}
 	}
 }

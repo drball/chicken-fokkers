@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,37 +20,34 @@ public class PlayerMovement : MonoBehaviour {
     private float buffer = 1f;
     private int dir = 1;
     public bool autoPilot = true;
-    private float leftConstraint;
-    private float rightConstraint;
     private float topConstraint;
     public bool hasMoved = false;
     public GameObject Instruction;
-
-    private float upForce;
+    private PlayerResetAtEdge PlayerResetAtEdge;
+	private float upForce;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-
-		leftConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0)).x;
-        rightConstraint = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0)).x;
         topConstraint = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - 0.5f;
-        Debug.Log("top constraint"+topConstraint);
-
 	}
 
 	public void MoveToStartPos(){
 
-		Debug.Log("Move"+gameObject.name+" to start pos");
+		Debug.Log("Move "+gameObject.name+" to start pos");
 
-		//--start positions
-        if(MovementDirection == MovementDirections.Left){
-			startPosX = rightConstraint;
-			transform.position = new Vector3(startPosX,startPosY,0);
-			dir = -1;
+		if(PlayerResetAtEdge){
+			//--start positions
+	        if(MovementDirection == MovementDirections.Left){
+				startPosX = PlayerResetAtEdge.rightConstraint;
+				transform.position = new Vector3(startPosX,startPosY,0);
+				dir = -1;
+	    	} else {
+	    		startPosX = PlayerResetAtEdge.leftConstraint;
+	    		transform.position = new Vector3(startPosX,startPosY,0);
+	    	}
     	} else {
-    		startPosX = leftConstraint;
-    		transform.position = new Vector3(startPosX,startPosY,0);
+    		//--start wherever it is
     	}
 
     	//--cancel their velocity
@@ -76,8 +73,6 @@ public class PlayerMovement : MonoBehaviour {
 						movingUp = true;
 						upForce = defaultUpForce + upSpeed;
 					}
-					// Debug.Log("position "+transform.position.y);
-					// Debug.Log("toppos "+topConstraint);
 					
 					if(!hasMoved){
 						hasMoved = true;
@@ -123,17 +118,5 @@ public class PlayerMovement : MonoBehaviour {
     			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     		}
      	}
-
-		//--move back onto screen when off the edge
-		if (transform.position.x < leftConstraint - buffer) {
-			transform.position = new Vector3 (rightConstraint + buffer, transform.position.y, transform.position.z);
-		}
-
-		if (transform.position.x > rightConstraint + buffer) {
-			transform.position = new Vector3 (leftConstraint - buffer, transform.position.y, transform.position.z);
-		}
-
 	}
-
-	
 }

@@ -7,8 +7,8 @@ public class PlayerResetAtEdge : MonoBehaviour {
     // public PlayerController PlayerController;
     public Camera cam;
     private float buffer = 1f;
-    private float leftConstraint;
-    private float rightConstraint;
+    public static float leftConstraint;
+    public static float rightConstraint;
 
 	// Use this for initialization
 	void Start () {

@@ -6,9 +6,6 @@ public class GameControllerStory : MonoBehaviour {
 
 	public PlayerController Player1Controller;
 	public bool roundActive = false;
-	// public GameObject ScoreModal;
-	public GameObject PlayAgainBtn;
-	public GameObject Player1ScoreText;
 	public LevelsController LevelsController;
 	public AdvertsController AdvertsController;
 	public GameObject Countdown;

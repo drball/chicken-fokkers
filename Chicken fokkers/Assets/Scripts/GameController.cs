@@ -10,7 +10,6 @@ public class GameController : MonoBehaviour {
 	public PlayerController Player1Controller;
 	public PlayerController Player2Controller;
 	public int leftEdge = 0;
-	public int rightEdge = 900;
 	public bool roundActive = false;
 	public GameObject ScoreModal;
 	public GameObject PlayAgainBtn;

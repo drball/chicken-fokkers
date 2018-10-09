@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; //--enables us to use image color
 
-//--onscreen controls for whether left or right is being pressed
+//--onscreen controls for whether left or right is being pressed - For 2 players
 
 public class TouchControls : MonoBehaviour {
 

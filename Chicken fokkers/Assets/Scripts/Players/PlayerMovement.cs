@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
         topConstraint = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - 0.5f;
+        Debug.Log("top constraint = "+topConstraint);
 	}
 
 	public void MoveToStartPos(){
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		upForce = defaultUpForce;
 		movingUp = false;
+		Debug.Log("current player position "+transform.position.y);
 
 		if(PlayerController.alive){
 

@@ -7,17 +7,19 @@ public class PlayerController : MonoBehaviour {
 	public bool alive = true;
 	public int score = 0;
 	public float health = 100;
-	[HideInInspector] public GameObject DeathExplosion;
-	[HideInInspector] public GameController GameController;
-	[HideInInspector] public DamageController DamageController;
-	[HideInInspector] public PlayerMovement PlayerMovement;
-	[HideInInspector] public ShootController ShootController;
-	[HideInInspector] public DetachableWheelScript DetachableWheelScript;
-	[HideInInspector] public PlayerAbility PlayerAbility;
-	[HideInInspector] public GameObject Vfx;
-	[HideInInspector] public GameObject CrashingPlayer;
-	[HideInInspector] public Rigidbody2D rb;
-	[HideInInspector] public float initialHealth;
+	public bool singlePlayer;
+	 public GameObject DeathExplosion;
+	 public GameController GameController;
+	 public DamageController DamageController;
+	 public PlayerMovement PlayerMovement;
+	 public ShootController ShootController;
+	 public DetachableWheelScript DetachableWheelScript;
+	 public PlayerAbility PlayerAbility;
+	 public GameObject Vfx;
+	 public GameObject CrashingPlayer;
+	 public Rigidbody2D rb;
+	 public float initialHealth;
+	// [HideInInspector]
 
 	// Use this for initialization
 	void Start () {
@@ -33,12 +35,14 @@ public class PlayerController : MonoBehaviour {
 		gameObject.SetActive(true);
 		DamageController.ResetDamage();
 		health = initialHealth;
-		PlayerMovement.MoveToStartPos();
 		ShootController.ResetFireRate();
-		PlayerMovement.autoPilot = true;
+		
 		Invoke("CancelAutopilot", 2);
 		DetachableWheelScript.Reset();
 		PlayerAbility.ResetAbility();
+		PlayerMovement.MoveToStartPos();
+		PlayerMovement.autoPilot = true;
+		
 	}
 
 	public void StartAutopilot(){
@@ -71,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 		gameObject.SetActive(false);
 
 		//--show the scoreboard - or start another round
-		GameController.EndRoundCountdown();
+		GameController.PlayerHasDied();
 	}
 
 	void FixedUpdate () {

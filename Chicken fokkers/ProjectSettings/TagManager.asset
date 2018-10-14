@@ -9,6 +9,7 @@ TagManager:
   - DeadPlayer
   - Pickup
   - PlayerWheel
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -57,4 +58,7 @@ TagManager:
     locked: 0
   - name: Explosions
     uniqueID: 4107094139
+    locked: 0
+  - name: Land
+    uniqueID: 3217009843
     locked: 0

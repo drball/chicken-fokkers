@@ -28,7 +28,7 @@ public class BulletScript : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		// Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name+" on "+other.transform.parent.name);
+		Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name+" on "+other.transform.parent.name);
 
         if (other.tag == "PlayerCollider" && (other.transform.parent.name != Owner.name)){
 
@@ -36,11 +36,21 @@ public class BulletScript : MonoBehaviour {
         		other.GetComponent<DamageController>().HitByBullet();
 
         		Instantiate(Explosion, transform.position, transform.rotation);
-        		// Debug.Log("hit the other player");
+        		Debug.Log("hit the other player");
 
             	Destroy(gameObject);
     		} 
-    		
+		} else if (other.tag == "Enemy"){
+			// Instantiate(GroundExplosion, transform.position, transform.rotation);
+			Debug.Log("Bullet hit ebemy");
+			Instantiate(Explosion, transform.position, transform.rotation);
+        	Destroy(gameObject);
+
+
+        	if(other.GetComponent<EnemyDamageController>()){
+        		other.GetComponent<EnemyDamageController>().HitByBullet();
+        	}
+
         } else if (other.tag == "Ground"){
 			Instantiate(GroundExplosion, transform.position, transform.rotation);
 

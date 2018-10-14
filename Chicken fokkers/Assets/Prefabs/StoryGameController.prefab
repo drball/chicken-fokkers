@@ -240,11 +240,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4539553177838472}
   - component: {fileID: 50175798682560908}
-  - component: {fileID: 114289357573459222}
   - component: {fileID: 82082929134420780}
   - component: {fileID: 114907439525259200}
   - component: {fileID: 114096953674043298}
-  - component: {fileID: 114985826609830506}
+  - component: {fileID: 114248042372578906}
+  - component: {fileID: 114530820290960874}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -305,7 +305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1469750931700746
 GameObject:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713482121925532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26, y: 61.9, z: -151.24}
+  m_LocalPosition: {x: -69.0918, y: 51.912506, z: -151.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4172284716952188}
@@ -819,7 +819,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1332631794267476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -80.8, y: 50.7, z: -87.779625}
+  m_LocalPosition: {x: -76.59, y: 50.7, z: -87.779625}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4558564837865456}
@@ -1061,7 +1061,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.026974, y: 0}
+  m_Offset: {x: 7.758484, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1072,7 +1072,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.368592, y: 1}
+  m_Size: {x: 12.831612, y: 1}
   m_EdgeRadius: 0
 --- !u!81 &81654934243946992
 AudioListener:
@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1332631794267476}
   Rend: {fileID: 212016286676490432}
-  PlayerController: {fileID: 0}
+  PlayerController: {fileID: 114248042372578906}
   InjuredSmoke: {fileID: 198631014284682724}
   hitSfx: {fileID: 82764053621682704}
   healthBar: {fileID: 114342663980952870}
@@ -1559,6 +1559,34 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!114 &114248042372578906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332631794267476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd67bd7eff522413da154d16fdf59909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alive: 1
+  score: 0
+  health: 100
+  singlePlayer: 0
+  DeathExplosion: {fileID: 1654621613391498, guid: 56e5a8dbdf49a4a0bb08b6a5bb22cbb7,
+    type: 2}
+  GameController: {fileID: 114332653113837622}
+  DamageController: {fileID: 114029892361870618}
+  PlayerMovement: {fileID: 114530820290960874}
+  ShootController: {fileID: 114985948327431104}
+  DetachableWheelScript: {fileID: 114751232387341138}
+  PlayerAbility: {fileID: 114096953674043298}
+  Vfx: {fileID: 1141198711115862}
+  CrashingPlayer: {fileID: 1517893512116448, guid: ebe9b68c510b2430e9ef4a6435a2a5f6,
+    type: 2}
+  rb: {fileID: 50175798682560908}
+  initialHealth: 100
 --- !u!114 &114270379572067998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1629,28 +1657,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114289357573459222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332631794267476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed15c553273341419b7683cdaedc256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 11
-  upSpeed: 17
-  movingUp: 0
-  defaultUpForce: 50
-  rend: {fileID: 212016286676490432}
-  TouchControls: {fileID: 114352200112100038}
-  PlayerController: {fileID: 114985826609830506}
-  cam: {fileID: 20153714413362686}
-  autoPilot: 1
-  hasMoved: 0
-  Instruction: {fileID: 1484843761072802}
 --- !u!114 &114332653113837622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1662,8 +1668,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ce4d51119d14c38b41b005c2967dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1Controller: {fileID: 0}
+  Player1Controller: {fileID: 114248042372578906}
+  Player2Controller: {fileID: 0}
+  leftEdge: 0
   roundActive: 0
+  ScoreModal: {fileID: 1108795137287232}
+  PlayAgainBtn: {fileID: 1116100951835000}
+  Player1ScoreText: {fileID: 0}
+  Player2ScoreText: {fileID: 0}
   LevelsController: {fileID: 0}
   AdvertsController: {fileID: 0}
   Countdown: {fileID: 1047021724941384}
@@ -1743,6 +1755,29 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 3
+--- !u!114 &114530820290960874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332631794267476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc48c520cc2724acb9e3199145873587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 11
+  upSpeed: 17
+  movingUp: 0
+  defaultUpForce: 50
+  rend: {fileID: 212016286676490432}
+  TouchControls: {fileID: 114352200112100038}
+  PlayerController: {fileID: 114248042372578906}
+  MovementDirection: 0
+  cam: {fileID: 20153714413362686}
+  autoPilot: 1
+  hasMoved: 0
+  Instruction: {fileID: 1484843761072802}
 --- !u!114 &114594087698801176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1894,13 +1929,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4539553177838472}
-  damping: 1
-  lookAheadFactor: -10
-  lookAheadReturnSpeed: 0.5
-  lookAheadMoveThreshold: 0.1
-  upOffset: -1
-  zoomTarget: 0
+  damping: 0.01
+  lookAheadFactor: -5
+  lookAheadReturnSpeed: 0.1
+  lookAheadMoveThreshold: 1
+  upOffset: -1.2
   camera: {fileID: 20153714413362686}
+  topConstraint: 1.5
+  bottomConstraint: 0.8
 --- !u!114 &114659872422641922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2049,7 +2085,7 @@ MonoBehaviour:
   NewWheel: {fileID: 1835006788832134, guid: 3cd2de1923ed842b39d25b5438a09b43, type: 2}
   WheelExplosion: {fileID: 1654621613391498, guid: 56e5a8dbdf49a4a0bb08b6a5bb22cbb7,
     type: 2}
-  PlayerController: {fileID: 0}
+  PlayerController: {fileID: 114248042372578906}
   PlayerRb: {fileID: 50175798682560908}
   hasWheel: 1
 --- !u!114 &114838809620344664
@@ -2151,31 +2187,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114985826609830506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332631794267476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cd2dff56513d4c289031e43f17d071d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alive: 1
-  score: 0
-  health: 100
-  DeathExplosion: {fileID: 0}
-  GameController: {fileID: 0}
-  DamageController: {fileID: 0}
-  PlayerMovement: {fileID: 0}
-  ShootController: {fileID: 0}
-  DetachableWheelScript: {fileID: 0}
-  PlayerAbility: {fileID: 0}
-  Vfx: {fileID: 0}
-  CrashingPlayer: {fileID: 0}
-  rb: {fileID: 0}
-  initialHealth: 0
 --- !u!114 &114985948327431104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2194,9 +2205,9 @@ MonoBehaviour:
     type: 2}
   DefaultBullet: {fileID: 1987139757378726, guid: ec853463019984c3e979568a2892734a,
     type: 2}
-  PlayerMovement: {fileID: 0}
+  PlayerMovement: {fileID: 114530820290960874}
   Player: {fileID: 1332631794267476}
-  PlayerController: {fileID: 0}
+  PlayerController: {fileID: 114248042372578906}
   shootingHit: 0
   fireRate: 0
 --- !u!124 &124325871424706600

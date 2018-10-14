@@ -18,10 +18,13 @@ public class CameraFollow : MonoBehaviour
 
     private float closeZoom = 9f;
     private float midZoom = 11f;
-    private float farZoom = 17f;
+    private float farZoom = 18f;
    
-    public float zoomTarget;
+    private float zoomTarget;
     public Camera camera;
+
+    public float topConstraint;
+    public float bottomConstraint;
 
 
     // Use this for initialization
@@ -32,17 +35,17 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(target.position.x, target.position.y, m_OffsetZ);
         transform.parent = null;
 
-        zoomTarget = closeZoom;
+        zoomTarget = midZoom;
 
-        if(target.gameObject.name == "Ship" || target.gameObject.name == "UFO"){
-			Debug.Log("camera zoom out");
-			zoomTarget = farZoom;
-		} else if (target.gameObject.name == "Van") {
-			zoomTarget = midZoom;
-		} else {
-			Debug.Log("camera zoom in");
-			zoomTarget = closeZoom;
-		}
+  //       if(target.gameObject.name == "Player 1" || target.gameObject.name == "UFO"){
+		// 	Debug.Log("camera zoom out");
+		// 	zoomTarget = farZoom;
+		// } else if (target.gameObject.name == "Van") {
+		// 	zoomTarget = midZoom;
+		// } else {
+		// 	Debug.Log("camera zoom in");
+		// 	zoomTarget = closeZoom;
+		// }
     }
 
     // Update is called once per frame
@@ -65,7 +68,8 @@ public class CameraFollow : MonoBehaviour
         Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ + Vector3.up*upOffset;
         Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
 
-        transform.position = newPos;
+        transform.position = new Vector3(newPos.x, Mathf.Clamp(newPos.y, bottomConstraint, topConstraint), newPos.z);
+        // transform.position = newPos;
 
         m_LastTargetPosition = target.position;
 

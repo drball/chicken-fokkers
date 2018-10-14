@@ -7,16 +7,15 @@ public class EnemyDamageController : MonoBehaviour {
 	public SpriteRenderer[] Rends;
 	public ParticleSystem InjuredSmoke;
 	public int health;
-	private int initialHealth = 100;
+	private int initialHealth = 4;
+	public GameObject Explode;
 
-	// Use this for initialization
-	void Awake () {
-		ResetColour();
-	}
 
 	void Start () {
 		InjuredSmoke.Stop();
 		health = initialHealth;
+		ResetColour();
+		Explode.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -54,6 +53,23 @@ public class EnemyDamageController : MonoBehaviour {
 	}
 
 	void Die(){
+		Debug.Log("turret die!");
 		InjuredSmoke.Stop();
+		Explode.SetActive(true);
+		Explode.transform.parent = null;
+		Invoke("HideVfx", 0.25f);
+		Invoke("RemoveAfterDeath",1f);
+	}
+
+	void HideVfx(){
+		Debug.Log("turret hide vfx");
+		foreach(SpriteRenderer Rend in Rends){
+			Rend.enabled = false;
+		}
+	}
+
+	void RemoveAfterDeath(){
+		Destroy(Explode);
+		Destroy(gameObject);
 	}
 }

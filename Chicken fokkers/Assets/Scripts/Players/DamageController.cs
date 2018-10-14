@@ -13,8 +13,6 @@ public class DamageController : MonoBehaviour {
 
 	[Header("Unity stuff")]
 	public Image healthBar;
-	
-	private float smokeEmissionRate;
 
 	// Use this for initialization
 	void Awake () {
@@ -22,10 +20,7 @@ public class DamageController : MonoBehaviour {
 	}
 
 	void Start(){
-		// smokeEmissionRate = InjuredSmoke.emission.rate;
 		InjuredSmoke.Stop();
-		// Debug.Log("emission rate = "+smokeEmissionRate);
-
 	}
 
 	public void HitByBullet(){

@@ -371,6 +371,42 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ce05988fa874db9ae53b0767223ce6, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &57181374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1952874159263770, guid: 4dea8790fcd72498f9700737efc38a24,
+    type: 2}
+  m_PrefabInternal: {fileID: 479173821}
+--- !u!114 &57181376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57181374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6722d91b1144147c3a6f0a8c955b2323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  isActive: 0
+  fireRange: 5
+  fireRate: 1
+  Bullet: {fileID: 1300448569030514, guid: 353bcf1395d3d4e73b1b605ca6724292, type: 2}
+--- !u!58 &57181377
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57181374}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.038223743, y: 0}
+  serializedVersion: 2
+  m_Radius: 7.6873803
 --- !u!1 &57437235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,6 +2501,10 @@ Prefab:
     - target: {fileID: 4126176462109662, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952874159263770, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_Name
+      value: Turret muzzle rotator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
@@ -9366,11 +9406,11 @@ Prefab:
       objectReference: {fileID: 1091316569}
     - target: {fileID: 4539553177838472, guid: 392ffa461b2ad4c7e95bf157fe6905ca, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 51.88
+      value: 52.412506
       objectReference: {fileID: 0}
     - target: {fileID: 4539553177838472, guid: 392ffa461b2ad4c7e95bf157fe6905ca, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -84.11
+      value: -66.0918
       objectReference: {fileID: 0}
     - target: {fileID: 1264670549801890, guid: 392ffa461b2ad4c7e95bf157fe6905ca, type: 2}
       propertyPath: m_IsActive
@@ -9384,6 +9424,16 @@ Prefab:
     - target: {fileID: 1438747015893022, guid: 392ffa461b2ad4c7e95bf157fe6905ca, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114530820290960874, guid: 392ffa461b2ad4c7e95bf157fe6905ca,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50175798682560908, guid: 392ffa461b2ad4c7e95bf157fe6905ca,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392ffa461b2ad4c7e95bf157fe6905ca, type: 2}

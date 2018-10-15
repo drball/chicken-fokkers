@@ -83,5 +83,9 @@ public class PlayerController : MonoBehaviour {
 			// PlayerMovement.MoveToStartPos();
 		}
 
+		if(Input.GetKey("a")){
+			StartAutopilot();
+		}
+
 	}
 }

@@ -7,7 +7,7 @@ public class EnemyDamageController : MonoBehaviour {
 	public SpriteRenderer[] Rends;
 	public ParticleSystem InjuredSmoke;
 	public int health;
-	private int initialHealth = 4;
+	private int initialHealth = 10;
 	public GameObject Explode;
 
 

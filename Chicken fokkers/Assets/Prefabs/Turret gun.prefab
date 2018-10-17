@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1335683528772084}
   m_IsPrefabAsset: 1
+--- !u!1 &1140669832437972
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4269661109360538}
+  m_Layer: 0
+  m_Name: FireFrom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1261615491741926
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +151,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4819770705739060}
+  - component: {fileID: 58000963196998422}
+  - component: {fileID: 114161013980743770}
   m_Layer: 0
-  m_Name: Turret gun
+  m_Name: Turret muzzle rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,13 +182,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1390668744921068}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.851, y: -0.01, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.00000023841858}
+  m_LocalPosition: {x: 0.848, y: -0.042, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4819770705739060}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.00002}
 --- !u!4 &4126176462109662
 Transform:
   m_ObjectHideFlags: 1
@@ -205,6 +222,19 @@ Transform:
   m_Father: {fileID: 4126176462109662}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4269661109360538
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140669832437972}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710707, w: -0.7071066}
+  m_LocalPosition: {x: 1.197, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4819770705739060}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!4 &4386761916593382
 Transform:
   m_ObjectHideFlags: 1
@@ -264,10 +294,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952874159263770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: 0.86, z: 0}
+  m_LocalPosition: {x: 0.16, y: 0.831, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117637815347440}
+  - {fileID: 4269661109360538}
   m_Father: {fileID: 4126176462109662}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -284,6 +315,21 @@ Transform:
   m_Father: {fileID: 4126176462109662}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58000963196998422
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952874159263770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.038223743, y: 0}
+  serializedVersion: 2
+  m_Radius: 7.6873803
 --- !u!60 &60533493122645676
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -434,6 +480,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114161013980743770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952874159263770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6722d91b1144147c3a6f0a8c955b2323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  isActive: 0
+  fireRange: 5
+  fireRate: 1
+  Bullet: {fileID: 1987139757378726, guid: de89ade7fbcf04c24b004463dd14dfd7, type: 2}
+  FireFrom: {fileID: 4269661109360538}
 --- !u!114 &114328653168825074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,7 +516,6 @@ MonoBehaviour:
   InjuredSmoke: {fileID: 198143531655010162}
   health: 0
   Explode: {fileID: 1878692057365596}
-  Bounds: {fileID: 1403796947485904}
 --- !u!114 &114336937863126430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10125,7 +10187,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1046169265
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6c352f7fa32dc4d4f9de151b159620df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

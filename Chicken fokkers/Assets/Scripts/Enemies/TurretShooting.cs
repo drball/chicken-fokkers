@@ -10,9 +10,10 @@ public class TurretShooting : MonoBehaviour {
 	public bool isActive = false;
 	private float distance;
 	public float fireRange = 5;
-	private float turnSpeed = 0.1f;
+	private float turnSpeed = 0.01f;
 	public float fireRate = 1f;
 	public GameObject Bullet;
+	public Transform FireFrom;
 
 	// Use this for initialization
 	void Start () {
@@ -33,11 +34,11 @@ public class TurretShooting : MonoBehaviour {
 	 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle), Time.time * turnSpeed);
 
  			//--flip if on other side
-	 		if(angle > 90 || angle < -90){
-				transform.localScale = reverseScale;
-	 		} else {
-	 			transform.localScale = initialScale;
-	 		}
+	 		// if(angle > 90 || angle < -90){
+				// transform.localScale = reverseScale;
+	 		// } else {
+	 		// 	transform.localScale = initialScale;
+	 		// }
 
 	 		distance = Vector2.Distance(transform.position, target.transform.position);
 
@@ -58,15 +59,19 @@ public class TurretShooting : MonoBehaviour {
 		Debug.Log("turret detected "+other.name);
 
 		if(isActive == false){
+			Debug.Log("turret ready to shoot");
 			if (other.transform.parent.tag == "Player"){
-				target = other.gameObject;
+				Debug.Log("turret has targetted the player1");
 				isActive = true;
+				target = other.transform.parent.gameObject;
+				
 				InvokeRepeating("Shoot", fireRate, 1);
 			}
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
+		Debug.Log("trogger exit");
 
 		if(isActive == true){
 			if (other == target){
@@ -77,7 +82,7 @@ public class TurretShooting : MonoBehaviour {
 
 	void Shoot(){
 		Debug.Log("New bullet");
-		Instantiate(Bullet, transform.position, transform.rotation);
+		Instantiate(Bullet, FireFrom.position, FireFrom.rotation);
 	}
 
 }

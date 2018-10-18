@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,6 @@ public class EnemyBullet : MonoBehaviour {
 
 	public GameObject Owner;
 	private float speed = 200f;
-	public Renderer rend;
 	public Rigidbody2D rb;
 	public GameObject Explosion;
 	public GameObject GroundExplosion;
@@ -14,16 +13,10 @@ public class EnemyBullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		// Debug.Log("create new bullet");
+		Debug.Log("create new bullet "+Owner.transform.GetComponent<TurretShooting>().shootCount);
 
 		rb.AddForce(transform.up * speed);
 
-	}
-
-	void Update(){
-		if (!rend.isVisible){
-			Destroy(gameObject);
-		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {

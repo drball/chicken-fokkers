@@ -68,7 +68,7 @@ public class DamageController : MonoBehaviour {
 					PlayerController.Die();
 				}
 				
-	        } else if(other.tag == "Ground"){
+	        } else if(other.tag == "Ground" || other.tag == "Enemy"){
 				Debug.Log("hit ground!!!!!");
 				PlayerController.health = 0;
 				UpdateHealthBar();

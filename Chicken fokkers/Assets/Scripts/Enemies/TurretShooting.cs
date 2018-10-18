@@ -6,19 +6,20 @@ public class TurretShooting : MonoBehaviour {
 
 	public GameObject target;
 	private Vector3 initialScale;
-	private Vector3 reverseScale;
 	public bool isActive = false;
 	private float distance;
-	public float fireRange = 5;
 	private float turnSpeed = 0.01f;
 	public float fireRate = 1f;
 	public GameObject Bullet;
 	public Transform FireFrom;
+	public float minAngle;
+	public float maxAngle;
+	private float angle;
+	public int shootCount;
 
 	// Use this for initialization
 	void Start () {
 		initialScale = transform.localScale;
-		reverseScale = new Vector3(initialScale.x, -initialScale.y, initialScale.z);
 		Debug.Log("turret");
 	}
 	
@@ -28,25 +29,22 @@ public class TurretShooting : MonoBehaviour {
 		if(isActive){
 
 			//--get angle towards target
-			var angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
+			angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
+
+			// Debug.Log("angle = "+angle);
 
 			//--rotate towards target
-	 		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle), Time.time * turnSpeed);
-
- 			//--flip if on other side
-	 		// if(angle > 90 || angle < -90){
-				// transform.localScale = reverseScale;
-	 		// } else {
-	 		// 	transform.localScale = initialScale;
-	 		// }
-
+			if((angle >= minAngle) && (angle <= maxAngle)){
+				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, angle), Time.time * turnSpeed);
+			}
+	 		
 	 		// distance = Vector2.Distance(transform.position, target.transform.position);
 
 
 	 	} else {
 	 		CancelInvoke("Shoot");
 	 		target = null;
-	 		// Debug.Log("cancel shoot");
+	 		Debug.Log("cancel shoot");
 	 	}
 
 	}
@@ -56,7 +54,7 @@ public class TurretShooting : MonoBehaviour {
 
 		if(isActive == false){
 			Debug.Log("turret ready to shoot");
-			if (other.transform.parent.tag == "Player"){
+			if (other.transform.name == "PlayerCollider"){
 				
 				isActive = true;
 				target = other.transform.parent.gameObject;
@@ -70,16 +68,26 @@ public class TurretShooting : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other) {
 		Debug.Log("trogger exit");
 
-		if(isActive == true){
-			if (other == target){
-				isActive = false;
-			}
+		if(isActive == true && other == target){
+			Debug.Log("deactivate turret");
+			isActive = false;
 		}
 	}
 
 	void Shoot(){
-		Debug.Log("New bullet");
-		Instantiate(Bullet, FireFrom.position, FireFrom.rotation);
+
+		Debug.Log("attempt shoot");
+
+		if(target.activeSelf){
+			shootCount++;
+			GameObject newBullet = Instantiate(Bullet, FireFrom.position, FireFrom.rotation);
+			newBullet.transform.GetComponent<EnemyBullet>().Owner = gameObject;
+			Debug.Log("New bullet "+shootCount+", fired at angle = "+angle);
+
+		} else {
+			isActive = false;
+		}
+		
 	}
 
 }

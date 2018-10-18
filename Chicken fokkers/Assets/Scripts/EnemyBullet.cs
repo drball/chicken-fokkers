@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour {
 
 	public GameObject Owner;
-	private float speed = 100f;
+	private float speed = 200f;
 	public Renderer rend;
 	public Rigidbody2D rb;
 	public GameObject Explosion;

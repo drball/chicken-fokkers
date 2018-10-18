@@ -40,17 +40,13 @@ public class TurretShooting : MonoBehaviour {
 	 		// 	transform.localScale = initialScale;
 	 		// }
 
-	 		distance = Vector2.Distance(transform.position, target.transform.position);
+	 		// distance = Vector2.Distance(transform.position, target.transform.position);
 
-	 		if (distance > fireRange){
-	 			//--target is too far
-	 			target = null;
-	 			isActive = false;
-	 		}
 
 	 	} else {
 	 		CancelInvoke("Shoot");
 	 		target = null;
+	 		// Debug.Log("cancel shoot");
 	 	}
 
 	}
@@ -61,9 +57,10 @@ public class TurretShooting : MonoBehaviour {
 		if(isActive == false){
 			Debug.Log("turret ready to shoot");
 			if (other.transform.parent.tag == "Player"){
-				Debug.Log("turret has targetted the player1");
+				
 				isActive = true;
 				target = other.transform.parent.gameObject;
+				Debug.Log("tbc turret has targetted "+target.name);
 				
 				InvokeRepeating("Shoot", fireRate, 1);
 			}

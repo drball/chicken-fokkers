@@ -92,6 +92,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1478248529475088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4230530528887552}
+  - component: {fileID: 114850230583279704}
+  - component: {fileID: 61521645382646372}
+  m_Layer: 12
+  m_Name: Gun turret
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1748474345298764
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,15 +162,13 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1952874159263770
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4819770705739060}
-  - component: {fileID: 58000963196998422}
-  - component: {fileID: 114161013980743770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Turret muzzle rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +217,7 @@ Transform:
   - {fileID: 4386761916593382}
   - {fileID: 4854230828912326}
   - {fileID: 4202045884019144}
-  - {fileID: 4819770705739060}
+  - {fileID: 4230530528887552}
   - {fileID: 4574614504642214}
   - {fileID: 4724396871820282}
   - {fileID: 4393189871345348}
@@ -222,19 +237,33 @@ Transform:
   m_Father: {fileID: 4126176462109662}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4230530528887552
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478248529475088}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9999619, w: -0.008726464}
+  m_LocalPosition: {x: 0.15999985, y: 0.831, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4819770705739060}
+  m_Father: {fileID: 4126176462109662}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4269661109360538
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1140669832437972}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710707, w: -0.7071066}
-  m_LocalPosition: {x: 1.197, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.217, y: 0.008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4819770705739060}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!4 &4386761916593382
 Transform:
   m_ObjectHideFlags: 1
@@ -293,15 +322,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952874159263770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: 0.831, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4117637815347440}
   - {fileID: 4269661109360538}
-  m_Father: {fileID: 4126176462109662}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 4230530528887552}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 181}
 --- !u!4 &4854230828912326
 Transform:
   m_ObjectHideFlags: 1
@@ -315,21 +344,6 @@ Transform:
   m_Father: {fileID: 4126176462109662}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58000963196998422
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952874159263770}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.038223743, y: 0}
-  serializedVersion: 2
-  m_Radius: 7.6873803
 --- !u!60 &60533493122645676
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -384,6 +398,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 2.8829842, y: 4.2336397}
+  m_EdgeRadius: 0
+--- !u!61 &61521645382646372
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478248529475088}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.954342, y: -0.24571204}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.908684, y: 8.7933235}
   m_EdgeRadius: 0
 --- !u!82 &82464739312509946
 AudioSource:
@@ -480,23 +519,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114161013980743770
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952874159263770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6722d91b1144147c3a6f0a8c955b2323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  isActive: 0
-  fireRange: 5
-  fireRate: 1
-  Bullet: {fileID: 1987139757378726, guid: de89ade7fbcf04c24b004463dd14dfd7, type: 2}
-  FireFrom: {fileID: 4269661109360538}
 --- !u!114 &114328653168825074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,6 +550,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 1
+--- !u!114 &114850230583279704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478248529475088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6722d91b1144147c3a6f0a8c955b2323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  Rotator: {fileID: 1952874159263770}
+  isActive: 0
+  turnSpeed: 0.02
+  fireRate: 0.1
+  Bullet: {fileID: 1987139757378726, guid: de89ade7fbcf04c24b004463dd14dfd7, type: 2}
+  FireFrom: {fileID: 4269661109360538}
+  minAngle: 90
+  maxAngle: 300
 --- !u!198 &198143531655010162
 ParticleSystem:
   m_ObjectHideFlags: 1

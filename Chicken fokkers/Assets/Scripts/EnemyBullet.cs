@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour {
 
-	public GameObject Owner;
 	private float speed = 200f;
 	public Rigidbody2D rb;
 	public GameObject Explosion;
@@ -13,10 +12,7 @@ public class EnemyBullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log("create new bullet "+Owner.transform.GetComponent<TurretShooting>().shootCount);
-
 		rb.AddForce(transform.up * speed);
-
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
@@ -33,7 +29,7 @@ public class EnemyBullet : MonoBehaviour {
 
             	Destroy(gameObject);
     		} 
-		} else if (other.tag == "Enemy" && (other.transform.parent.name != Owner.name)){
+		} else if (other.tag == "Enemy"){
 			// Instantiate(GroundExplosion, transform.position, transform.rotation);
 			// Debug.Log("Bullet hit ebemy");
 			Instantiate(Explosion, transform.position, transform.rotation);

@@ -1779,7 +1779,7 @@ Transform:
   m_LocalScale: {x: -0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1740283523}
-  - {fileID: 704391570}
+  - {fileID: 2044572170}
   - {fileID: 2144813767}
   - {fileID: 777783959}
   - {fileID: 490747311}
@@ -2661,6 +2661,7 @@ GameObject:
   - component: {fileID: 490747311}
   - component: {fileID: 490747313}
   - component: {fileID: 490747312}
+  - component: {fileID: 490747315}
   m_Layer: 12
   m_Name: Chicken turret container
   m_TagString: Untagged
@@ -2721,12 +2722,30 @@ MonoBehaviour:
   target: {fileID: 0}
   Rotator: {fileID: 1845151412}
   isActive: 0
-  turnSpeed: 0.1
+  turnSpeed: 0.01
   fireRate: 1
   Bullet: {fileID: 1987139757378726, guid: de89ade7fbcf04c24b004463dd14dfd7, type: 2}
   FireFrom: {fileID: 352956527}
-  minAngle: 90
-  maxAngle: 300
+  minAngle: 110
+  maxAngle: 290
+  initialAngle: 200
+--- !u!114 &490747315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490747310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e24bc69cc2942bf87534395d8bc4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  Rotator: {fileID: 2044572169}
+  isActive: 0
+  turnSpeed: 0.01
+  minAngle: 110
+  maxAngle: 290
 --- !u!1 &491762590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,13 +3901,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 704391569}
-  m_LocalRotation: {x: -0, y: -0, z: -0.018982325, w: 0.9998198}
-  m_LocalPosition: {x: 0.08700013, y: 0.324, z: -0.004704561}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.000000119209275}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 367923104}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.1750002}
+  m_Father: {fileID: 2044572170}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 179.99998}
 --- !u!212 &704391571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4357,7 +4376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &827336812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7115,6 +7134,47 @@ Prefab:
     - target: {fileID: 1952874159263770, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819770705739060, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819770705739060, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819770705739060, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819770705739060, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230530528887552, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230530528887552, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230530528887552, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230530528887552, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230530528887552, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 114850230583279704, guid: 4dea8790fcd72498f9700737efc38a24,
+        type: 2}
+      propertyPath: initialAngle
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dea8790fcd72498f9700737efc38a24, type: 2}
@@ -11019,6 +11079,35 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ce05988fa874db9ae53b0767223ce6, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2044572169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044572170}
+  m_Layer: 0
+  m_Name: Chicken head rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044572170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044572169}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9848078, w: 0.17364825}
+  m_LocalPosition: {x: 0.066, y: 0.277, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 704391570}
+  m_Father: {fileID: 367923104}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 160}
 --- !u!1001 &2100890384
 Prefab:
   m_ObjectHideFlags: 0

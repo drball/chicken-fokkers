@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - PlayerWheel
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

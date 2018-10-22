@@ -20,14 +20,18 @@ public class BlinkThenRemove : MonoBehaviour {
 
     IEnumerator Blink(){
     	Hide();
-    	yield return new WaitForSeconds(0.04f);
+    	yield return new WaitForSeconds(0.05f);
     	Show();
-    	yield return new WaitForSeconds(0.04f);
+    	yield return new WaitForSeconds(0.05f);
     	Hide();
-    	yield return new WaitForSeconds(0.04f);
+    	yield return new WaitForSeconds(0.05f);
     	Show();
-    	yield return new WaitForSeconds(0.04f);
+    	yield return new WaitForSeconds(0.05f);
     	Hide();
+        yield return new WaitForSeconds(0.05f);
+        Show();
+        yield return new WaitForSeconds(0.05f);
+        Hide();
     	Destroy(gameObject);
     }
 

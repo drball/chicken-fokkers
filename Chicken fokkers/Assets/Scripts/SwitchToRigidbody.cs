@@ -7,33 +7,33 @@ public class SwitchToRigidbody : MonoBehaviour {
 	public bool alive = true;
 	public GameObject InitialObj; //-- the initial object
 	public GameObject SwitchTo; //--the object we'll switch to
-    private GameObject SwitchToRb;
-	private Vector2 force;
+    public Rigidbody2D SwitchToRb;
+	private Vector2 forceAmt;
 
 	// Use this for initialization
 	void Start () {
 		InitialObj.SetActive(true);
         SwitchTo.SetActive(false);
-        SwitchToRb = GetComponent<Rigidbody>();
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		Debug.Log("other = "+other.name);
+		Debug.Log(other.name+" hit"+gameObject.name);
+
         if(alive == true){
 
-            if (gameObject.tag != "Player" || other.tag == "Bullet" && alive == true){
+            if (other.gameObject.tag == "PlayerCollider" || other.gameObject.tag == "PlayerWheel"){
 
                 InitialObj.SetActive(false);
                 SwitchTo.SetActive(true);
                 alive = false;
 
-                Vector2 otherVelocity = other.GetComponent<Rigidbody2D>().velocity;
+                Vector2 otherVelocity = other.transform.parent.GetComponent<Rigidbody2D>().velocity;
 
                 Debug.Log("collided with "+other.name+" mag = "+otherVelocity.magnitude);
 
-                if(alive && otherVelocity.magnitude > 1){
-                    force = otherVelocity * 17;
+                if(otherVelocity.magnitude > 1){
+                    forceAmt = otherVelocity * 17;
                     SwitchToRb.AddForce(forceAmt, ForceMode2D.Impulse);
                 }
             }

@@ -113,13 +113,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4628889711702700}
+  - component: {fileID: 114445700913037082}
   m_Layer: 0
   m_Name: Chicken ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1587540692723030
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +762,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.04565269, y: 0.12325869}
   m_EdgeRadius: 0
+--- !u!114 &114445700913037082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1537567593633154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aeed68a80f504633a0306bf51bf702d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 2.5
+  childRends: []
 --- !u!212 &212015798323903222
 SpriteRenderer:
   m_ObjectHideFlags: 1

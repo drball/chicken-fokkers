@@ -10,8 +10,14 @@ public class BlinkThenRemove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		childRends = GetComponentsInChildren<Renderer>( ) as Renderer[];
-		Invoke("StartFlashing", delay);
+        Debug.Log("telegraph start");
+		
 	}
+
+    void OnEnable(){
+        Debug.Log("telegraph pole is enabled");
+        Invoke("StartFlashing", delay);
+    }
 	
     void StartFlashing(){
     	Debug.Log("start flashing");

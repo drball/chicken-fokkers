@@ -66,17 +66,16 @@ public class TurretShooting : MonoBehaviour {
 
 	void Shoot(){
 
-		Debug.Log("attempt shoot");
+		// Debug.Log("attempt shoot");
+		if(target){
+			if(target.activeSelf){
+				GameObject newBullet = Instantiate(Bullet, FireFrom.position, FireFrom.rotation);
+				// Debug.Log("New bullet from "+transform.name+", fired at angle = "+angle);
 
-		if(target.activeSelf){
-			GameObject newBullet = Instantiate(Bullet, FireFrom.position, FireFrom.rotation);
-			Debug.Log("New bullet from "+transform.name+", fired at angle = "+angle);
-
-		} else {
-			isActive = false;
-			target = null;
+			} else {
+				isActive = false;
+				target = null;
+			}
 		}
-		
 	}
-
 }

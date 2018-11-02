@@ -2,28 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDamageController : MonoBehaviour {
+public class EnemyRagdollDamageController : MonoBehaviour {
 
-	public SpriteRenderer[] Rends;
-	public ParticleSystem InjuredSmoke;
+	public SpriteRenderer[] Rends; //--anything that changes colour when hit
 	public int health;
 	private int initialHealth;
 	public GameObject Explode;
+	public SwitchToRigidbody SwitchToRigidbodyScript;
+	
 
-
+	// Use this for initialization
 	void Start () {
-		InjuredSmoke.Stop();
 		initialHealth = health;
 		ResetColour();
-		Explode.SetActive(false);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void HitByBullet(){
+		Debug.Log("chicken hit by bullet. health = "+health);
 
 		// Debug.Log("hot by bullet called");
 		if(health > 0) {
@@ -39,9 +34,6 @@ public class EnemyDamageController : MonoBehaviour {
 
 			if(health <= 0 ){
 				Die();
-
-			} else if ((health <= (initialHealth/2f)) && (health > 0)){
-				InjuredSmoke.Play();
 			} 
 		}
 	}
@@ -53,23 +45,10 @@ public class EnemyDamageController : MonoBehaviour {
 	}
 
 	void Die(){
-		Debug.Log("turret die!");
-		InjuredSmoke.Stop();
+		Debug.Log("chicken die!");
 		Explode.SetActive(true);
 		Explode.transform.parent = null;
-		Invoke("HideVfx", 0.25f);
-		Invoke("RemoveAfterDeath",1f);
-	}
-
-	void HideVfx(){
-		Debug.Log("turret hide vfx");
-		foreach(SpriteRenderer Rend in Rends){
-			Rend.enabled = false;
-		}
-	}
-
-	void RemoveAfterDeath(){
-		Destroy(Explode);
-		Destroy(gameObject);
+		SwitchToRigidbodyScript.SwitchAndPush(new Vector2(0,0));
 	}
 }
+

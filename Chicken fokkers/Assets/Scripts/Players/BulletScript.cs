@@ -49,6 +49,13 @@ public class BulletScript : MonoBehaviour {
 
         	if(other.GetComponent<EnemyDamageController>()){
         		other.GetComponent<EnemyDamageController>().HitByBullet();
+        		return;
+        	}
+
+        	if(other.GetComponent<EnemyRagdollDamageController>()){
+        		Debug.Log("bullet has hit chicken");
+        		other.GetComponent<EnemyRagdollDamageController>().HitByBullet();
+        		return;
         	}
 
         } else if (other.tag == "Ground"){

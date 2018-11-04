@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		//--check if on autopilot - if not, fall
 		if(autoPilot){
-			upForce = defaultUpForce + upSpeed/1.85f;
+			upForce = defaultUpForce + upSpeed/2.1f;
 		} 
 
 		rb.AddForce(new Vector2((speed * dir), upForce));

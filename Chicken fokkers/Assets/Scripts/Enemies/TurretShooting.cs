@@ -59,8 +59,7 @@ public class TurretShooting : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other) {
 		if(isActive == true && other.transform.parent.name == target.name){
-			Debug.Log("deactivate turret "+transform.name);
-			isActive = false;
+			DisableShooting();
 		}
 	}
 
@@ -73,9 +72,16 @@ public class TurretShooting : MonoBehaviour {
 				// Debug.Log("New bullet from "+transform.name+", fired at angle = "+angle);
 
 			} else {
-				isActive = false;
-				target = null;
+				DisableShooting();
 			}
 		}
+	}
+
+	public void DisableShooting(){
+		//--also called by enemyDamageController 
+		Debug.Log("deactivate turret "+transform.name);
+		isActive = false;
+		CancelInvoke("Shoot");
+		target = null;
 	}
 }

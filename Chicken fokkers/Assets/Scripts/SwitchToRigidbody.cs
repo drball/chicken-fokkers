@@ -9,6 +9,7 @@ public class SwitchToRigidbody : MonoBehaviour {
 	public GameObject SwitchTo; //--the object we'll switch to
     public Rigidbody2D SwitchToRb;
 	private Vector2 forceAmt;
+    public EnemyRagdollDamageController DamageController;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class SwitchToRigidbody : MonoBehaviour {
                 Vector2 otherVelocity = other.transform.parent.GetComponent<Rigidbody2D>().velocity;
                 Debug.Log("collided with "+other.name+" mag = "+otherVelocity.magnitude);
                 SwitchAndPush(otherVelocity);
+                DamageController.Die();
             }
         }
     }
@@ -37,7 +39,7 @@ public class SwitchToRigidbody : MonoBehaviour {
         alive = false;
 
         if(velocity.magnitude > 1){
-            forceAmt = velocity * 17;
+            forceAmt = velocity * 15;
             SwitchToRb.AddForce(forceAmt, ForceMode2D.Impulse);
         }
     }

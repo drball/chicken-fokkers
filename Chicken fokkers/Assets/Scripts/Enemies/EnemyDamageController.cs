@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyDamageController : MonoBehaviour {
 
-	public SpriteRenderer[] Rends;
+	public SpriteRenderer[] Rends; //--for colour change
 	public ParticleSystem InjuredSmoke;
 	public int health;
 	private int initialHealth;
 	public GameObject Explode;
+	public GameObject AliveObj;
+	public GameObject DeadObj;
+	public TurretShooting TurretShootingScript; //--for disabling shooting
+	public PolygonCollider2D EnemyCollider; //--for disabling when enemy is dead
 
 
 	void Start () {
@@ -16,11 +20,7 @@ public class EnemyDamageController : MonoBehaviour {
 		initialHealth = health;
 		ResetColour();
 		Explode.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		DeadObj.SetActive(false);
 	}
 
 	public void HitByBullet(){
@@ -57,19 +57,10 @@ public class EnemyDamageController : MonoBehaviour {
 		InjuredSmoke.Stop();
 		Explode.SetActive(true);
 		Explode.transform.parent = null;
-		Invoke("HideVfx", 0.25f);
-		Invoke("RemoveAfterDeath",1f);
-	}
-
-	void HideVfx(){
-		Debug.Log("turret hide vfx");
-		foreach(SpriteRenderer Rend in Rends){
-			Rend.enabled = false;
-		}
-	}
-
-	void RemoveAfterDeath(){
-		Destroy(Explode);
-		Destroy(gameObject);
+		AliveObj.SetActive(false);
+		DeadObj.SetActive(true);
+		EnemyCollider.enabled = false;
+		Destroy(Explode,1f);
+		TurretShootingScript.DisableShooting();
 	}
 }

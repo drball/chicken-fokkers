@@ -9,12 +9,15 @@ public class EnemyRagdollDamageController : MonoBehaviour {
 	private int initialHealth;
 	public GameObject Explode;
 	public SwitchToRigidbody SwitchToRigidbodyScript;
+	public TurretShooting ShootingScript; //--for disabling shooting
+	public CapsuleCollider2D Collider; //--for disabling when enemy is dead
 	
 
 	// Use this for initialization
 	void Start () {
 		initialHealth = health;
 		ResetColour();
+		Explode.SetActive(false);
 	}
 	
 	public void HitByBullet(){
@@ -44,11 +47,14 @@ public class EnemyRagdollDamageController : MonoBehaviour {
 		}
 	}
 
-	void Die(){
+	public void Die(){
 		Debug.Log("chicken die!");
 		Explode.SetActive(true);
 		Explode.transform.parent = null;
-		SwitchToRigidbodyScript.SwitchAndPush(new Vector2(0,0));
+		SwitchToRigidbodyScript.SwitchAndPush(new Vector2(1,0.2f));
+		Collider.enabled = false;
+		ShootingScript.DisableShooting();
+		Debug.Log("shootingscript = "+ShootingScript.isActive);
 	}
 }
 

@@ -11,6 +11,7 @@ public class GameControllerStory : GameController {
 		Debug.Log("DIED!");
 		ScoreModal.SetActive(true);
 		progressBar.value = 0.2f;
+		PlayAgainBtn.SetActive(true);
 	}
 }
 

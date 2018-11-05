@@ -2,39 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//--used for stalactite
+
 public class SwitchWhenHit : MonoBehaviour {
 
 	public bool alive = true;
 	public GameObject InitialObj; //-- the initial object
 	public GameObject SwitchTo; //--the object we'll switch to
-	private Vector2 force;
+    public PolygonCollider2D Collider; //--for disabling when enemy is dead
 
 	// Use this for initialization
 	void Start () {
-		
+        InitialObj.SetActive(true);
+		SwitchTo.SetActive(false);
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		// Debug.Log("other = "+other.name);
+		Debug.Log("stalac hit. other = "+other.name);
 
-        if (gameObject.tag != "Player" || other.tag == "Bullet"){
-
-            Vector2 otherVelocity = other.GetComponent<Rigidbody2D>().velocity;
-
-            Debug.Log("collided with "+other.name+" mag = "+otherVelocity.magnitude);
-
-            if(alive && otherVelocity.magnitude > 1){
-            	force = otherVelocity * 17;
-            }
-
+        if (other.tag == "PlayerCollider" || other.tag == "Bullet"){
+            alive = false;
             InitialObj.SetActive(false);
             SwitchTo.SetActive(true);
-            
-
-            // if(other.GetComponent<BulletScript>()){
-            // 	other.GetComponent<BulletScript>().HitPlayer();	
-            // }
+            Collider.enabled = false;
         }
+
     }
 }

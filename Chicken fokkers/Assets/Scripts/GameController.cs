@@ -50,15 +50,13 @@ public class GameController : MonoBehaviour {
 		//--each player has it's own reset function
 		Player1Controller.ResetPlayer();
 		// Player2Controller.ResetPlayer();
-
-
 	}
 
 	void EndGame(){
 		//--a game consists of 3 rounds, best of 3
 	}
 
-	public void PlayerHasDied(){
+	public virtual void PlayerHasDied(){
 		EndRoundCountdown();
 	} 
 
@@ -140,7 +138,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-
 
 		if(Input.GetKey("a")){
 			// Player1Controller.Die();

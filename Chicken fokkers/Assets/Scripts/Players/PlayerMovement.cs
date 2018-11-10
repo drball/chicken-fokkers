@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 	    	}
     	} else {
     		//--start wherever it is
+    		Debug.Log("move to start 1");
     	}
 
     	//--cancel their velocity

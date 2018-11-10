@@ -19,7 +19,7 @@ public class MenuScript : MonoBehaviour {
 		//--show loading panel because there's a delay
 		LoadingPanel.SetActive(true);
 		// Debug.Log("hello");
-		Application.LoadLevel("main");
+		Application.LoadLevel("duel");
 	}
 
 	public void RateBtnPressed(){

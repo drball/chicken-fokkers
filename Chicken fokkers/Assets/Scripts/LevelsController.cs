@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LevelsController : MonoBehaviour {
 
-	public string currentLevel = "main";
+	public string currentLevel = "duel";
 	public GameObject LoadingDialog; 
 
 	void Awake () {

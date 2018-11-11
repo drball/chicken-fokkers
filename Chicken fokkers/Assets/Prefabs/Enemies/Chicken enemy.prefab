@@ -180,7 +180,7 @@ GameObject:
   m_Layer: 0
   m_Name: Chicken enemy
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1400,11 +1400,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rends: []
-  health: 3
+  health: 1
   Explode: {fileID: 1408274477120488}
   SwitchToRigidbodyScript: {fileID: 114119238908977834}
   ShootingScript: {fileID: 114139747405171428}
   Collider: {fileID: 70098319630347162}
+  Bounds: {fileID: 1504607717525750}
 --- !u!114 &114605871560070804
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -11,7 +11,7 @@ public class EnemyRagdollDamageController : MonoBehaviour {
 	public SwitchToRigidbody SwitchToRigidbodyScript;
 	public TurretShooting ShootingScript; //--for disabling shooting
 	public CapsuleCollider2D Collider; //--for disabling when enemy is dead
-	
+	public GameObject Bounds; //--to remove these when dead
 
 	// Use this for initialization
 	void Start () {
@@ -55,6 +55,7 @@ public class EnemyRagdollDamageController : MonoBehaviour {
 		Collider.enabled = false;
 		ShootingScript.DisableShooting();
 		Debug.Log("shootingscript = "+ShootingScript.isActive);
+		Bounds.SetActive(false);
 	}
 }
 

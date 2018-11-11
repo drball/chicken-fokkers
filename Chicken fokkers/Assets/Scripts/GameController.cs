@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour {
 
 		//--each player has it's own reset function
 		Player1Controller.ResetPlayer();
-		// Player2Controller.ResetPlayer();
+		Player2Controller.ResetPlayer();
 	}
 
 	void EndGame(){

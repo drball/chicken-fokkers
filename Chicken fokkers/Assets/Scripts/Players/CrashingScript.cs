@@ -48,7 +48,7 @@ public class CrashingScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 
         if (other.tag == "Ground"){
-			Debug.Log("crashed to ground");
+			// Debug.Log("crashed to ground");
 
 			Instantiate(Explosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 

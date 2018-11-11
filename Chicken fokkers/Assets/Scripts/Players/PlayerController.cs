@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 	public void ResetPlayer(){
 
 		//--called when the round begins again - also on the 1st round
+		Debug.Log("Reset "+transform.name);
 		
 		alive = true;
 		gameObject.SetActive(true);
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void CancelAutopilot(){
-		Debug.Log("cancel autopilot");
+		Debug.Log("cancel autopilot "+transform.name);
 		PlayerMovement.autoPilot = false;
 	}
 

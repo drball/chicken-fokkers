@@ -60,12 +60,28 @@ public class DamageController : MonoBehaviour {
 	        if (other.tag == "PlayerCollider" /*&& (other.transform.parent.name != Owner.name)*/){
 				Debug.Log("head on collision!!!!!");
 
-				float otherHealth = other.transform.parent.GetComponent<PlayerController>().health;
+				PlayerController OtherPlayerController = other.transform.parent.GetComponent<PlayerController>();
+				float otherHealth = OtherPlayerController.health;
 
-				if(PlayerController.health <= otherHealth ){
+				if(PlayerController.health < otherHealth ){
+					//--this player dies if has less health than other 
+					Debug.Log(transform.name+"dies");
 					PlayerController.health = 0;
 					UpdateHealthBar();
 					PlayerController.Die();
+				} else if (PlayerController.health == otherHealth){
+					//--both players have equal health - choose a random one to die 
+					Debug.Log("both players equal, choosing random death");
+					bool rand = (Random.value > 0.5f);//--random 0/1
+					if(rand == true){
+					    PlayerController.health = 0;
+						UpdateHealthBar();
+						PlayerController.Die();
+					} else {
+					    OtherPlayerController.health = 0;
+					    other.GetComponent<DamageController>().UpdateHealthBar();
+					    OtherPlayerController.Die();
+					}
 				}
 				
 	        } else if(other.tag == "Ground"){

@@ -2039,6 +2039,7 @@ MonoBehaviour:
   autoPilot: 1
   hasMoved: 0
   Instruction: {fileID: 227608158}
+  PlayerResetAtEdge: {fileID: 1081458017}
 --- !u!50 &1081458013
 Rigidbody2D:
   serializedVersion: 4
@@ -2213,6 +2214,7 @@ MonoBehaviour:
   alive: 1
   score: 0
   health: 30
+  singlePlayer: 0
   DeathExplosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339,
     type: 2}
   GameController: {fileID: 1254232638}
@@ -2299,6 +2301,7 @@ MonoBehaviour:
   autoPilot: 1
   hasMoved: 0
   Instruction: {fileID: 538023824}
+  PlayerResetAtEdge: {fileID: 1125448641}
 --- !u!114 &1125448638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,6 +2316,7 @@ MonoBehaviour:
   alive: 1
   score: 0
   health: 30
+  singlePlayer: 0
   DeathExplosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339,
     type: 2}
   GameController: {fileID: 1254232638}
@@ -2697,7 +2701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00033569336, y: -0.0003824234}
+  m_AnchoredPosition: {x: 0.00033569336, y: -0.00038146973}
   m_SizeDelta: {x: -0.00054932, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208051743
@@ -2846,6 +2850,7 @@ MonoBehaviour:
   RightPressed: 0
   LBtn: {fileID: 1180052857}
   RBtn: {fileID: 1595972797}
+  showButtons: 1
 --- !u!4 &1254232637
 Transform:
   m_ObjectHideFlags: 0
@@ -2873,7 +2878,6 @@ MonoBehaviour:
   Player1Controller: {fileID: 1081458018}
   Player2Controller: {fileID: 1125448638}
   leftEdge: 0
-  rightEdge: 900
   roundActive: 0
   ScoreModal: {fileID: 359757}
   PlayAgainBtn: {fileID: 295262922}
@@ -2928,7 +2932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.00002}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00021362305, y: 0.00041294098}
+  m_AnchoredPosition: {x: 0.00021362305, y: 0.0004119873}
   m_SizeDelta: {x: 0.00036621, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1279301449

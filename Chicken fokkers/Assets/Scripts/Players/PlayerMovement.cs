@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
     private float topConstraint;
     public bool hasMoved = false;
     public GameObject Instruction;
-    private PlayerResetAtEdge PlayerResetAtEdge;
+    public PlayerResetAtEdge PlayerResetAtEdge;
 	private float upForce;
 
 	// Use this for initialization
@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour {
     	} else {
     		//--start wherever it is
     		Debug.Log("move to start 1");
+    		transform.position = new Vector3(startPosX,startPosY,0);
     	}
 
     	//--cancel their velocity

@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// using System.Collections;
+// using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyDamageController : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class EnemyDamageController : MonoBehaviour {
 	public GameObject DeadObj;
 	public TurretShooting TurretShootingScript; //--for disabling shooting
 	public PolygonCollider2D EnemyCollider; //--for disabling when enemy is dead
+	public Slider HealthBar;
+	public GameObject HealthBarObj;
 
 
 	void Start () {
@@ -21,6 +24,7 @@ public class EnemyDamageController : MonoBehaviour {
 		ResetColour();
 		Explode.SetActive(false);
 		DeadObj.SetActive(false);
+		HealthBar.value = 1;
 	}
 
 	public void HitByBullet(){
@@ -43,6 +47,14 @@ public class EnemyDamageController : MonoBehaviour {
 			} else if ((health <= (initialHealth/2f)) && (health > 0)){
 				InjuredSmoke.Play();
 			} 
+
+			Debug.Log("health = "+health + ". initial = "+initialHealth);
+			
+			float newHealthBarValue = (float)health / (float)initialHealth;
+
+			Debug.Log("new healthbar = "+newHealthBarValue);
+
+			HealthBar.value = newHealthBarValue;
 		}
 	}
 
@@ -62,5 +74,6 @@ public class EnemyDamageController : MonoBehaviour {
 		EnemyCollider.enabled = false;
 		Destroy(Explode,1f);
 		TurretShootingScript.DisableShooting();
+		HealthBarObj.SetActive(false);
 	}
 }

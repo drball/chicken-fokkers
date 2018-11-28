@@ -19,11 +19,11 @@ public class SwitchToRigidbody : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
-		// Debug.Log(other.name+" hit"+gameObject.name);
+		Debug.Log(other.name+" hit"+gameObject.name);
 
         if(alive == true){
 
-            if (other.gameObject.tag == "PlayerCollider" || other.gameObject.tag == "PlayerWheel"){
+            if (other.gameObject.tag == "PlayerCollider" || other.gameObject.tag == "PlayerWheel" || other.gameObject.tag == "DynamicLand"){
 
                 Vector2 otherVelocity = other.transform.parent.GetComponent<Rigidbody2D>().velocity;
                 Debug.Log("collided with "+other.name+" mag = "+otherVelocity.magnitude);

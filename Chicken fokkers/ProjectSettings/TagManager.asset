@@ -11,6 +11,7 @@ TagManager:
   - PlayerWheel
   - Enemy
   - Bullet
+  - DynamicLand
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - PlayerBounds
   - PlayerDetector
   - EnemyPlayerDetector
-  - Dynamic land (rocks)
+  - 
   - 
   - 
   - 

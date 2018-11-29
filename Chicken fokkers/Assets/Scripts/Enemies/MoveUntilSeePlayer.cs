@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//--script has to be on same obj as trigger collider
+
 public class MoveUntilSeePlayer : MonoBehaviour {
 
 	public float moveSpeed = 1f;

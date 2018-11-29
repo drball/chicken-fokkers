@@ -18,12 +18,11 @@ public class GameController : MonoBehaviour {
 	public LevelsController LevelsController;
 	public AdvertsController AdvertsController;
 	public GameObject Countdown;
-
 	private int winningScore = 5;
 	
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 
 		Debug.Log("start gamecontroller normal");
 
@@ -129,7 +128,10 @@ public class GameController : MonoBehaviour {
 		Reset();
 		
 		Player1Controller.score = 0;
-		Player2Controller.score = 0;
+
+		if(Player2Controller){
+			Player2Controller.score = 0;
+		}
 		
 		// //--reset the text boxes
 		Debug.Log("reset text values");
@@ -140,11 +142,14 @@ public class GameController : MonoBehaviour {
 		LevelsController.LoadSelectedLevel();
 	}
 
+
 	void FixedUpdate () {
 
 		if(Input.GetKey("a")){
 			// Player1Controller.Die();
 			Player1Controller.StartAutopilot();
-		}
+		} else if (Input.GetKey("w")) {
+			winningScore = 1;
+		} 
 	}
 }

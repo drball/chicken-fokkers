@@ -28,7 +28,11 @@ public class SwitchToRigidbody : MonoBehaviour {
                 Vector2 otherVelocity = other.transform.parent.GetComponent<Rigidbody2D>().velocity;
                 Debug.Log("collided with "+other.name+" mag = "+otherVelocity.magnitude);
                 SwitchAndPush(otherVelocity);
-                DamageController.Die();
+
+                if(DamageController){
+                    //--telegraphpoles don't have a damage controller
+                    DamageController.Die();
+                }
             }
         }
     }

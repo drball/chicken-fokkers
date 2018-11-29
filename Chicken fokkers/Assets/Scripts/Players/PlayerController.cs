@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 		DetachableWheelScript.Reset();
 		PlayerAbility.ResetAbility();
 		PlayerMovement.MoveToStartPos();
-		PlayerMovement.autoPilot = true;
+		StartAutopilot();
 		
 	}
 
@@ -87,6 +87,5 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKey("a")){
 			StartAutopilot();
 		}
-
 	}
 }

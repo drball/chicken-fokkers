@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour {
 
+	public GameObject targetPos;
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	void LateUpdate () {
-         // transform.position = targetPos.position + offset; 
-         transform.LookAt(-Camera.main.transform.position);
+         // transform.LookAt(targetPos.transform.position); 
+         transform.LookAt(Camera.main.transform.position);
      }
 }

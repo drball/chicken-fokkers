@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour {
     public GameObject Instruction;
     public PlayerResetAtEdge PlayerResetAtEdge;
 	private float upForce;
+	public GameObject PlayerStartPos;
+	public GameObject GoalObj; //--for cheating
 
 	// Use this for initialization
 	void Start () {
@@ -55,8 +57,11 @@ public class PlayerMovement : MonoBehaviour {
 	    		startPosX = PlayerResetAtEdge.leftConstraint;
 	    		transform.position = new Vector3(startPosX,startPosY,0);
 	    	}
+
+    	} else if (PlayerStartPos.activeSelf){
+    		transform.position = new Vector3(startPosX,startPosY,0);
     	} else {
-    		//--start wherever it is
+    		//--start where it is
     		Debug.Log("move to start 1");
     	}
 
@@ -129,5 +134,11 @@ public class PlayerMovement : MonoBehaviour {
     			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     		}
      	}
+
+     	if(Input.GetKey("m")){
+			//-- move to end (cheat)
+			transform.position = new Vector3(GoalObj.transform.position.x,GoalObj.transform.position.y,transform.position.z);
+		}
 	}
+
 }

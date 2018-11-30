@@ -59,11 +59,12 @@ public class LevelsController : MonoBehaviour {
 	}
 
 	public void LoadMenu(){
+		//--go to menu screen
 		Application.LoadLevel("menu");
 	}
 
 	void Update () {
-
+		//--go to menu on escape
 		if(Input.GetKeyDown(KeyCode.Escape) == true) {
 			LoadMenu();
 		}

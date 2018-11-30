@@ -15,15 +15,22 @@ public class MenuScript : MonoBehaviour {
 		MoreGamesPanel.SetActive(false);
 	}
 	
-	void StartGame(){
+	void StartDuelGame(){
 		//--show loading panel because there's a delay
 		LoadingPanel.SetActive(true);
 		// Debug.Log("hello");
 		Application.LoadLevel("duel");
 	}
 
+	void StartStoryGame(){
+		//--show loading panel because there's a delay
+		LoadingPanel.SetActive(true);
+		Debug.Log("starting story game");
+		Application.LoadLevel("levelSelect");
+	}
+
 	public void RateBtnPressed(){
-		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.ChickenFokkers");
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.ChickenFokkers&referrer=utm_source%3Dingame%26utm_medium%3Dingamelink%26utm_campaign%3Dingamelink");
 	}
 
 	public void TwitterBtnPressed(){
@@ -58,8 +65,12 @@ public class MenuScript : MonoBehaviour {
 		Application.OpenURL("https://play.google.com/store/apps/details?id=com.DavidDickBall.EscapeTheSector&referrer=utm_source%3Dinapp%26utm_medium%3Dlink%26utm_campaign%3Dfokker");
 	}
 
-	public void PlayBtnPressed(){
-		StartGame();
+	public void PlayDuelBtnPressed(){
+		StartDuelGame();
+	}
+
+	public void PlayStoryBtnPressed(){
+		StartStoryGame();
 	}
 
 }

@@ -723,7 +723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &55899705
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3337,7 +3337,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376691724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.17, y: 55.64, z: -87.779625}
+  m_LocalPosition: {x: -4.9, y: 55.77, z: -87.779625}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 1627475233}
@@ -3606,7 +3606,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 428011957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 221048995}
@@ -3920,7 +3920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &474572924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4758,7 +4758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &534482062
 Transform:
   m_ObjectHideFlags: 0
@@ -4767,7 +4767,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534482061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.98, y: 53.87, z: 0}
+  m_LocalPosition: {x: -80.53, y: 53.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1334274053}
@@ -7344,7 +7344,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_BurstCount: 6
+    m_BurstCount: 5
     m_Bursts:
     - serializedVersion: 2
       time: 0
@@ -7580,63 +7580,6 @@ ParticleSystem:
         serializedVersion: 2
         minMaxState: 0
         scalar: 20
-        minScalar: 0
-        maxCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        minCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.01
-    - serializedVersion: 2
-      time: 0.5
-      countCurve:
-        serializedVersion: 2
-        minMaxState: 0
-        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -11514,7 +11457,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -12311,7 +12254,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    m_BurstCount: 6
+    m_BurstCount: 5
     m_Bursts:
     - serializedVersion: 2
       time: 0
@@ -12547,63 +12490,6 @@ ParticleSystem:
         serializedVersion: 2
         minMaxState: 0
         scalar: 20
-        minScalar: 0
-        maxCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        minCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-      cycleCount: 1
-      repeatInterval: 0.01
-    - serializedVersion: 2
-      time: 0.5
-      countCurve:
-        serializedVersion: 2
-        minMaxState: 0
-        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -17185,7 +17071,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1349058803690722, guid: 0933088637bf449a19f62d6ad2a4c91f, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1349058803690722, guid: 0933088637bf449a19f62d6ad2a4c91f, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -28298,9 +28184,6 @@ MonoBehaviour:
   progressBar: {fileID: 1666397070}
   EndParticlesObj: {fileID: 1664059865}
   LevelCompleteModal: {fileID: 55899704}
-  StartPosObj: {fileID: 534482061}
-  GoalObj: {fileID: 664615013}
-  PlayerObj: {fileID: 376691724}
 --- !u!114 &1752214618
 MonoBehaviour:
   m_ObjectHideFlags: 0

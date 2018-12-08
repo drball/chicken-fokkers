@@ -8,11 +8,13 @@ public class DestroyAfterTime : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Destroy(gameObject, time);
+		// Destroy(gameObject, time);
 	}
+
+	void OnEnable()
+    {
+        Debug.Log("destory after time enabled on "+transform.name);
+        Destroy(gameObject, time);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

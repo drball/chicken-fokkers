@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour {
 		//--start the round
 		roundActive = true;
 		Countdown.SetActive(true);
+		LevelsController.HideLoadingDialog();
 
 		//--make sure these are hidden so we can activate them later
 		ScoreModal.SetActive(false);
@@ -125,18 +126,18 @@ public class GameController : MonoBehaviour {
 
 		Debug.Log("play again "+LevelsController.currentLevel);
 		
-		Reset();
+		// Reset();
 		
-		Player1Controller.score = 0;
+		// Player1Controller.score = 0;
 
-		if(Player2Controller){
-			Player2Controller.score = 0;
-		}
+		// if(Player2Controller){
+		// 	Player2Controller.score = 0;
+		// }
 		
-		// //--reset the text boxes
-		Debug.Log("reset text values");
-		Player1ScoreText.GetComponent<Text>().text = "0";
-		Player2ScoreText.GetComponent<Text>().text = "0";
+		//--reset the text boxes
+		// Debug.Log("reset text values");
+		// Player1ScoreText.GetComponent<Text>().text = "0";
+		// Player2ScoreText.GetComponent<Text>().text = "0";
 		
 		//--reload entire scene
 		LevelsController.LoadSelectedLevel();

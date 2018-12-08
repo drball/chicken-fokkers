@@ -20,12 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4019093253756086}
   - component: {fileID: 212356186941971212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grassy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1032177812928294
 GameObject:
@@ -36,12 +36,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4374393008156696}
   - component: {fileID: 60620519621922340}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bottom down 20x8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1036172354236822
 GameObject:
@@ -52,12 +52,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4894726379895156}
   - component: {fileID: 212683562776500232}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1037141053988238
 GameObject:
@@ -68,12 +68,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4883674233152158}
   - component: {fileID: 212529660067236550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grass corner (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1057109184471208
 GameObject:
@@ -84,12 +84,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4498082060814156}
   - component: {fileID: 212905248306560678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grassy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1064083709050370
 GameObject:
@@ -100,12 +100,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4689747113356196}
   - component: {fileID: 212502755305339862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grass diagonal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1064246770678958
 GameObject:
@@ -116,12 +116,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4002557042003426}
   - component: {fileID: 212059590417849620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Inner corner grassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1109801323603110
 GameObject:
@@ -132,12 +132,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4191983517442016}
   - component: {fileID: 212694436778180988}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1121655384473150
 GameObject:
@@ -148,12 +148,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4224564075872750}
   - component: {fileID: 212548384130447198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grass corner (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1199907586832004
 GameObject:
@@ -164,12 +164,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4865658066812626}
   - component: {fileID: 212208753135689572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2x1 inner grassy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1211327647994848
 GameObject:
@@ -180,12 +180,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4167487974772988}
   - component: {fileID: 212470425623003190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1240418727755766
 GameObject:
@@ -196,12 +196,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4224621659256788}
   - component: {fileID: 212921859939558602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2x1 outer grassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1248727716525200
 GameObject:
@@ -212,12 +212,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4003564352037454}
   - component: {fileID: 212624885502483410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grass diagonal (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1279301552795960
 GameObject:
@@ -228,12 +228,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4010983779850306}
   - component: {fileID: 212351125563871722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grass diagonal (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1345347579755024
 GameObject:
@@ -244,12 +244,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4642372911642194}
   - component: {fileID: 212081781091993086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grass diagonal (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1347118067458684
 GameObject:
@@ -260,12 +260,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4098153374679324}
   - component: {fileID: 212799591705517566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grass corner (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1357955478572018
 GameObject:
@@ -276,12 +276,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4071154834311594}
   - component: {fileID: 212943419134925806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grassy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1383470762946998
 GameObject:
@@ -292,12 +292,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4565430977390942}
   - component: {fileID: 212015491550051288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grass corner (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1398108263797644
 GameObject:
@@ -308,12 +308,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4367023011046486}
   - component: {fileID: 212734055068468750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grass diagonal (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1488042728925162
 GameObject:
@@ -324,12 +324,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4717712974982370}
   - component: {fileID: 212690177787060832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Corner grassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1536895819939964
 GameObject:
@@ -340,12 +340,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4103674635397116}
   - component: {fileID: 212754389088305596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: grass diagonal (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1647985280365166
 GameObject:
@@ -356,12 +356,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4877219822768206}
   - component: {fileID: 212543279529589562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1648379688625620
 GameObject:
@@ -372,12 +372,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4198853222705686}
   - component: {fileID: 212254960167715780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1652336260262736
 GameObject:
@@ -388,12 +388,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4054156162199382}
   - component: {fileID: 212191773255210694}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1719304169757536
 GameObject:
@@ -404,12 +404,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4614667123507134}
   - component: {fileID: 212070264699574820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grass corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1736741846555882
 GameObject:
@@ -420,12 +420,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4900884117296998}
   - component: {fileID: 212894158953604662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1771036445267856
 GameObject:
@@ -436,12 +436,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4123152162684224}
   - component: {fileID: 212206276278086388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1819973313595354
 GameObject:
@@ -452,12 +452,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4640916586148250}
   - component: {fileID: 212786376726401384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1950011095558172
 GameObject:
@@ -468,12 +468,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4197079493142212}
   - component: {fileID: 212332299639557836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2x1 inner grassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1967960981267368
 GameObject:
@@ -484,12 +484,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4817332838060562}
   - component: {fileID: 212597925909742730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grassy (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1970546469098102
 GameObject:
@@ -500,12 +500,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4133930108416234}
   - component: {fileID: 212859761997285302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 20x10 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1994532507469790
 GameObject:
@@ -516,12 +516,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4763908861981358}
   - component: {fileID: 212152297746133416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1x1 grass corner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4002557042003426
 Transform:

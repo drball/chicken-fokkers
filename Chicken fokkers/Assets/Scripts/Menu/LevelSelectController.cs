@@ -25,13 +25,17 @@ public class LevelSelectController : MonoBehaviour {
 		// }
 	}
 	
-	void LoadLevelBtnPressed(int levelNum){
+	public void LoadLevelBtnPressed(int levelNum){
 
 		Debug.Log("level button pressed");
 
 		//--menu button pressed
-		LevelsController.ShowLoadingDialog();
-
-		// WaitThenLoadLevel(levelNum);
+		// LevelsController.ShowLoadingDialog();
+		LevelsController.currentLevel = "level"+levelNum.ToString();
+		Debug.Log("now load the level, "+LevelsController.currentLevel);
+		LevelsController.LoadSelectedLevel();
+		// Invoke("LevelsController.LoadSelectedLevel",0.5f);
 	}
+
+	
 }

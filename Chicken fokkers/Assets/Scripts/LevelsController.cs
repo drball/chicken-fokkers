@@ -36,24 +36,27 @@ public class LevelsController : MonoBehaviour {
 	// 	Application.LoadLevel("playerSelect");
 	// }
 
-	public IEnumerator LoadSelectedLevel(){
+	public void LoadSelectedLevel(){
 		//--load the level we selected earlier
-		//--called from the playerSelect screen
+		//--called from the levelSelectController on a button's parent
+		Debug.Log("LoadSelectedLevel");
 		ShowLoadingDialog();
 
-		yield return new WaitForSeconds(0.25f);
+		Invoke("LoadLevel",0.25f);
+	}
 
+	public void LoadLevel(){
+		//--actually load the level - invoke this
 		Debug.Log("levelscontroller is loading level "+currentLevel);
 		Application.LoadLevel(currentLevel);
 	}
 
-
-	void ShowLoadingDialog(){
+	public void ShowLoadingDialog(){
 		Debug.Log("show loading");
 		LoadingDialog.SetActive(true);
 	}
 
-	void HideLoadingDialog(){
+	public void HideLoadingDialog(){
 		Debug.Log("hide loading");
 		LoadingDialog.SetActive(false);
 	}

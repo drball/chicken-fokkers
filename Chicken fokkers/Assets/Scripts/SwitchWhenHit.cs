@@ -8,13 +8,18 @@ public class SwitchWhenHit : MonoBehaviour {
 
 	public bool alive = true;
 	public GameObject InitialObj; //-- the initial object
-	public GameObject SwitchTo; //--the object we'll switch to
+	public GameObject SwitchTo; //--the object we'll switch to - this must he disabled at start if using destroyAfterTime on any children
     public PolygonCollider2D Collider; //--for disabling when enemy is dead
+
+    void Awake(){
+    	InitialObj.SetActive(true);
+		SwitchTo.SetActive(false);
+    }
 
 	// Use this for initialization
 	void Start () {
-        InitialObj.SetActive(true);
-		SwitchTo.SetActive(false);
+  //       InitialObj.SetActive(true);
+		// SwitchTo.SetActive(false);
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {

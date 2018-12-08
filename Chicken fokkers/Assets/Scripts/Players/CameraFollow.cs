@@ -74,6 +74,10 @@ public class CameraFollow : MonoBehaviour
         m_LastTargetPosition = target.position;
 
     	camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, zoomTarget, Time.deltaTime);
+
+        if(Input.GetKey("c")){
+            CenterInScreen();
+        }
     }
 
     public void SwitchFollow(GameObject other){
@@ -90,4 +94,12 @@ public class CameraFollow : MonoBehaviour
 			zoomTarget = closeZoom;
 		}
     }
+
+    public void CenterInScreen(){
+        //--center on the player 
+        damping = 1;
+        lookAheadFactor = 0;
+        
+    }
+
 }

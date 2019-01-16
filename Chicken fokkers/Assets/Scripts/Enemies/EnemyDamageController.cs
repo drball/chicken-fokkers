@@ -3,6 +3,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//--for an enemy plane
+
 public class EnemyDamageController : MonoBehaviour {
 
 	public SpriteRenderer[] Rends; //--for colour change
@@ -16,6 +18,8 @@ public class EnemyDamageController : MonoBehaviour {
 	public PolygonCollider2D EnemyCollider; //--for disabling when enemy is dead
 	public Slider HealthBar;
 	public GameObject HealthBarObj;
+	public Rigidbody2D rb;
+	public EnemyRagdollDamageController EnemyRagdoll; //--optional, a chicken which will die when this enemy dies
 
 
 	void Start () {
@@ -65,7 +69,7 @@ public class EnemyDamageController : MonoBehaviour {
 	}
 
 	void Die(){
-		Debug.Log("turret die!");
+		Debug.Log("enemy die!");
 		InjuredSmoke.Stop();
 		Explode.SetActive(true);
 		Explode.transform.parent = null;
@@ -73,7 +77,22 @@ public class EnemyDamageController : MonoBehaviour {
 		DeadObj.SetActive(true);
 		EnemyCollider.enabled = false;
 		Destroy(Explode,1f);
-		TurretShootingScript.DisableShooting();
 		HealthBarObj.SetActive(false);
+		if(TurretShootingScript){
+			TurretShootingScript.DisableShooting();
+		}
+
+		//--if the go we're replacing this with has an rb, pass the vector
+		if(DeadObj.GetComponent<Rigidbody2D>()){
+			Vector2 vel = rb.velocity;
+			// Debug.Log("killed enemy has rb. Give it a velocity of "+vel);
+			DeadObj.GetComponent<Rigidbody2D>().velocity = vel;
+		}
+
+		//--EnemyDamageController
+		if(EnemyRagdoll){
+			Debug.Log("kill chicken on "+transform.name);
+			EnemyRagdoll.Die();
+		}
 	}
 }

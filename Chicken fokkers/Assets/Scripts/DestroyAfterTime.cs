@@ -13,7 +13,7 @@ public class DestroyAfterTime : MonoBehaviour {
 
 	void OnEnable()
     {
-        Debug.Log("destory after time enabled on "+transform.name);
+        // Debug.Log("destory after time enabled on "+transform.name);
         Destroy(gameObject, time);
     }
 	

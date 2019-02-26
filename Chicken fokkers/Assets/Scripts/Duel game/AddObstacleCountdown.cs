@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddObstacleCountdown : MonoBehaviour
 {
 	public bool isShowingObstacle;
+	public bool canShowObstacle;
 	public int countdown;
 	private int countdownInitial;
 	public GameObject point;
@@ -13,11 +14,14 @@ public class AddObstacleCountdown : MonoBehaviour
 	public float Player2Distance;
 	private float maxDistance;
 	public GameObject obstacleObj;
+	private GameObject obstacleInstance;
+	
 
     void Start()
     {
         countdownInitial = countdown;
         maxDistance = 5.5f;
+        obstacleObj.SetActive(false);
         StartCountdown();
         
     }
@@ -36,35 +40,44 @@ public class AddObstacleCountdown : MonoBehaviour
     	if (countdown > 0) {
     		countdown--;
     	} else {
-    		if(isShowingObstacle == false){
-				//--check distance of both players 
 
-				Player1Distance = Vector2.Distance(point.transform.position,Players[0].transform.position);
-				Player2Distance = Vector2.Distance(point.transform.position,Players[1].transform.position);
-
-				// foreach(GameObject Player in Players){
-				// 	Debug.Log("dist of "+Player.name+" = "+Vector2.Distance(point.transform.position,Player.transform.position));
-				// }
-
-				if (Player1Distance > maxDistance && Player2Distance > maxDistance){
-					Debug.Log("players are far");
-					isShowingObstacle = true;
-					StopCountdown();
-					AddObstacle();
-				} else {
-					Debug.Log("players are too close");
-				}
-				
-			}
+    		canShowObstacle = true;
+    		
     	}
-		
     }
 
     void AddObstacle(){
+		obstacleInstance = Instantiate(obstacleObj, obstacleObj.transform.position, obstacleObj.transform.rotation);
+		obstacleInstance.SetActive(true);
+		canShowObstacle = false;
+		isShowingObstacle = true;
+    }
 
+    void RemoveObstacle(){
+    	//--flash the obstacle, then remove the instance
+		obstacleInstance.GetComponent<Animator>().Play("FadeOut");
+    	Destroy(obstacleInstance, 1f);
+
+    	//--restart the countdown
+    	StartCountdown();
     }
 
     void Update(){
-		
+
+    	Player1Distance = Vector2.Distance(point.transform.position,Players[0].transform.position);
+		Player2Distance = Vector2.Distance(point.transform.position,Players[1].transform.position);
+
+		if(canShowObstacle){
+			
+
+			if (Player1Distance > maxDistance && Player2Distance > maxDistance){
+				Debug.Log("players are far enough to show obstacle");
+				StopCountdown();
+				AddObstacle();
+			} 
+		}
     }
+
+
+    
 }

@@ -15,7 +15,6 @@ public class BlinkThenRemove : MonoBehaviour {
 	}
 
     void OnEnable(){
-        Debug.Log("telegraph pole is enabled");
         Invoke("StartFlashing", delay);
     }
 	

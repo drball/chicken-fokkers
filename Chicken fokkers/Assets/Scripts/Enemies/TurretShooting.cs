@@ -42,7 +42,7 @@ public class TurretShooting : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		Debug.Log("turret detected "+other.name);
+		Debug.Log("turret "+transform.name+" detected "+other.name);
 
 		if(isActive == false){
 			Debug.Log("turret ready to shoot");

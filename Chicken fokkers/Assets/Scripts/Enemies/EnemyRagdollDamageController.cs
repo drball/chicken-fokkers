@@ -51,11 +51,22 @@ public class EnemyRagdollDamageController : MonoBehaviour {
 		Debug.Log("chicken die!");
 		Explode.SetActive(true);
 		Explode.transform.parent = null;
-		SwitchToRigidbodyScript.SwitchAndPush(new Vector2(1,0.2f));
+		health = 0;
 		Collider.enabled = false;
 		ShootingScript.DisableShooting();
 		Debug.Log("shootingscript = "+ShootingScript.isActive);
 		Bounds.SetActive(false);
+
+		if(health == 0){
+			//--check if this isn't being killed by ramming
+			SwitchToRigidbodyScript.SwitchAndPush(new Vector2(1,0.2f));
+		}
+
+		if(ShootingScript){
+			ShootingScript.DisableShooting();
+		}
 	}
+
+
 }
 

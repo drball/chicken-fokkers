@@ -9,8 +9,8 @@ public class ExplodeWhenMotionless : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("rb = "+rb.velocity);
-		Debug.Log("rb m = "+rb.velocity.magnitude);
+		// Debug.Log("rb = "+rb.velocity);
+		// Debug.Log("rb m = "+rb.velocity.magnitude);
 
 		if(rb.velocity.magnitude < 0.4){
 			Debug.Log("explode detached wheel");

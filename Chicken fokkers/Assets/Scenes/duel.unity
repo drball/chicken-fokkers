@@ -3439,7 +3439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShowingObstacle: 0
   canShowObstacle: 0
-  countdown: 3
+  countdown: 20
   point: {fileID: 1969988698}
   Players:
   - {fileID: 1081458011}
@@ -3949,6 +3949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359512721}
   - component: {fileID: 1359512722}
+  - component: {fileID: 1359512723}
   m_Layer: 0
   m_Name: ObstacleContainer
   m_TagString: Untagged
@@ -3992,6 +3993,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1359512723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359512720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25143fbacc8c4a16a510f932ba1df7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddObstacleCountdown: {fileID: 1254232640}
+  Enemies:
+  - {fileID: 1388211142}
+  - {fileID: 1832016261}
+  enemiesAlive: 0
+--- !u!114 &1388211142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114119238908977834, guid: cf63668406b2241ab986ca2351ca2cc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1872631061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da34a4d72fcc744b6ad7d493745f6a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468978478
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,6 +5037,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1832016261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114119238908977834, guid: cf63668406b2241ab986ca2351ca2cc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 122779415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832016257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da34a4d72fcc744b6ad7d493745f6a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832986388
 GameObject:
   m_ObjectHideFlags: 0
@@ -5694,7 +5736,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969988699}
-  - component: {fileID: 1969988700}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -5717,20 +5758,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1969988700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969988698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b25143fbacc8c4a16a510f932ba1df7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AddObstacleCountdown: {fileID: 0}
-  Enemies: []
 --- !u!1001 &1994041163
 PrefabInstance:
   m_ObjectHideFlags: 0

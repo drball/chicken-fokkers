@@ -53,10 +53,11 @@ public class AddObstacleCountdown : MonoBehaviour
 		isShowingObstacle = true;
     }
 
-    void RemoveObstacle(){
+    public void RemoveObstacle(){
     	//--flash the obstacle, then remove the instance
-		obstacleInstance.GetComponent<Animator>().Play("FadeOut");
-    	Destroy(obstacleInstance, 1f);
+		obstacleInstance.GetComponent<Animator>().SetTrigger("FadeOut");
+    	Destroy(obstacleInstance, 3f);
+        Debug.Log("Remove the obstacle");
 
     	//--restart the countdown
     	StartCountdown();

@@ -9,13 +9,17 @@ public class PlayerResetAtEdge : MonoBehaviour {
     private float buffer = 1f;
     public static float leftConstraint;
     public static float rightConstraint;
+    public GameController GameController;
 
-	// Use this for initialization
-	void Start () {
+    void Awake(){
+    	GameController = GameObject.Find("SceneController").GetComponent<GameController>();
+		cam = GameController.cam;
+		
+		//--set the screen constraints
 		leftConstraint = cam.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0)).x;
         rightConstraint = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, 0)).x;
-	}
-
+        Debug.Log("set cam on playerresetatedge script");
+    }
 
 	void FixedUpdate () {
 

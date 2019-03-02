@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AddObstacleCountdown : MonoBehaviour
 {
-	public bool isShowingObstacle;
+	[HideInInspector] public GameController GameController;
+    public bool isShowingObstacle;
 	public bool canShowObstacle;
 	public int countdown;
 	private int countdownInitial;
@@ -15,10 +16,12 @@ public class AddObstacleCountdown : MonoBehaviour
 	private float maxDistance;
 	public GameObject obstacleObj;
 	private GameObject obstacleInstance;
-	
 
     void Start()
     {
+        Players[0] = GameController.Player1Obj;
+        Players[1] = GameController.Player2Obj;
+
         countdownInitial = countdown;
         maxDistance = 5.5f;
         obstacleObj.SetActive(false);

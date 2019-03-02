@@ -18,12 +18,14 @@ public class PlayerController : MonoBehaviour {
 	 public GameObject Vfx;
 	 public GameObject CrashingPlayer;
 	 public Rigidbody2D rb;
-	 public float initialHealth;
+	public float initialHealth;
+	 public int playerNum = 1;
 	// [HideInInspector]
 
-	// Use this for initialization
-	void Start () {
+	void Awake(){
+		GameController = GameObject.Find("SceneController").GetComponent<GameController>();
 		score = 0;
+		Debug.Log("PlayerController for "+gameObject.name+" health = "+health);
 		initialHealth = health;
 	}
 
@@ -60,12 +62,10 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log(gameObject.name +" is dead");
 
 		alive = false;
-
 		Vector2 vel = rb.velocity;
 		ShootController.CancelShooting();
 		GameObject crashingPlayer = Instantiate(CrashingPlayer, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 		Instantiate(DeathExplosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
-
 		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
 
 		//--check if the player had a wheel showing - if not, hide on crashingPlayer too

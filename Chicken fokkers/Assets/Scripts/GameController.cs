@@ -19,7 +19,28 @@ public class GameController : MonoBehaviour {
 	public AdvertsController AdvertsController;
 	public GameObject Countdown;
 	private int winningScore = 5;
-	
+	public GameObject[] Player1Characters;
+	public GameObject[] Player2Characters;
+	public GameObject Player1Obj;
+	public GameObject Player2Obj;
+	public GameObject Player1Dummy;
+	public GameObject Player2Dummy;
+	public Camera cam;
+	public GameObject InstructionP1;
+	public GameObject InstructionP2;
+
+	void Awake(){
+		//--load the correct player
+		Debug.Log("GameController");
+		Player1Obj = Instantiate(Player1Characters[1], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
+		Player2Obj = Instantiate(Player2Characters[0], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
+		Destroy(Player1Dummy);
+		Destroy(Player2Dummy);
+
+		//--get all the scripts for the players
+		Player1Controller = Player1Obj.GetComponent<PlayerController>();
+		Player2Controller = Player2Obj.GetComponent<PlayerController>();
+	}
 
 	// Use this for initialization
 	public void Start () {
@@ -125,19 +146,6 @@ public class GameController : MonoBehaviour {
 		//--a full reset
 
 		Debug.Log("play again "+LevelsController.currentLevel);
-		
-		// Reset();
-		
-		// Player1Controller.score = 0;
-
-		// if(Player2Controller){
-		// 	Player2Controller.score = 0;
-		// }
-		
-		//--reset the text boxes
-		// Debug.Log("reset text values");
-		// Player1ScoreText.GetComponent<Text>().text = "0";
-		// Player2ScoreText.GetComponent<Text>().text = "0";
 		
 		//--reload entire scene
 		LevelsController.LoadSelectedLevel();

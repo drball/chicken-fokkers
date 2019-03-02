@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public Renderer rend;
     public TouchControls TouchControls;
     public PlayerController PlayerController;
+    public GameController GameController;
     public enum MovementDirections {Right = 0, Left = 1} 
     public MovementDirections MovementDirection= MovementDirections.Right & MovementDirections.Left;
     private float startPosX; 
@@ -28,9 +29,12 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject PlayerStartPos;
 	public GameObject GoalObj; //--for cheating
 
-	// Use this for initialization
-	void Start () {
+	void Awake(){
 		rb = GetComponent<Rigidbody2D>();
+		GameObject SceneControllerObj = GameObject.Find("SceneController");
+		TouchControls = SceneControllerObj.GetComponent<TouchControls>();
+		GameController = SceneControllerObj.GetComponent<GameController>();
+		cam = GameController.cam;
 
 		if(PlayerResetAtEdge){
 			//--if duel mode
@@ -39,13 +43,20 @@ public class PlayerMovement : MonoBehaviour {
 			//--story mode
 			topConstraint = 7f;
 		}
-        
-        // Debug.Log("top constraint = "+topConstraint);
+	}
+
+	// Use this for initialization
+	void Start () {
+
+		if(MovementDirection == MovementDirections.Left){
+			Instruction = GameController.InstructionP2;
+		} else {
+			Instruction = GameController.InstructionP1;
+		}
 	}
 
 	public void MoveToStartPos(){
 
-		Debug.Log("Move "+gameObject.name+" to start pos");
 
 		if(PlayerResetAtEdge){
 			//--start positions
@@ -62,7 +73,7 @@ public class PlayerMovement : MonoBehaviour {
     		transform.position = new Vector3(startPosX,startPosY,0);
     	} else {
     		//--start where it is
-    		Debug.Log("move to start 1");
+    		Debug.Log("stay where it is");
     	}
 
     	//--cancel their velocity

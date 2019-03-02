@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class DamageController : MonoBehaviour {
 
-	[HideInInspector] public GameObject Player;
-	[HideInInspector] public SpriteRenderer Rend;
-	[HideInInspector] public PlayerController PlayerController;
+	 public GameObject Player;
+	 public SpriteRenderer Rend;
+	 public PlayerController PlayerController;
 	[HideInInspector] public ParticleSystem InjuredSmoke;
+	//[HideInInspector]
 	public AudioSource hitSfx;
 
 	[Header("Unity stuff")]
@@ -16,18 +17,30 @@ public class DamageController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		
+		Debug.Log("Damagecontroller awake for "+Player.name);
+		Debug.Log("Damagecontroller, playerNum = "+PlayerController.playerNum);
+
+		//--find the appropriate health bar
+		if(PlayerController.playerNum == 1){
+			healthBar = GameObject.Find("HealthBarL").GetComponent<Image>();
+		} else {
+			healthBar = GameObject.Find("HealthBarR").GetComponent<Image>();
+		}
+
 		ResetColour();
 	}
 
 	void Start(){
 		InjuredSmoke.Stop();
+
+
 	}
 
 	public void HitByBullet(){
 
 		hitSfx.Play();
 
-		// Debug.Log("hot by bullet called");
 		if(PlayerController.health > 0) {
 			// Debug.Log(gameObject.name+"hit by bullet");
 			PlayerController.health--;

@@ -7,18 +7,11 @@ public class PlayerAbility : MonoBehaviour {
 	public int abilityNum = 0;
 	private int abilityNumMax = 5;
 	public ShootController ShootController;
-
-	// Use this for initialization
-	void Start () {
-
-		// Invoke("Test", 1f);
-	}
 	
 	public void CollectedPickup () {
 
 		//--instrease player's ability
 		IncreasePlayerAbility();
-		
 	}
 
 	void IncreasePlayerAbility(){
@@ -33,18 +26,9 @@ public class PlayerAbility : MonoBehaviour {
 				ShootController.ChangeBulletToLarge();
 			}
 		}
-
 	}
 
 	public void ResetAbility(){
 		abilityNum = 0;
 	}
-
-	// void Test(){
-	// 	IncreasePlayerAbility();
-	// 	IncreasePlayerAbility();
-	// 	IncreasePlayerAbility();
-	// 	IncreasePlayerAbility();
-	// 	IncreasePlayerAbility();
-	// }
 }

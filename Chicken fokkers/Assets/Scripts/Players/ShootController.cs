@@ -16,10 +16,21 @@ public class ShootController : MonoBehaviour {
 	private float defaultFireRate = 0.15f;
 	public float fireRate; //--smaller number = faster
 	private float fireRateIncrement = 0.015f;
+	public float angularDeviation = 0f; //--0 is most precise 
+	public List<float> shootingAngles; //--a list for our pregenerated random angles
+	private int shootingAngleNum = 0;
+	private Quaternion bulletAngle;
 
 	// Use this for initialization
 	void Awake () {
 		ResetFireRate();
+	}
+
+	void Start () {
+
+		for(int i = 0; i < 10; i++){
+			shootingAngles.Add(Random.Range(-angularDeviation, angularDeviation));
+		}
 	}
 
 	void Update (){
@@ -93,27 +104,39 @@ public class ShootController : MonoBehaviour {
 
 	void FireBullet() {
 
-		// Debug.Log("fire bullet from "+Player.name+" at rotation "+Player.transform.rotation.z);
+		//--not sure why we're checking if there's a playermovement script? 
 
+		
 		if(PlayerMovement){
 			if(PlayerMovement.MovementDirection == PlayerMovement.MovementDirections.Left){
-				GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z+90));
+				bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] + 90);
+				GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, bulletAngle);
+
+				Debug.Log("shootingAnfleNum = "+shootingAngleNum);
+				Debug.Log("shootingAngle= "+shootingAngles[shootingAngleNum]);
+				Debug.Log("---- bulletangle = "+bulletAngle);
 			
 				//--set the owner of this bullet
 				newBullet.GetComponent<BulletScript>().Owner = Player;
 			} else {
-				GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z-90));
+				bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] - 90);
+				GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, bulletAngle);
 				
 				//--set the owner of this bullet
 				newBullet.GetComponent<BulletScript>().Owner = Player;
 			}
 		} else {
-			GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, Quaternion.Euler(0, 0, Player.transform.eulerAngles.z-90));	
+			bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] - 90);
+			GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, bulletAngle);	
 			
 			//--set the owner of this bullet
 			newBullet.GetComponent<BulletScript>().Owner = Player;
 		}	
 
-		
+		shootingAngleNum++;
+
+		if(shootingAngleNum >= 10){
+			shootingAngleNum = 0;
+		}
 	}
 }

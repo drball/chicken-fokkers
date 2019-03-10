@@ -663,6 +663,8 @@ MonoBehaviour:
   PlayerController: {fileID: 1587006824808996823}
   shootingHit: 0
   fireRate: 0
+  angularDeviation: 8
+  shootingAngles: []
 --- !u!1 &1587006825785962984
 GameObject:
   m_ObjectHideFlags: 0

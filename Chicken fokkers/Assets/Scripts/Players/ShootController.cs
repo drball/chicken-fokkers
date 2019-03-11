@@ -109,17 +109,16 @@ public class ShootController : MonoBehaviour {
 		
 		if(PlayerMovement){
 			if(PlayerMovement.MovementDirection == PlayerMovement.MovementDirections.Left){
-				bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] + 90);
+				bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] - shootPos.transform.localEulerAngles.z);
 				GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, bulletAngle);
-
-				Debug.Log("shootingAnfleNum = "+shootingAngleNum);
-				Debug.Log("shootingAngle= "+shootingAngles[shootingAngleNum]);
-				Debug.Log("---- bulletangle = "+bulletAngle);
 			
 				//--set the owner of this bullet
 				newBullet.GetComponent<BulletScript>().Owner = Player;
 			} else {
-				bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] - 90);
+
+				Debug.Log("---- shootposangle = "+shootPos.transform.rotation.z);
+				Debug.Log("---- shootposangle = "+shootPos.transform.localEulerAngles.z);
+				bulletAngle = Quaternion.Euler(0, 0, Player.transform.eulerAngles.z + shootingAngles[shootingAngleNum] + shootPos.transform.localEulerAngles.z);
 				GameObject newBullet = Instantiate(Bullet, shootPos.transform.position, bulletAngle);
 				
 				//--set the owner of this bullet

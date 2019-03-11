@@ -32,8 +32,8 @@ public class GameController : MonoBehaviour {
 	void Awake(){
 		//--load the correct player
 		Debug.Log("GameController");
-		Player1Obj = Instantiate(Player1Characters[1], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
-		Player2Obj = Instantiate(Player2Characters[1], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
+		Player1Obj = Instantiate(Player1Characters[3], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
+		Player2Obj = Instantiate(Player2Characters[3], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
 		Destroy(Player1Dummy);
 		Destroy(Player2Dummy);
 

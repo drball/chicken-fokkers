@@ -2026,9 +2026,13 @@ MonoBehaviour:
   Player1Characters:
   - {fileID: 6266132010129432030, guid: 81537a5bdaf6a4cad8d1909b05e1820d, type: 3}
   - {fileID: 6266132010129432030, guid: bd495b56b5bfc4e9cbca95b2f3190377, type: 3}
+  - {fileID: 6266132010129432030, guid: c9ee11b977c524f22ab642ac52e699fe, type: 3}
+  - {fileID: 6266132010129432030, guid: da86faa0ffcfa4b36ae9b68c849c2595, type: 3}
   Player2Characters:
   - {fileID: 1587006824808996821, guid: f7ad46a4a19e8420fb4b891b3b53fea0, type: 3}
   - {fileID: 1587006824808996821, guid: d226299e99d554c4aa3e6a4457a836af, type: 3}
+  - {fileID: 1587006824808996821, guid: ac5358c2eed934e4dad744bcb1151347, type: 3}
+  - {fileID: 1587006824808996821, guid: 8d90657199ac344408debb94abbfeceb, type: 3}
   Player1Obj: {fileID: 0}
   Player2Obj: {fileID: 0}
   Player1Dummy: {fileID: 6266132011659326982}

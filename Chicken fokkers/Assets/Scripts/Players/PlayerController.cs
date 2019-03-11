@@ -41,7 +41,11 @@ public class PlayerController : MonoBehaviour {
 		ShootController.ResetFireRate();
 		
 		Invoke("CancelAutopilot", 2);
-		DetachableWheelScript.Reset();
+
+		if(DetachableWheelScript){
+			DetachableWheelScript.Reset();
+		}
+		
 		PlayerAbility.ResetAbility();
 		PlayerMovement.MoveToStartPos();
 		StartAutopilot();
@@ -69,10 +73,12 @@ public class PlayerController : MonoBehaviour {
 		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;
 
 		//--check if the player had a wheel showing - if not, hide on crashingPlayer too
-		if(!DetachableWheelScript.hasWheel){
-			crashingPlayer.GetComponent<CrashingScript>().RemoveWheel();
+		if(DetachableWheelScript){
+			if(!DetachableWheelScript.hasWheel){
+				crashingPlayer.GetComponent<CrashingScript>().RemoveWheel();
+			}
 		}
-
+		
 		gameObject.SetActive(false);
 
 		//--show the scoreboard - or start another round

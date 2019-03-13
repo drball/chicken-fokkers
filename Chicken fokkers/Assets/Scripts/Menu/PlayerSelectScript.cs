@@ -18,7 +18,7 @@ public class PlayerSelectScript : MonoBehaviour {
 	public GameObject[] p2GameObjects; //--array of characters
 	public GameObject P1Btn;	//--ref to btn for disabling it
 	public GameObject P2Btn;	//--ref to btn for disabling it
-	public GameObject LoadingPanel;
+	// public GameObject LoadingPanel;
 	public GameObject P1WaitMsg;
 	public GameObject P2WaitMsg;
 	public GameObject UnlockP1Btn;
@@ -50,8 +50,6 @@ public class PlayerSelectScript : MonoBehaviour {
 	
 		p1SelectedCharString = "";
 		p2SelectedCharString = "";
-		
-		LoadingPanel.SetActive(false);
 
 		P1WaitMsg.SetActive(false);
 		P2WaitMsg.SetActive(false);
@@ -84,6 +82,7 @@ public class PlayerSelectScript : MonoBehaviour {
 		showOnlyP1Character(p1VisibleChar);
 		showOnlyP2Character(p2VisibleChar);
 
+		LevelsController.HideLoadingDialog();
 		closeUnlockModal();
 	}
 
@@ -113,7 +112,8 @@ public class PlayerSelectScript : MonoBehaviour {
 			gameObject.SendMessage("ChoseCharacter", p2SelectedCharString);
 			
 			//--show loading panel because there's a delay
-			LoadingPanel.SetActive(true);
+			// LoadingPanel.SetActive(true);
+			LevelsController.ShowLoadingDialog();
 			
 			//--load the main level
 			LevelsController.LoadSelectedLevel();

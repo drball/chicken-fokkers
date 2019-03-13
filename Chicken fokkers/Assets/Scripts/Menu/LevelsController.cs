@@ -8,10 +8,13 @@ public class LevelsController : MonoBehaviour {
 
 	public string currentLevel = "duel";
 	public GameObject LoadingDialog; 
+	public bool singlePlayer;
+	public string p1SelectedCharString; //--so we can access from anywhere
+	public string p2SelectedCharString;
 
 	void Awake () {
 
-		//--because this is a singleton, we want only onee
+		//--because this is a singleton, we want only one
 		if (FindObjectsOfType(GetType()).Length > 1)
 		{
 			//--destroy others like this

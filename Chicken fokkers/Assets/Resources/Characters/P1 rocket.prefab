@@ -674,7 +674,7 @@ MonoBehaviour:
   DetachableWheelScript: {fileID: 0}
   PlayerAbility: {fileID: 6266132010129432037}
   Vfx: {fileID: 6266132009774253969}
-  CrashingPlayer: {fileID: 1517893512116448, guid: ebe9b68c510b2430e9ef4a6435a2a5f6,
+  CrashingPlayer: {fileID: 6266132010129432030, guid: 69db7c39a792742748b17a0d400c355f,
     type: 3}
   rb: {fileID: 6266132010129432024}
   initialHealth: 0

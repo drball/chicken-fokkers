@@ -19,7 +19,7 @@ public class MenuScript : MonoBehaviour {
 		//--show loading panel because there's a delay
 		LoadingPanel.SetActive(true);
 		// Debug.Log("hello");
-		Application.LoadLevel("duel");
+		Application.LoadLevel("playerSelect");
 	}
 
 	void StartStoryGame(){

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-	// public GameObject Player1;
-	// public GameObject Player2;
 	public PlayerController Player1Controller;
 	public PlayerController Player2Controller;
 	public int leftEdge = 0;
@@ -15,8 +13,6 @@ public class GameController : MonoBehaviour {
 	public GameObject PlayAgainBtn;
 	public GameObject Player1ScoreText;
 	public GameObject Player2ScoreText;
-	public LevelsController LevelsController;
-	public AdvertsController AdvertsController;
 	public GameObject Countdown;
 	private int winningScore = 5;
 	public GameObject[] Player1Characters;
@@ -28,14 +24,18 @@ public class GameController : MonoBehaviour {
 	public Camera cam;
 	public GameObject InstructionP1;
 	public GameObject InstructionP2;
+	private string defaultPlayer = "Fokker"; //Fokker, Vickers 
+	public AdvertsController AdvertsController;
+	public LevelsController LevelsController;
 
 	void Awake(){
 		//--load the correct player
-		Debug.Log("GameController");
-		Player1Obj = Instantiate(Player1Characters[3], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
-		Player2Obj = Instantiate(Player2Characters[3], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
-		Destroy(Player1Dummy);
-		Destroy(Player2Dummy);
+		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
+
+		// Player1Obj = Instantiate(Player1Characters[3], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
+		// Player2Obj = Instantiate(Player2Characters[3], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
+		Player1Obj = LoadPlayer(Player1Dummy, 1);
+		Player2Obj = LoadPlayer(Player2Dummy, 2);
 
 		//--get all the scripts for the players
 		Player1Controller = Player1Obj.GetComponent<PlayerController>();
@@ -45,19 +45,16 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
 
-		Debug.Log("start gamecontroller normal");
-
+		// Debug.Log("start gamecontroller normal");
 		ScoreModal.SetActive(false);
 		PlayAgainBtn.SetActive(false);
-
-		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
 
 		Reset();
 	}
 
 	void Reset(){
 
-		Debug.Log("reset. Start the round");
+		// Debug.Log("reset. Start the round");
 
 		//--start the round
 		roundActive = true;
@@ -76,8 +73,40 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	GameObject LoadPlayer(GameObject dummyObj, int playerNum){
+		//--load the chosen player dynamically based on what was chosen
+		string playerToLoad = "Characters/P" + playerNum;
+
+		//--we should get the chosen player from playerSelection screen, if not load a default
+		if((LevelsController.p1SelectedCharString.Length > 0) && (LevelsController.p2SelectedCharString.Length > 0))
+		{
+			//--build the string of the player to replace the dummy with
+			if(playerNum == 1){
+				playerToLoad += LevelsController.p1SelectedCharString;
+			}else {
+				playerToLoad += LevelsController.p2SelectedCharString;
+			}
+		}else{
+			Debug.Log("No player to load, use default");
+			playerToLoad = "Characters/P" + playerNum + defaultPlayer;
+		}
+		
+		Destroy(dummyObj,0);
+		Debug.Log("load player "+playerToLoad);
+		
+		//--load from "resources"
+		GameObject playerInstance = Instantiate(Resources.Load(playerToLoad, typeof(GameObject)),
+			dummyObj.transform.position, 
+			dummyObj.transform.rotation
+		) as GameObject;
+
+		Debug.Log("loaded "+playerInstance.name);
+		
+		return playerInstance;
+	}
+
 	void EndGame(){
-		//--a game consists of 3 rounds, best of 3
+		//--a game consists of 5 rounds, best of 5
 	}
 
 	public virtual void PlayerHasDied(){

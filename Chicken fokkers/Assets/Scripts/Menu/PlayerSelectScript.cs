@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -112,7 +112,6 @@ public class PlayerSelectScript : MonoBehaviour {
 			gameObject.SendMessage("ChoseCharacter", p2SelectedCharString);
 			
 			//--show loading panel because there's a delay
-			// LoadingPanel.SetActive(true);
 			LevelsController.ShowLoadingDialog();
 			
 			//--load the main level

@@ -463,6 +463,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61774825399595388, guid: cf63668406b2241ab986ca2351ca2cc2,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.90081644
+      objectReference: {fileID: 0}
+    - target: {fileID: 61774825399595388, guid: cf63668406b2241ab986ca2351ca2cc2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.659472
+      objectReference: {fileID: 0}
+    - target: {fileID: 114156970679941108, guid: cf63668406b2241ab986ca2351ca2cc2,
+        type: 3}
+      propertyPath: minAngle
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf63668406b2241ab986ca2351ca2cc2, type: 3}
 --- !u!1 &195735364
@@ -1168,6 +1183,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114618413434310560, guid: 0933088637bf449a19f62d6ad2a4c91f,
+        type: 3}
+      propertyPath: currentLevel
+      value: duel
+      objectReference: {fileID: 0}
     - target: {fileID: 224913733520746030, guid: 0933088637bf449a19f62d6ad2a4c91f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1181,11 +1201,6 @@ PrefabInstance:
     - target: {fileID: 1962212598663894, guid: 0933088637bf449a19f62d6ad2a4c91f, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114618413434310560, guid: 0933088637bf449a19f62d6ad2a4c91f,
-        type: 3}
-      propertyPath: currentLevel
-      value: duel
       objectReference: {fileID: 0}
     - target: {fileID: 224790259260119036, guid: 0933088637bf449a19f62d6ad2a4c91f,
         type: 3}
@@ -2020,8 +2035,6 @@ MonoBehaviour:
   PlayAgainBtn: {fileID: 396407082}
   Player1ScoreText: {fileID: 1899102086}
   Player2ScoreText: {fileID: 1014102861}
-  LevelsController: {fileID: 0}
-  AdvertsController: {fileID: 1091316569}
   Countdown: {fileID: 1881595695}
   Player1Characters:
   - {fileID: 6266132010129432030, guid: 81537a5bdaf6a4cad8d1909b05e1820d, type: 3}
@@ -2040,6 +2053,8 @@ MonoBehaviour:
   cam: {fileID: 1750336898}
   InstructionP1: {fileID: 227608158}
   InstructionP2: {fileID: 538023824}
+  AdvertsController: {fileID: 1091316569}
+  LevelsController: {fileID: 0}
 --- !u!114 &1254232639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,6 +2965,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61774825399595388, guid: cf63668406b2241ab986ca2351ca2cc2,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.8843007
+      objectReference: {fileID: 0}
+    - target: {fileID: 61774825399595388, guid: cf63668406b2241ab986ca2351ca2cc2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.626441
+      objectReference: {fileID: 0}
+    - target: {fileID: 114156970679941108, guid: cf63668406b2241ab986ca2351ca2cc2,
+        type: 3}
+      propertyPath: minAngle
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf63668406b2241ab986ca2351ca2cc2, type: 3}
 --- !u!1 &1881595695
@@ -3251,6 +3281,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 61990888556229010, guid: f1df7f4954f3c4588bfcfb08d73ca354,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d0f71c7ddc3de4f8183b46e1deb8560f, type: 2}
     - target: {fileID: 114051032684152262, guid: f1df7f4954f3c4588bfcfb08d73ca354,
         type: 3}
       propertyPath: cam
@@ -3301,11 +3336,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1750336898}
-    - target: {fileID: 61990888556229010, guid: f1df7f4954f3c4588bfcfb08d73ca354,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: d0f71c7ddc3de4f8183b46e1deb8560f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1df7f4954f3c4588bfcfb08d73ca354, type: 3}
 --- !u!212 &5992826668514804968
@@ -3772,7 +3802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &5992826669892123034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3993,7 +4023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &5992826670029765597
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour {
 
-	public GameObject LoadingPanel;
+	public LevelsController LevelsController;
 	public GameObject CreditsPanel;
 	public GameObject MoreGamesPanel;
 
 	// Use this for initialization
 	void Start () {
-		LoadingPanel.SetActive(false);
+		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
+		LevelsController.HideLoadingDialog();
 		CreditsPanel.SetActive(false);
 		MoreGamesPanel.SetActive(false);
 	}
 	
 	void StartDuelGame(){
 		//--show loading panel because there's a delay
-		LoadingPanel.SetActive(true);
+		LevelsController.ShowLoadingDialog();
 		// Debug.Log("hello");
 		Application.LoadLevel("playerSelect");
 	}
 
 	void StartStoryGame(){
 		//--show loading panel because there's a delay
-		LoadingPanel.SetActive(true);
+		LevelsController.ShowLoadingDialog();
 		Debug.Log("starting story game");
 		Application.LoadLevel("levelSelect");
 	}

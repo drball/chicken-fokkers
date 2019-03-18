@@ -7,10 +7,13 @@ public class MenuScript : MonoBehaviour {
 	public LevelsController LevelsController;
 	public GameObject CreditsPanel;
 	public GameObject MoreGamesPanel;
+	public GameObject[] Popups;
+	public VersionController VersionController;
 
 	// Use this for initialization
 	void Start () {
 		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
+		VersionController = GameObject.Find("VersionController").GetComponent<VersionController>();
 		LevelsController.HideLoadingDialog();
 		CreditsPanel.SetActive(false);
 		MoreGamesPanel.SetActive(false);
@@ -72,6 +75,28 @@ public class MenuScript : MonoBehaviour {
 
 	public void PlayStoryBtnPressed(){
 		StartStoryGame();
+	}
+
+	public void ShowPopup(GameObject thePopup){
+		//--show one popup and close all the others
+		// CloseAllPopups();
+		Debug.Log("show popup "+thePopup.name);
+		thePopup.SetActive(true);
+	}
+
+	public void CloseAllPopups(){
+		Debug.Log("Close all popups");
+
+		foreach (GameObject Popup in Popups){
+			Debug.Log("Close popup "+Popup.name);
+			Popup.SetActive(false);
+		}
+	}
+
+	public void NoAdsBtnPressed(){
+		//--do this here because the button can't find the versioncontroller
+		Debug.Log("no ads btn pressed");
+		VersionController.PurchaseNoAds();
 	}
 
 }

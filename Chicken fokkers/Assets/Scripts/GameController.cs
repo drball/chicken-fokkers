@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour {
 	public Camera cam;
 	public GameObject InstructionP1;
 	public GameObject InstructionP2;
-	private string defaultPlayer = "Fokker"; //Fokker, Vickers 
+	private string defaultPlayer = "Tigermoth"; //Fokker, Vickers 
 	public AdvertsController AdvertsController;
 	public LevelsController LevelsController;
 

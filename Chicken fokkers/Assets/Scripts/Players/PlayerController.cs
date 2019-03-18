@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	public bool alive = true;
 	public int score = 0;
-	public float health = 100;
+	public float health = 60;
 	public bool singlePlayer;
 	 public GameObject DeathExplosion;
 	 public GameController GameController;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
 
 		alive = false;
 		Vector2 vel = rb.velocity;
-		ShootController.CancelShooting();
+		ShootController.shooting = false;
 		GameObject crashingPlayer = Instantiate(CrashingPlayer, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 		Instantiate(DeathExplosion, transform.position, Quaternion.Euler(0, 0, gameObject.transform.eulerAngles.z));
 		crashingPlayer.GetComponent<Rigidbody2D>().velocity = vel;

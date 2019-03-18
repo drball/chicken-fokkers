@@ -5,7 +5,7 @@ using UnityEngine;
 public class VersionController : MonoBehaviour {
 
 	public bool paidVersion = false;
-	// public Purchaser PurchaserScript;
+	public Purchaser PurchaserScript;
 
 	void Awake () {
 
@@ -25,7 +25,7 @@ public class VersionController : MonoBehaviour {
 
 	public void PurchaseNoAds(){
 		//--IAP for no ads 
-		// PurchaserScript.BuyNonConsumable();
+		PurchaserScript.BuyNonConsumable();
 
 	}
 

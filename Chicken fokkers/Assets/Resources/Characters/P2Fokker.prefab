@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1587006824808996778}
   - component: {fileID: 1587006824808996776}
   m_Layer: 8
-  m_Name: P2 fokker
+  m_Name: P2Fokker
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -763,8 +763,8 @@ MonoBehaviour:
   Player: {fileID: 1587006824808996821}
   PlayerController: {fileID: 1587006824808996823}
   shootingHit: 0
-  fireRate: 0
-  angularDeviation: 0
+  fireRate: 0.3
+  angularDeviation: 2
   shootingAngles: []
 --- !u!1 &1587006825785962984
 GameObject:

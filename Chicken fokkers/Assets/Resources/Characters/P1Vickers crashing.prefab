@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.7142856, y: 0.7142856, z: 1}
   m_Children: []
   m_Father: {fileID: 4811186821864192}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &212092716657483052
 SpriteRenderer:
@@ -68,7 +68,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -680315143
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 63e4c9b33c62c44f080744f79dc68e5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -128,7 +128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4811186821864192}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &212917173202921722
 SpriteRenderer:
@@ -4889,7 +4889,7 @@ GameObject:
   - component: {fileID: 114329180585376064}
   - component: {fileID: 60143948924436970}
   m_Layer: 0
-  m_Name: P1 vickers crashing 1
+  m_Name: P1Vickers crashing
   m_TagString: DeadPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5011,10 +5011,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4781443168972748}
   - {fileID: 4897183776236306}
   - {fileID: 6047683292898781670}
   - {fileID: 7418048785734900357}
+  - {fileID: 4781443168972748}
   m_Father: {fileID: 4060268911000580}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5047,7 +5047,7 @@ Transform:
   m_LocalScale: {x: -0.57242507, y: 0.57242507, z: 0.5724251}
   m_Children: []
   m_Father: {fileID: 4811186821864192}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7645459556196566721
 SpriteRenderer:
@@ -5085,7 +5085,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -680315143
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 83bf2d67f5f8342f189be04c508549d9, type: 3}
   m_Color: {r: 0.49, g: 0.49, b: 0.49, a: 1}
   m_FlipX: 0
@@ -5343,8 +5343,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4151718402727140813}
-  - component: {fileID: 4151718402727140815}
-  - component: {fileID: 4151718402727140814}
   m_Layer: 8
   m_Name: Detachable wheel
   m_TagString: PlayerWheel
@@ -5369,40 +5367,6 @@ Transform:
   m_Father: {fileID: 4060268911000580}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.663002}
---- !u!58 &4151718402727140815
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151718402727140812}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.02099191, y: 0.10150292}
-  serializedVersion: 2
-  m_Radius: 0.2621637
---- !u!114 &4151718402727140814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151718402727140812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554c9f183548f427a8758257abf5648f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NewWheel: {fileID: 1835006788832134, guid: 3cd2de1923ed842b39d25b5438a09b43, type: 3}
-  WheelExplosion: {fileID: 1654621613391498, guid: 56e5a8dbdf49a4a0bb08b6a5bb22cbb7,
-    type: 3}
-  PlayerController: {fileID: 0}
-  PlayerRb: {fileID: 0}
-  hasWheel: 1
 --- !u!1 &4272017563945953546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5432,7 +5396,7 @@ Transform:
   m_Children:
   - {fileID: 8090307031955929582}
   m_Father: {fileID: 4811186821864192}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8090307031955929569
 GameObject:

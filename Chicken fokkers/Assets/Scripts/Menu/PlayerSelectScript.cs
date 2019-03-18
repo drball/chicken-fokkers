@@ -130,7 +130,7 @@ public class PlayerSelectScript : MonoBehaviour {
 		//--show the selected char
 		p1GameObjects[charToShow].SetActive(true);
 
-		if((charToShow == 4) && (!isRocketUnlocked) && (VersionController.paidVersion == false)){
+		if((charToShow == 3) && (!isRocketUnlocked) && (VersionController.paidVersion == false)){
 			Debug.Log("p1 has selected rocket");
 			P1Btn.GetComponent<Button>().interactable = false; //--this bots btn should be disabled
 			//--show unlock button 
@@ -202,7 +202,7 @@ public class PlayerSelectScript : MonoBehaviour {
 		//--show the selected char
 		p2GameObjects[charToShow].SetActive(true);
 
-		if((charToShow == 4) && (!isRocketUnlocked) && (VersionController.paidVersion == false)){
+		if((charToShow == 3) && (!isRocketUnlocked) && (VersionController.paidVersion == false)){
 			Debug.Log("p2 has selected rocket");
 			P2Btn.GetComponent<Button>().interactable = false; //--this bots btn should be disabled
 			//--show unlock button 

@@ -177,7 +177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -680315143
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 83bf2d67f5f8342f189be04c508549d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   Player: {fileID: 6266132010129432030}
   PlayerController: {fileID: 6266132010129432039}
   shootingHit: 0
-  fireRate: 0
+  fireRate: 0.3
   angularDeviation: 8
   shootingAngles: []
 --- !u!1 &6266132009680318608
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 6266132010129432037}
   - component: {fileID: 6266132010129432036}
   m_Layer: 8
-  m_Name: P1 vickers
+  m_Name: P1Vickers
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -760,7 +760,7 @@ MonoBehaviour:
   ShootController: {fileID: 6266132009547912875}
   DetachableWheelScript: {fileID: 6266132011124410615}
   PlayerAbility: {fileID: 6266132010129432037}
-  Vfx: {fileID: 6266132009774253969}
+  Vfx: {fileID: 4693330391080200106}
   CrashingPlayer: {fileID: 1517893512116448, guid: 83dbf7af94be747f6bacf740efd067c0,
     type: 3}
   rb: {fileID: 6266132010129432024}

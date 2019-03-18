@@ -13,16 +13,18 @@ public class ShootController : MonoBehaviour {
 	public GameObject Player;
 	public PlayerController PlayerController;
 	public bool shootingHit = false;
-	private float defaultFireRate = 0.15f;
-	public float fireRate; //--smaller number = faster
-	private float fireRateIncrement = 0.015f;
+	private float initialFireRate;
+	public float fireRate = 0.2f; //--smaller number = faster
+	private float fireRateIncrement = 0.02f;
 	public float angularDeviation = 0f; //--0 is most precise 
 	public List<float> shootingAngles; //--a list for our pregenerated random angles
 	private int shootingAngleNum = 0;
 	private Quaternion bulletAngle;
+	private float nextFire; //--the next time the player can fire 
 
 	// Use this for initialization
 	void Awake () {
+		initialFireRate = fireRate;
 		ResetFireRate();
 	}
 
@@ -39,17 +41,19 @@ public class ShootController : MonoBehaviour {
 
 			if(shootingHit){
 			
-				if(!shooting){
+				if(!shooting && Time.time > nextFire){
 					shooting = true;
-					InvokeRepeating("FireBullet", 0, fireRate);
-					// Debug.Log("start shooting");
+					// InvokeRepeating("FireBullet", 0, fireRate);
+					Debug.Log("start shooting. Fire rate = "+fireRate);
+					nextFire = Time.time + fireRate;
+					FireBullet();
 				}
 
 			} else {
 				if(shooting){
 					shooting = false;
-					CancelShooting();
-					// Debug.Log("cancel shooting");
+					// CancelShooting();
+					Debug.Log("cancel shooting");
 				}
 			}
 
@@ -66,17 +70,11 @@ public class ShootController : MonoBehaviour {
         	// Debug.Log("detector hit "+other.name);
     		shootingHit = true;
         }
-
     }
 
-	public void CancelShooting(){
-		// Debug.Log("cencel shooting tho");
-		CancelInvoke("FireBullet");
-	}	
-
 	public void ResetFireRate(){
-		fireRate = defaultFireRate;
-
+		Debug.Log("fire rate set to "+fireRate);
+		fireRate = initialFireRate;
 		Bullet = DefaultBullet;
 	}
 
@@ -84,12 +82,12 @@ public class ShootController : MonoBehaviour {
 		fireRate = fireRate - fireRateIncrement;
 
 		//--if we're currently shooting, cancel the interval and start it again with new firerate
-		CancelShooting();
+		shooting = false;
 
 		if(shootingHit){
 			Debug.Log("start shooting again");
 			
-			InvokeRepeating("FireBullet", 0, fireRate);
+			// InvokeRepeating("FireBullet", 0, fireRate);
 		
 			if(!shooting){
 				shooting = true;

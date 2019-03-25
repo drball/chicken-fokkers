@@ -20,6 +20,10 @@ namespace RejectedGames
 		private const int UNIQUE_INT = int.MinValue;
 		private const float UNIQUE_FLOAT = Mathf.NegativeInfinity;
 
+		private const int VERT_LIMIT = 65535;
+		private const int VERTS_IN_CHARACTER = 4;
+		private const int CHARACTER_LIMIT = VERT_LIMIT / VERTS_IN_CHARACTER;
+		
 		private static readonly string[] UNITY_HIDDEN_SETTINGS = new string[]
 		{
 			"UnityGraphicsQuality",
@@ -28,6 +32,9 @@ namespace RejectedGames
 			"unity.player_session_elapsed_time",
 			"unity.player_sessionid"
 		};
+
+		private const string UNITY_SPECIAL_CHARACTERS = @"$%&|\<>/~";
+		private const string UNITY_REPLACEMENT_CHARACTER = "_";
 
 		private const float UpdateIntervalInSeconds = 1.0F;
 
@@ -66,25 +73,37 @@ namespace RejectedGames
 			set { EditorPrefs.SetBool("APPW-AutoRefresh", value); }
 		}
 		
-		void OnEnable()
+		private void OnEnable()
 		{
 			if (!IsUnityWritingToPlist())
 				RefreshKeys();
 
 			//Make sure we never subscribe twice as OnEnable will be called more often then you think :)
-			EditorApplication.playmodeStateChanged -= OnPlayModeStateChanged;
-			EditorApplication.playmodeStateChanged += OnPlayModeStateChanged;
+#if UNITY_2017_3_OR_NEWER
+			EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+			EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+#else
+			EditorApplication.playmodeStateChanged -= OnPlaymodeStateChanged;
+			EditorApplication.playmodeStateChanged += OnPlaymodeStateChanged;
+#endif
 		}
 
-		private void OnPlayModeStateChanged()
+#if UNITY_2017_3_OR_NEWER
+		private void OnPlayModeStateChanged(PlayModeStateChange state)
+		{
+			OnPlaymodeStateChanged();
+		}
+#endif
+
+		private void OnPlaymodeStateChanged()
 		{
 			waitTillPlistHasBeenWritten = IsUnityWritingToPlist();
 
-			if (!waitTillPlistHasBeenWritten)
+			if(!waitTillPlistHasBeenWritten)
 				RefreshKeys();
 		}
 
-		void Update()
+		private void Update()
 		{
 			//Auto refresh on Windows. On Mac this would be annoying because it takes longer so the user must manually refresh.
 			if (AutoRefresh && Application.platform == RuntimePlatform.WindowsEditor
@@ -99,9 +118,9 @@ namespace RejectedGames
 
 			if (waitTillPlistHasBeenWritten)
 			{
-				if (new FileInfo(tmpPlistFile.FullName).Exists)
+				if (tmpPlistFile != null && new FileInfo(tmpPlistFile.FullName).Exists)
 				{
-
+					//Keep on waiting
 				}
 				else
 				{
@@ -315,16 +334,27 @@ namespace RejectedGames
 								filteredPpeList[i].Key = EditorGUILayout.TextField(filteredPpeList[i].Key, filteredPpeList[i].HasChanged ? boldNumberFieldStyle : EditorStyles.numberField, GUILayout.MaxWidth(125), GUILayout.MinWidth(40), GUILayout.ExpandWidth(true));
 
 								GUIStyle numberFieldStyle = filteredPpeList[i].HasChanged ? boldNumberFieldStyle : EditorStyles.numberField;
-
 								switch (filteredPpeList[i].Type)
 								{
 									default:
 									case ValueType.String:
-										filteredPpeList[i].Value = EditorGUILayout.TextField("", (string)filteredPpeList[i].Value, numberFieldStyle, GUILayout.MinWidth(40));
+										string textValue = (string)filteredPpeList[i].Value;
+										if(textValue.Length < CHARACTER_LIMIT)
+										{
+											filteredPpeList[i].Value = EditorGUILayout.TextField("", textValue, numberFieldStyle, GUILayout.MinWidth(40));
+										}
+										else
+										{
+											GUI.backgroundColor = Color.red;
+											EditorGUILayout.TextField("", string.Format("Cannot display value as it exceeds the textfield character limitation. Value has {0} characters while Unity only supports {1}.", textValue.Length, CHARACTER_LIMIT), EditorStyles.numberField, GUILayout.MinWidth(40));
+											GUI.backgroundColor = Color.white;
+										}
 										break;
+
 									case ValueType.Float:
 										filteredPpeList[i].Value = EditorGUILayout.FloatField("", (float)filteredPpeList[i].Value, numberFieldStyle, GUILayout.MinWidth(40));
 										break;
+
 									case ValueType.Integer:
 										filteredPpeList[i].Value = EditorGUILayout.IntField("", (int)filteredPpeList[i].Value, numberFieldStyle, GUILayout.MinWidth(40));
 										break;
@@ -366,7 +396,7 @@ namespace RejectedGames
 			EditorGUI.indentLevel--;
 		}
 
-		#region Menu Actions
+#region Menu Actions
 
 		private void OnChangeSortModeClicked()
 		{
@@ -400,8 +430,18 @@ namespace RejectedGames
 
 					if (entry != null)
 					{
-						ppeList.Add(entry);
-						entry.SaveChanges();
+						PlayerPrefsEntry existingEntry = ppeList.Find(p => p.Key == entry.Key);
+						if (existingEntry == null)
+						{
+							ppeList.Add(entry);
+							entry.SaveChanges();
+						}
+						else if (!entry.Value.Equals(existingEntry.Value) && EditorUtility.DisplayDialog("Duplicate entry found", string.Format("Key \"{0}\" with value \"{1}\" already exists.{2}Do you want to overwrite it with value \"{3}\" ?", existingEntry.Key, existingEntry.Value, Environment.NewLine, entry.Value), "Yes", "No"))
+						{
+							ppeList.Remove(existingEntry);
+							ppeList.Add(entry);
+							entry.SaveChanges();
+						}						
 					}
 				}
 
@@ -463,15 +503,19 @@ namespace RejectedGames
 		private void Export(bool onlySelected)
 		{
 			Dictionary<string, object> entries = new Dictionary<string, object>();
-			for (int i = 0; i < this.filteredPpeList.Count; i++)
+			for (int i = 0; i < filteredPpeList.Count; i++)
 			{
-				if (onlySelected == false)
+				PlayerPrefsEntry entry = filteredPpeList[i];
+				if (!entries.ContainsKey(entry.Key))
 				{
-					entries.Add(this.filteredPpeList[i].Key, this.filteredPpeList[i].Value);
-				}
-				else if (this.filteredPpeList[i].IsSelected)
-				{
-					entries.Add(this.filteredPpeList[i].Key, this.filteredPpeList[i].Value);
+					if (onlySelected == false)
+					{
+						entries.Add(entry.Key, entry.Value);
+					}
+					else if (entry.IsSelected)
+					{
+						entries.Add(entry.Key, entry.Value);
+					}
 				}
 			}
 
@@ -481,7 +525,7 @@ namespace RejectedGames
 			}
 			else
 			{
-				string exportPath = EditorUtility.SaveFilePanelInProject("Export all PlayPrefs entries", PlayerSettings.productName + "_PlayerPrefs", "ppe", "Export all PlayerPrefs entries");
+				string exportPath = EditorUtility.SaveFilePanel("Export all PlayPrefs entries", Application.dataPath, PlayerSettings.productName + "_PlayerPrefs", "ppe");
 
 				if (!string.IsNullOrEmpty(exportPath))
 				{
@@ -492,9 +536,9 @@ namespace RejectedGames
 			}
 		}
 
-		#endregion
+#endregion
 
-		#region SearchMenu Actions
+#region SearchMenu Actions
 
 		private void OnSearchAllClicked()
 		{
@@ -546,7 +590,7 @@ namespace RejectedGames
 			}
 		}
 
-		#endregion
+#endregion
 		
 		private void Sort()
 		{
@@ -603,7 +647,9 @@ namespace RejectedGames
 		/// </summary>
 		private string[] GetAllMacKeys()
 		{
-			string plistPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/Library/Preferences/unity." + PlayerSettings.companyName + "." + PlayerSettings.productName + ".plist";
+			string companyName = ReplaceSpecialCharacters(PlayerSettings.companyName);
+			string productName = ReplaceSpecialCharacters(PlayerSettings.productName);
+			string plistPath = string.Format("{0}/Library/Preferences/unity.{1}.{2}.plist", Environment.GetFolderPath(Environment.SpecialFolder.Personal), companyName, productName);
 			string[] keys = new string[0];
 
 			if (File.Exists(plistPath))
@@ -670,6 +716,20 @@ namespace RejectedGames
 			return keys.ToArray();
 		}
 
+		private string ReplaceSpecialCharacters (string str)
+		{
+			for (int i = 0; i < UNITY_SPECIAL_CHARACTERS.Length; i++)
+			{
+				string specialCharacter = UNITY_SPECIAL_CHARACTERS.Substring (i, 1);
+
+				if (str.Contains (specialCharacter))
+				{
+					str = str.Replace (specialCharacter, UNITY_REPLACEMENT_CHARACTER);
+				}
+			}
+			return str;
+		}
+
 		private bool IsUnityWritingToPlist()
 		{
 			bool result = false;
@@ -678,8 +738,9 @@ namespace RejectedGames
 			if (Application.platform == RuntimePlatform.OSXEditor)
 			{
 				//Find the tempPlistFile, while it exists we know Unity is still busy writen the last version of PlayerPrefs
-				FileInfo plistFile = new FileInfo(Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/Library/Preferences/unity." + PlayerSettings.companyName + "." + PlayerSettings.productName + ".plist");
-				DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/Library/Preferences/");
+				string preferencesPath = string.Format("{0}/Library/Preferences/", Environment.GetFolderPath(Environment.SpecialFolder.Personal));
+				FileInfo plistFile = new FileInfo(string.Format("{0}unity.{1}.{2}.plist", preferencesPath, PlayerSettings.companyName, PlayerSettings.productName));
+				DirectoryInfo di = new DirectoryInfo(preferencesPath);
 				FileInfo[] allPreferenceFiles = di.GetFiles();
 
 				foreach (FileInfo fi in allPreferenceFiles)

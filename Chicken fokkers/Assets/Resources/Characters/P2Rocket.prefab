@@ -65,8 +65,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -680315143
-  m_SortingLayer: 3
+  m_SortingLayerID: 1615167031
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: ea6583054f3ac4cbbbcb10b7e404764f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -92,11 +92,11 @@ GameObject:
   - component: {fileID: 1587006824808996820}
   - component: {fileID: 1587006824808996823}
   - component: {fileID: 1587006824808996781}
-  - component: {fileID: 1587006824808996822}
   - component: {fileID: 1587006824808996778}
   - component: {fileID: 1587006824808996776}
+  - component: {fileID: 8470279846082569585}
   m_Layer: 8
-  m_Name: P2 rocket
+  m_Name: P2Rocket
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,9 +212,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 57f63edbec3e945dd913c0fa527a7b89, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 53c4870a2a9b540a3aaa4ab25168036c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.382
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -298,19 +298,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1587006824808996822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587006824808996821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c7c0015c9b44fe8a02aff412ffb5d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EngineSfx: {fileID: 1587006824808996781}
 --- !u!114 &1587006824808996778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +326,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   GameController: {fileID: 0}
+--- !u!114 &8470279846082569585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587006824808996821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f776885cda04c609d132aa2742905b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EngineSfx: {fileID: 1587006824808996781}
 --- !u!1 &1587006825253617985
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587006825321657986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.142, z: 0}
+  m_LocalPosition: {x: -0.391, y: 0.142, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8072804982465991837}
@@ -907,8 +907,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -680315143
-  m_SortingLayer: 3
+  m_SortingLayerID: 1615167031
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1c7bbb0ed09ee4ab99150b483c6ff7b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1097,8 +1097,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1615167031
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8e5f8b608f23f421b844d3321bb2d2dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1177,8 +1177,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -680315143
-  m_SortingLayer: 3
+  m_SortingLayerID: 1615167031
+  m_SortingLayer: 4
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 63e4c9b33c62c44f080744f79dc68e5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5882,8 +5882,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -680315143
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 3
@@ -5973,8 +5973,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1615167031
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: babe056d1360d47ca933d18973639134, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5995,8 +5995,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1587006824808996777}
     m_Modifications:
     - target: {fileID: 1543743792959326, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: InjuredSmoke
       objectReference: {fileID: 0}
     - target: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6031,6 +6031,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
@@ -6041,11 +6053,6 @@ PrefabInstance:
     - target: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198728680862928608, guid: 63889722a42e54aa9ac5898d34faf9a3,
-        type: 3}
-      propertyPath: randomSeed
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}

@@ -24,13 +24,15 @@ public class GameController : MonoBehaviour {
 	public Camera cam;
 	public GameObject InstructionP1;
 	public GameObject InstructionP2;
-	private string defaultPlayer = "Tigermoth"; //Fokker, Vickers 
+	private string defaultPlayer = "Tigermoth"; //Fokker, Vickers, Rocket, Tigermoth
 	public AdvertsController AdvertsController;
 	public LevelsController LevelsController;
+	public VersionController VersionController;
 
 	void Awake(){
 		//--load the correct player
 		LevelsController = GameObject.Find("LevelsController").GetComponent<LevelsController>();
+		VersionController = GameObject.Find("VersionController").GetComponent<VersionController>();
 
 		// Player1Obj = Instantiate(Player1Characters[3], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
 		// Player2Obj = Instantiate(Player2Characters[3], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
@@ -158,9 +160,11 @@ public class GameController : MonoBehaviour {
 			//--show "play again" button
 			PlayAgainBtn.SetActive(true);
 
-			yield return new WaitForSeconds(1f);
+			if(!VersionController.paidVersion){
+				yield return new WaitForSeconds(1f);
 
-			AdvertsController.ShowAdvert();
+				AdvertsController.ShowAdvert();
+			}
 			
 		}else {
 			//--keep playing. Start next round

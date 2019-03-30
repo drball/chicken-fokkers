@@ -72,7 +72,7 @@ MonoBehaviour:
   speed: 11
   upSpeed: 17
   MovementDirection: 1
-  defaultUpForce: 50
+  defaultUpForce: 30
   Explosion: {fileID: 1893286043872580, guid: 441be74dfefe248d29d7c986520b8339, type: 3}
   Wheel: {fileID: 1587006824918795351}
 --- !u!60 &6115834103732546855

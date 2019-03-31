@@ -20,9 +20,17 @@ public class Purchaser : MonoBehaviour, IStoreListener
     // when defining the Product Identifiers on the store. Except, for illustration purposes, the 
     // kProductIDSubscription - it has custom Apple and Google identifiers. We declare their store-
     // specific mapping to Unity Purchasing's AddProduct, below.
-    public static string kProductIDConsumable =    "consumable";   
-    public static string kProductIDNonConsumable = "removeads_cf";
-    public static string kProductIDSubscription =  "subscription"; 
+
+    #if UNITY_IOS
+        public static string kProductIDConsumable =    "consumable";   
+        public static string kProductIDNonConsumable = "removeads_cf";
+        public static string kProductIDSubscription =  "subscription"; 
+    #else
+        public static string kProductIDConsumable =    "consumable";   
+        public static string kProductIDNonConsumable = "removeads";
+        public static string kProductIDSubscription =  "subscription"; 
+    #endif
+    
      
     // Apple App Store-specific product identifier for the subscription product.
     private static string kProductNameAppleSubscription =  "com.unity3d.subscription.new";

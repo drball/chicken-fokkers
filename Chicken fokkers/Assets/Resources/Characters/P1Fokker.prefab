@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 6266132009547912874}
   - component: {fileID: 6266132009547912875}
   m_Layer: 11
-  m_Name: Detector
+  m_Name: Shoot Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!4 &1498596992143175466
 Transform:
@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 7491095469506926324}
   - component: {fileID: 4171299309510695609}
   - component: {fileID: 5851722737618750007}
+  - component: {fileID: 999928091005486222}
   m_Layer: 11
   m_Name: Bomb Detector
   m_TagString: Untagged
@@ -234,18 +235,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.83101135, y: -3.103469}
+  m_Offset: {x: 0.8, y: -4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.5801525, y: 7.206938}
+  m_Size: {x: 6, y: 7}
   m_EdgeRadius: 0
 --- !u!114 &5851722737618750007
 MonoBehaviour:
@@ -261,18 +262,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPos: {fileID: 2745618471218241725}
   shooting: 0
-  Bullet: {fileID: 1987139757378726, guid: ec853463019984c3e979568a2892734a, type: 3}
-  BulletLarge: {fileID: 1300448569030514, guid: 353bcf1395d3d4e73b1b605ca6724292,
+  Bullet: {fileID: 2912703612059893508, guid: 1900308f8bcd74d74b72d77cfeb8ae36, type: 3}
+  BulletLarge: {fileID: 2912703612059893508, guid: 877c24ff60a7a4703b8df43df889f55d,
     type: 3}
-  DefaultBullet: {fileID: 1987139757378726, guid: ec853463019984c3e979568a2892734a,
+  DefaultBullet: {fileID: 2912703612059893508, guid: 1900308f8bcd74d74b72d77cfeb8ae36,
     type: 3}
   PlayerMovement: {fileID: 6266132010129432025}
   Player: {fileID: 6266132010129432030}
   PlayerController: {fileID: 6266132010129432039}
   shootingHit: 0
-  fireRate: 1
+  fireRate: 0.3
   angularDeviation: 3
   shootingAngles: []
+--- !u!114 &999928091005486222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519988079391341855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c94d4e1c84a47e2b41b710d980e0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4653930853286630817
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +377,7 @@ GameObject:
   - component: {fileID: 6266132009547912874}
   - component: {fileID: 6266132009547912875}
   m_Layer: 11
-  m_Name: Detector
+  m_Name: Shoot Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,7 +410,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.026974, y: 0}
+  m_Offset: {x: 4.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -408,7 +421,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.368592, y: 1}
+  m_Size: {x: 6.5, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6266132009547912875
 MonoBehaviour:
@@ -1625,15 +1638,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63889722a42e54aa9ac5898d34faf9a3, type: 3}
---- !u!198 &6068533925744144563 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198728680862928608, guid: 63889722a42e54aa9ac5898d34faf9a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6266132011059428947}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6267439113090528127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4415052866178348, guid: 63889722a42e54aa9ac5898d34faf9a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6266132011059428947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6068533925744144563 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198728680862928608, guid: 63889722a42e54aa9ac5898d34faf9a3,
     type: 3}
   m_PrefabInstance: {fileID: 6266132011059428947}
   m_PrefabAsset: {fileID: 0}

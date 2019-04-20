@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//--plays a sound of a random pitch
+//--instantly plays a sound of a random pitch - ideal for explosion or bullet
 
 public class ExplosionSound : MonoBehaviour {
 

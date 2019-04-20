@@ -28,7 +28,7 @@ public class PlayerSelectScript : MonoBehaviour {
 	public UnlockCharacterButton UnlockP2BtnScript;
 
 	public bool isRocketUnlocked;
-	// public bool isSolarUnlocked;
+	public bool isEggBomberUnlocked;
 	// public bool isRazorbackUnlocked;
 	// public bool isPooperUnlocked;
 	// public bool isFlatUnlocked;
@@ -56,7 +56,7 @@ public class PlayerSelectScript : MonoBehaviour {
 
 		//--check whether cogbot has been unlocked 
 		isRocketUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("UnlockedRocket"));
-		// isSolarUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("UnlockedSolar"));
+		isEggBomberUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("UnlockedEggBomber"));
 		// isRazorbackUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("UnlockedRazorback"));
 		// isPooperUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("UnlockedPooper"));
 		// isFlatUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("UnlockedFlat"));
@@ -137,12 +137,12 @@ public class PlayerSelectScript : MonoBehaviour {
 			UnlockP1Btn.SetActive(true);
 			UnlockP1BtnScript.selectedCharacter = "Rocket";
 
-		// } else if((charToShow == 5) && (!isSolarUnlocked) && (VersionController.paidVersion == false)){
-		// 	Debug.Log("p1 has selected solar");
-		// 	P1Btn.GetComponent<Button>().interactable = false; //--this bots btn should be disabled
-		// 	//--show unlock button 
-		// 	UnlockP1Btn.SetActive(true);
-		// 	UnlockP1BtnScript.selectedCharacter = "Solar";
+		} else if((charToShow == 4) && (!isEggBomberUnlocked) && (VersionController.paidVersion == false)){
+			Debug.Log("p1 has selected eggbomber");
+			P1Btn.GetComponent<Button>().interactable = false; //--this bots btn should be disabled
+			//--show unlock button 
+			UnlockP1Btn.SetActive(true);
+			UnlockP1BtnScript.selectedCharacter = "EggBomber";
 
 		// } else if((charToShow == 6) && (!isRazorbackUnlocked) && (VersionController.paidVersion == false)){
 		// 	Debug.Log("p1 has selected razorback");
@@ -209,12 +209,12 @@ public class PlayerSelectScript : MonoBehaviour {
 			UnlockP2Btn.SetActive(true);
 			UnlockP2BtnScript.selectedCharacter = "Rocket";
 
-		// } else if((charToShow == 5) && (!isSolarUnlocked) && (VersionController.paidVersion == false)){
-		// 	Debug.Log("p2 has selected solar");
-		// 	P2Btn.GetComponent<Button>().interactable = false; //--this bots btn should be disabled
-		// 	//--show unlock button 
-		// 	UnlockP2Btn.SetActive(true);
-		// 	UnlockP2BtnScript.selectedCharacter = "Solar";
+		} else if((charToShow == 4) && (!isEggBomberUnlocked) && (VersionController.paidVersion == false)){
+			Debug.Log("p2 has selected eggbomber");
+			P2Btn.GetComponent<Button>().interactable = false; //--this bots btn should be disabled
+			//--show unlock button 
+			UnlockP2Btn.SetActive(true);
+			UnlockP2BtnScript.selectedCharacter = "EggBomber";
 
 		// } else if((charToShow == 6) && (!isRazorbackUnlocked) && (VersionController.paidVersion == false)){
 		// 	Debug.Log("p2 has selected razorback");
@@ -334,8 +334,8 @@ public class PlayerSelectScript : MonoBehaviour {
 		//--set the variables
 		if(UnlockingCharacter == "Rocket"){
 			isRocketUnlocked = true;
-		// } else if (UnlockingCharacter == "Solar"){
-		// 	isSolarUnlocked = true;
+		} else if (UnlockingCharacter == "EggBomber"){
+			isEggBomberUnlocked = true;
 		// } else if (UnlockingCharacter == "Razorback"){
 		// 	isRazorbackUnlocked = true;
 		// } else if (UnlockingCharacter == "Pooper"){

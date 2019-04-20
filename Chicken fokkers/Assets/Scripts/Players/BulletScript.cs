@@ -6,10 +6,11 @@ public class BulletScript : MonoBehaviour {
 
 	public GameObject Owner;
 	private float speed = 500f;
-	public Renderer rend;
+	// public Renderer[] rend;
 	public Rigidbody2D rb;
 	public GameObject Explosion;
 	public GameObject GroundExplosion;
+	public float damage = 1f;
 
 
 	// Use this for initialization
@@ -20,11 +21,11 @@ public class BulletScript : MonoBehaviour {
 
 	}
 
-	void Update(){
-		if (!rend.isVisible){
-			Destroy(gameObject);
-		}
-	}
+	// void Update(){
+	// 	if (!rend.isVisible){
+	// 		Destroy(gameObject);
+	// 	}
+	// }
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
@@ -33,7 +34,7 @@ public class BulletScript : MonoBehaviour {
         if (other.tag == "PlayerCollider" && (other.transform.parent.name != Owner.name)){
 
         	if(other.GetComponent<DamageController>()){
-        		other.GetComponent<DamageController>().HitByBullet();
+        		other.GetComponent<DamageController>().HitByBullet(damage);
 
         		Instantiate(Explosion, transform.position, transform.rotation);
         		Debug.Log("hit the other player");

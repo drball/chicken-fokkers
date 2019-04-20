@@ -37,13 +37,13 @@ public class DamageController : MonoBehaviour {
 
 	}
 
-	public void HitByBullet(){
+	public void HitByBullet(float damageAmt){
 
 		hitSfx.Play();
 
 		if(PlayerController.health > 0) {
 			// Debug.Log(gameObject.name+"hit by bullet");
-			PlayerController.health--;
+			PlayerController.health -= damageAmt;
 			Rend.color = new Color(255, 0, 0, 1); //--make it red
 			Invoke("ResetColour", 0.06f);
 			UpdateHealthBar();

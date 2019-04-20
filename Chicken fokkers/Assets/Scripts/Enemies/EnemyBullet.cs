@@ -8,7 +8,7 @@ public class EnemyBullet : MonoBehaviour {
 	public Rigidbody2D rb;
 	public GameObject Explosion;
 	public GameObject GroundExplosion;
-
+	private float damage = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour {
         if (other.tag == "PlayerCollider"){
 
         	if(other.GetComponent<DamageController>()){
-        		other.GetComponent<DamageController>().HitByBullet();
+        		other.GetComponent<DamageController>().HitByBullet(damage);
 
         		Instantiate(Explosion, transform.position, transform.rotation);
         		Debug.Log("hit the other player");

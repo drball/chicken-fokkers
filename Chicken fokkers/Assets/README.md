@@ -1,14 +1,14 @@
-# Robo-sumo-unity
+# Chicken-fokkers
 A 2-player Android/touch-based game built in Unity3D
 
 Google Play store link:
 https://play.google.com/store/apps/details?id=com.DavidDickBall.ChickenFokkers
-When building from Unity, call this BotSumo  and make sure checkbox on PaidVersion in scene "menu" is unchecked. 
+When building from Unity, call this ChickenFokkers and make sure checkbox on PaidVersion in scene "menu" is unchecked. 
 Package has to be com.DavidDickBall.ChickenFokkers
 
 
 
-# note to self - how to add new bot
+# note to self - how to add new character
 Copy an existing character, replace the VFX. Change the "Player character" name. Save in "Resources" folder. 
 In PlayerSelectScript, create new elseif in showOnlyP1Character() & showOnlyP2Character()
 Create new isXUnlocked variable, and set to PlayerPref in Start()

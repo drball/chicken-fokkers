@@ -5,7 +5,11 @@ using UnityEngine;
 public class HideOnPlay : MonoBehaviour {
 
 	void Start () {
-		gameObject.SetActive(false);
+		
+		if(Time.deltaTime < 0.1){
+			Debug.Log(transform.name+" has been hidden at time:"+Time.deltaTime);
+			gameObject.SetActive(false);
+		}
 	}
 	
 }

@@ -25,11 +25,13 @@ public class DetachableWheelScript : MonoBehaviour {
 			if (other.tag == "PlayerCollider" && (other.transform.parent.name != transform.parent.name)){
 				// Debug.Log("hit the wheel");
 				gameObject.SetActive(false);
-				GameObject newWheel = Instantiate(NewWheel, transform.position, Quaternion.identity);
-				// Debug.Log("give wheel force of "+playerForce);
-				newWheel.GetComponent<Rigidbody2D>().AddForce(playerForce, ForceMode2D.Impulse);
+				if(NewWheel){
+					GameObject newWheel = Instantiate(NewWheel, transform.position, Quaternion.identity);
+					// Debug.Log("give wheel force of "+playerForce);
+					newWheel.GetComponent<Rigidbody2D>().AddForce(playerForce, ForceMode2D.Impulse);
+					hasWheel = false;
+				}
 				GameObject newWheelExplosion = Instantiate(WheelExplosion, transform.position, Quaternion.identity);
-				hasWheel = false;
 
 	        } else if(other.tag == "Ground"){
 				Debug.Log("wheel hit ground!!!!!");

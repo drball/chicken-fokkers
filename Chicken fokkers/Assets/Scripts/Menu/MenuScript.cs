@@ -49,6 +49,10 @@ public class MenuScript : MonoBehaviour {
 		Application.OpenURL("https://www.facebook.com/davidonionball");
 	}
 
+	public void InstagramBtnPressed(){
+		Application.OpenURL("https://www.instagram.com/theonion770/");
+	}
+
 	public void MusicCreditBtnPressed(){
 		Application.OpenURL("https://www.newgrounds.com/audio/listen/729086");
 	}

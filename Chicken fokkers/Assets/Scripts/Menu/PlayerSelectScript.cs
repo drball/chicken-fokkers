@@ -11,7 +11,8 @@ public class PlayerSelectScript : MonoBehaviour {
 		"Fokker", 
 		"Vickers", 
 		"Tigermoth", 
-		"Rocket"
+		"Rocket",
+		"EggBomber"
 	};
 
 	public GameObject[] p1GameObjects; //--array of characters

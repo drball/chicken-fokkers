@@ -42,7 +42,7 @@ public class MenuScript : MonoBehaviour {
 	}
 
 	public void LikeBtnPressed(){
-		// Application.OpenURL("https://www.facebook.com/BotSumoGame/");
+		Application.OpenURL("https://www.facebook.com/BotSumoGame/");
 	}
 
 	public void FacebookBtnPressed(){
@@ -51,6 +51,10 @@ public class MenuScript : MonoBehaviour {
 
 	public void InstagramBtnPressed(){
 		Application.OpenURL("https://www.instagram.com/theonion770/");
+	}
+
+	public void YoutubeBtnPressed(){
+		Application.OpenURL("https://www.youtube.com/playlist?list=PLgivXuXJtdLXJYxl4pXWNLbn9KxVbmvUA");
 	}
 
 	public void MusicCreditBtnPressed(){

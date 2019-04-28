@@ -289,7 +289,7 @@ MonoBehaviour:
   Explosion: {fileID: 1654621613391498, guid: 56e5a8dbdf49a4a0bb08b6a5bb22cbb7, type: 3}
   GroundExplosion: {fileID: 1654621613391498, guid: c3c284c904785458ab524e58675cebbc,
     type: 3}
-  damage: 6
+  damage: 8
 --- !u!61 &8501347984928502058
 BoxCollider2D:
   m_ObjectHideFlags: 0

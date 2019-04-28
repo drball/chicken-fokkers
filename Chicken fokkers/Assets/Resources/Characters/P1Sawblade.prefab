@@ -1398,6 +1398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityNum: 0
   ShootController: {fileID: 6266132009547912875}
+  PlayerController: {fileID: 6266132010129432039}
+  AbilityText: {fileID: 0}
 --- !u!114 &6266132010129432036
 MonoBehaviour:
   m_ObjectHideFlags: 0

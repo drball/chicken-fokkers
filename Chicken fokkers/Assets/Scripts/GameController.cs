@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Player2ScoreText;
 	public GameObject Countdown;
 	private int winningScore = 5;
+	private string defaultPlayer = "EggBomber"; //Fokker, Vickers, Rocket, Tigermoth, Sawblade
 	public GameObject[] Player1Characters;
 	public GameObject[] Player2Characters;
 	public GameObject Player1Obj;
@@ -24,10 +25,11 @@ public class GameController : MonoBehaviour {
 	public Camera cam;
 	public GameObject InstructionP1;
 	public GameObject InstructionP2;
-	private string defaultPlayer = "EggBomber"; //Fokker, Vickers, Rocket, Tigermoth, Sawblade
 	public AdvertsController AdvertsController;
 	public LevelsController LevelsController;
 	public VersionController VersionController;
+	public bool paused = false;
+	public GameObject PauseModal;
 
 	void Awake(){
 		//--load the correct player
@@ -42,6 +44,10 @@ public class GameController : MonoBehaviour {
 		//--get all the scripts for the players
 		Player1Controller = Player1Obj.GetComponent<PlayerController>();
 		Player2Controller = Player2Obj.GetComponent<PlayerController>();
+
+		if(PauseModal){
+			PauseModal.SetActive(false);
+		}
 	}
 
 	// Use this for initialization
@@ -182,6 +188,18 @@ public class GameController : MonoBehaviour {
 		
 		//--reload entire scene
 		LevelsController.LoadSelectedLevel();
+	}
+
+	public void PauseToggle(){
+		paused = !paused;
+
+		if(paused){
+			PauseModal.SetActive(true);
+			Time.timeScale = 0;
+		} else {
+			Time.timeScale = 1;
+			PauseModal.SetActive(false);
+		}
 	}
 
 

@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPickups : MonoBehaviour {
+//--spawn a blue type of pickup that works instantly - like the missiles
 
-	private float appearAfter = 5f;
+public class SpawnInstantPickups : MonoBehaviour {
+
+	private float appearAfter = 1f;
 	private float edgeBuffer = 2f;
 	public Camera cam;
 	public GameObject Pickup;
-	public Vector2 location;
-	private int pickupMaxAmt = 3;
+	private Vector2 location;
+	private int pickupMaxAmt = 2;
 	private int pickupAmt;
 
 	// Use this for initialization
@@ -43,7 +45,7 @@ public class SpawnPickups : MonoBehaviour {
 	void FixedUpdate () {
 
 		//--debug
-		if(Input.GetKey("p") ) {
+		if(Input.GetKey("i") ) {
 			CreatePickupIntent();
 		}
 	}

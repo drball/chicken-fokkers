@@ -11,12 +11,13 @@ public class PlayerAbility : MonoBehaviour {
 	public PlayerController PlayerController;
 	private Text AbilityText;
 	private int playerNum = 1;
-	public Animator AbilityAnimator;
+	private Animator AbilityAnimator;
 
-	void Start(){
+	void Awake(){
 		playerNum = PlayerController.playerNum;
 		// Debug.Log(transform.name + " playernum### = "+playerNum);
 
+		//--find the number UI
 		if(playerNum == 1){
 			AbilityText = GameObject.Find("Ability1Text").GetComponent<Text>();
 			AbilityAnimator = GameObject.Find("AbilityCounter1").GetComponent<Animator>();
@@ -25,8 +26,6 @@ public class PlayerAbility : MonoBehaviour {
 			AbilityText = GameObject.Find("Ability2Text").GetComponent<Text>();
 			AbilityAnimator = GameObject.Find("AbilityCounter2").GetComponent<Animator>();
 		}
-
-
 	}
 	
 	public void CollectedPickup () {
@@ -45,13 +44,17 @@ public class PlayerAbility : MonoBehaviour {
 			//--ability list
 			if(abilityNum < 5){
 				ShootController.IncreaseFireRate();
-			} else if (abilityNum == 5){
+			}
+
+			if (abilityNum == 1){
 				ShootController.ChangeBulletToLarge();
 			}
+
 		}
 	}
 
 	public void ResetAbility(){
 		abilityNum = 0;
+		AbilityText.text = abilityNum.ToString();
 	}
 }

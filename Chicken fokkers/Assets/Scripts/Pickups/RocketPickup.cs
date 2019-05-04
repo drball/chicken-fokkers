@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class RocketPickup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// GameObject GameController GameController;
+	public bool isCollectable = true;
+	public ParticleSystem ParticleTrail;
+	public GameObject[] VfxList;
+	public AudioSource Sfx; 
+	public GameObject SpawnObj;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	void OnTriggerEnter2D(Collider2D other) {
+
+		Debug.Log("pickup has collided with "+other.name);
+
+		if(isCollectable){
+			if (other.tag == "PlayerCollider" || other.tag == "PlayerWheel"){
+
+	        	Instantiate(SpawnObj, transform.position, transform.rotation);
+	        	isCollectable = false;
+        		Sfx.pitch = Random.Range(0.9f, 1.25f);
+				Sfx.Play();
+    			ParticleTrail.Stop();
+    			Destroy(gameObject, 3);
+
+    			foreach(GameObject Vfx in VfxList){
+	     			Vfx.SetActive(false);
+	     		}
+	        } 
+		}
+
+		
+	}
 }

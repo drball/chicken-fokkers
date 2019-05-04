@@ -4707,7 +4707,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4291348196094478}
-  - component: {fileID: 114241301014124060}
   - component: {fileID: 58697291415459008}
   - component: {fileID: 95221509025419338}
   - component: {fileID: 82971991164189080}
@@ -4736,22 +4735,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114241301014124060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616201941848740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703d2e6cd4c934fd294d3b5c48ba9403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCollectable: 1
-  ParticleTrail: {fileID: 198833948615040476}
-  Vfx: {fileID: 1747670148394948}
-  Sfx: {fileID: 82971991164189080}
 --- !u!58 &58697291415459008
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4895,6 +4878,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b364d5735112c4b4fab949d011415101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollectable: 1
+  ParticleTrail: {fileID: 198833948615040476}
+  VfxList:
+  - {fileID: 1747670148394948}
+  - {fileID: 6011505036751007219}
+  Sfx: {fileID: 82971991164189080}
+  SpawnObj: {fileID: 5312704605907719771, guid: 75829417272c548b680749c9f03f2fa2,
+    type: 3}
 --- !u!1 &1747670148394948
 GameObject:
   m_ObjectHideFlags: 0
@@ -4985,7 +4976,7 @@ GameObject:
   - component: {fileID: 469905572337131744}
   - component: {fileID: 7478533122266694463}
   m_Layer: 0
-  m_Name: small rocket
+  m_Name: small rocket icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

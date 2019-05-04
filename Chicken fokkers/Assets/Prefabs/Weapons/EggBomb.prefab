@@ -81,8 +81,8 @@ GameObject:
   - component: {fileID: 6909741773441512782}
   - component: {fileID: 1510325461631434647}
   - component: {fileID: 2806210354015726119}
-  - component: {fileID: 5649273611729647223}
   - component: {fileID: 1815992404461519403}
+  - component: {fileID: 9183568398386879723}
   m_Layer: 0
   m_Name: EggBomb
   m_TagString: Bullet
@@ -251,18 +251,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5649273611729647223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2912703612059893508}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 588c6dd4ab4b84cc892bc4b6b165c5a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1815992404461519403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +269,18 @@ MonoBehaviour:
   GroundExplosion: {fileID: 1654621613391498, guid: c3c284c904785458ab524e58675cebbc,
     type: 3}
   damage: 6
+--- !u!114 &9183568398386879723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912703612059893508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d604605d6f94dd989ea8d9affd8ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3409977161244244576
 GameObject:
   m_ObjectHideFlags: 0

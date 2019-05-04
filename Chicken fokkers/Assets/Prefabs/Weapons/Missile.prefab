@@ -4924,6 +4924,8 @@ GameObject:
   - component: {fileID: 7094091289109556944}
   - component: {fileID: 7094091289109556947}
   - component: {fileID: 7094091289109556974}
+  - component: {fileID: 6283720984144460111}
+  - component: {fileID: 1974799584899623990}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -5009,3 +5011,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6283720984144460111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7094091289109556946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10560d5870e07472b8e695ce17ccddce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1974799584899623990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7094091289109556946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dbf98ec51c6472e933fbc1077074fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  Explosion: {fileID: 1893286043872580, guid: 719bcf94ad4b4468fb9b948a64acb41c, type: 3}
+  GroundExplosion: {fileID: 1893286043872580, guid: 719bcf94ad4b4468fb9b948a64acb41c,
+    type: 3}
+  damage: 5

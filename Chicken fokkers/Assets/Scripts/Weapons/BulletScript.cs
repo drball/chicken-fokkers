@@ -2,34 +2,26 @@
 // using System.Collections.Generic;
 using UnityEngine;
 
+//--responsable for hitting things, causing dmage or hitting terrain
 public class BulletScript : MonoBehaviour {
 
 	public GameObject Owner;
-	private float speed = 500f;
 	// public Renderer[] rend;
-	public Rigidbody2D rb;
 	public GameObject Explosion;
 	public GameObject GroundExplosion;
 	public float damage = 1f;
 
 
 	// Use this for initialization
-	void Start () {
-		// Debug.Log("create new bullet");
-
-		rb.AddForce(transform.up * speed);
-
-	}
-
-	// void Update(){
-	// 	if (!rend.isVisible){
-	// 		Destroy(gameObject);
-	// 	}
-	// }
 	
 	void OnTriggerEnter2D(Collider2D other) {
 
 		// Debug.Log("bullet with owner:"+Owner.name+" hits = "+other.name+" on "+other.transform.parent.name);
+
+		//--if this doesn't have an owner set (like missile), make itself owner
+		if(!Owner){
+			Owner = gameObject;
+		}
 
         if (other.tag == "PlayerCollider" && (other.transform.parent.name != Owner.name)){
 
@@ -61,7 +53,6 @@ public class BulletScript : MonoBehaviour {
 
         } else if (other.tag == "Ground"){
 			Instantiate(GroundExplosion, transform.position, transform.rotation);
-
         	Destroy(gameObject);
         } 
     }

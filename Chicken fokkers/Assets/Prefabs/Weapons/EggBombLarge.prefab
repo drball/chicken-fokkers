@@ -105,9 +105,9 @@ GameObject:
   - component: {fileID: 8547453870143181386}
   - component: {fileID: 1510325461631434647}
   - component: {fileID: 2806210354015726119}
-  - component: {fileID: 5649273611729647223}
   - component: {fileID: 1815992404461519403}
   - component: {fileID: 8501347984928502058}
+  - component: {fileID: 2713136949957533379}
   m_Layer: 0
   m_Name: EggBombLarge
   m_TagString: Bullet
@@ -260,18 +260,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5649273611729647223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2912703612059893508}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 588c6dd4ab4b84cc892bc4b6b165c5a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1815992404461519403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,3 +304,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.30230904, y: 0.14020514}
   m_EdgeRadius: 0
+--- !u!114 &2713136949957533379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2912703612059893508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d604605d6f94dd989ea8d9affd8ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -23,7 +23,8 @@ public class RocketPickup : MonoBehaviour
 		if(isCollectable){
 			if (other.tag == "PlayerCollider" || other.tag == "PlayerWheel"){
 
-	        	Instantiate(SpawnObj, transform.position, transform.rotation);
+	        	GameObject obj = Instantiate(SpawnObj, transform.position, transform.rotation);
+	        	Debug.Log("spawned new rocket - "+obj.name);
 	        	isCollectable = false;
         		Sfx.pitch = Random.Range(0.9f, 1.25f);
 				Sfx.Play();

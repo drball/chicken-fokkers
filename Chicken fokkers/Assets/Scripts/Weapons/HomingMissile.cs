@@ -13,11 +13,11 @@ public class HomingMissile : MonoBehaviour
 	private Rigidbody2D rb; 
     private BoxCollider2D collider;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
+        
         //--check possible targets & choose the furthest
         possibleTargets = GameObject.FindGameObjectsWithTag("Player");
         possibleTargets.OrderBy(possibleTarget => possibleTarget.transform.position.y).ToArray();
@@ -26,6 +26,8 @@ public class HomingMissile : MonoBehaviour
 
         collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void SetTarget(){
@@ -41,7 +43,6 @@ public class HomingMissile : MonoBehaviour
 
         //--turn toward target - if we have one 
         if(target){
-            Debug.Log("turn towards target "+target.name);
             Vector2 direction = (Vector2)target.position - rb.position;
             direction.Normalize();
             float rotateAmount = Vector3.Cross(direction, transform.up).z;

@@ -10,7 +10,7 @@ public class BlinkThenRemove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		childRends = GetComponentsInChildren<Renderer>( ) as Renderer[];
-        Debug.Log("telegraph start");
+        // Debug.Log("telegraph start");
 		
 	}
 
@@ -19,7 +19,7 @@ public class BlinkThenRemove : MonoBehaviour {
     }
 	
     void StartFlashing(){
-    	Debug.Log("start flashing");
+    	// Debug.Log("start flashing");
     	StartCoroutine("Blink");
     }
 

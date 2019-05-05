@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SpawnInstantPickups : MonoBehaviour {
 
-	private float appearAfter = 1f;
+	private float appearAfter;
 	private float edgeBuffer = 2f;
 	public Camera cam;
 	public GameObject Pickup;
@@ -16,14 +16,17 @@ public class SpawnInstantPickups : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		appearAfter = Random.Range(5f,10f);
 		InvokeRepeating("CreatePickupIntent",appearAfter, appearAfter);
+		Debug.Log("pickup appearafter = "+appearAfter);
 	}
 
 	void CreatePickupIntent(){
 		//--check we can make a new pickup
+		Debug.Log("createpickup intent");
 
-		pickupAmt = GameObject.FindGameObjectsWithTag("Pickup").Length;
-		// Debug.Log("pickup amt = "+pickupAmt+" / "+pickupMaxAmt);
+		pickupAmt = GameObject.FindGameObjectsWithTag("InstantPickup").Length;
+		Debug.Log("pickup amt = "+pickupAmt+" / "+pickupMaxAmt);
 
 		if(pickupAmt < pickupMaxAmt)
 		{
@@ -33,6 +36,7 @@ public class SpawnInstantPickups : MonoBehaviour {
 	}
 	
 	void CreatePickup(){
+		Debug.Log("createpickup");
 
 		location = new Vector2(
 			Random.Range(cam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x + edgeBuffer, cam.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x - edgeBuffer),

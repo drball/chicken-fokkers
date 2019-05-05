@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Bullet
   - DynamicLand
+  - InstantPickup
   layers:
   - Default
   - TransparentFX

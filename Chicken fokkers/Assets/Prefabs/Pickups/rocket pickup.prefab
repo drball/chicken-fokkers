@@ -4713,7 +4713,7 @@ GameObject:
   - component: {fileID: 6315975928830669797}
   m_Layer: 0
   m_Name: rocket pickup
-  m_TagString: Pickup
+  m_TagString: InstantPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

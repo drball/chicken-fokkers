@@ -29,7 +29,7 @@ public class BulletScript : MonoBehaviour {
         		other.GetComponent<DamageController>().HitByBullet(damage);
 
         		Instantiate(Explosion, transform.position, transform.rotation);
-        		Debug.Log("hit the other player");
+        		// Debug.Log("hit the other player");
 
             	Destroy(gameObject);
     		} 
@@ -46,7 +46,7 @@ public class BulletScript : MonoBehaviour {
         	}
 
         	if(other.GetComponent<EnemyRagdollDamageController>()){
-        		Debug.Log("bullet has hit chicken");
+        		// Debug.Log("bullet has hit chicken");
         		other.GetComponent<EnemyRagdollDamageController>().HitByBullet();
         		return;
         	}

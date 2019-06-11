@@ -10,13 +10,21 @@ public class GameControllerStory : GameController {
 	public GameObject LevelCompleteModal;
 	public GameObject StartPosObj; //--to measure distance
 	public GameObject GoalObj; //--to measure distance
-	public GameObject PlayerObj; //--to measure distance
+	// public GameObject PlayerObj; //--to measure distance
 	private float travelledDistance;
+	public CameraFollow CameraFollow;
 
 	void Start () {
 		base.Start ();
 		LevelCompleteModal.SetActive(false);
 		Debug.Log("start gamecontroller story");
+		CameraFollow = cam.GetComponent<CameraFollow>();
+		Debug.Log("-----------------assign camera target");
+		CameraFollow.target = Player1Obj.transform;
+
+		if(gameMode == GameModes.Story){
+			Player1Obj.GetComponent<PlayerResetAtEdge>().enabled = false;
+		}
 	}
 
 	public override void PlayerHasDied(){
@@ -47,7 +55,7 @@ public class GameControllerStory : GameController {
 
 		float levelDistance =  Mathf.Abs(GoalObj.transform.position.x - StartPosObj.transform.position.x);
 		Debug.Log("distance = "+levelDistance);
-		travelledDistance = Mathf.Clamp((PlayerObj.transform.position.x / levelDistance)*100,0,100);
+		travelledDistance = Mathf.Clamp((Player1Obj.transform.position.x / levelDistance)*100,0,100);
 		Debug.Log("player got "+travelledDistance+"%");
 	}
 }

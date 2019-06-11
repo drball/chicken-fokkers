@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour {
 	public VersionController VersionController;
 	public bool paused = false;
 	public GameObject PauseModal;
+	public enum GameModes {Duel = 0, Story = 1} 
+    public GameModes gameMode= GameModes.Duel & GameModes.Story;
 
 	void Awake(){
 		//--load the correct player
@@ -39,11 +41,18 @@ public class GameController : MonoBehaviour {
 		// Player1Obj = Instantiate(Player1Characters[3], Player1Dummy.transform.position, Player1Dummy.transform.rotation);
 		// Player2Obj = Instantiate(Player2Characters[3], Player2Dummy.transform.position, Player2Dummy.transform.rotation);
 		Player1Obj = LoadPlayer(Player1Dummy, 1);
-		Player2Obj = LoadPlayer(Player2Dummy, 2);
+		Debug.Log("player 1 is "+Player1Obj.name);
+
+		if(gameMode == GameModes.Duel){
+			Player2Obj = LoadPlayer(Player2Dummy, 2);
+		}
 
 		//--get all the scripts for the players
 		Player1Controller = Player1Obj.GetComponent<PlayerController>();
-		Player2Controller = Player2Obj.GetComponent<PlayerController>();
+
+		if(gameMode == GameModes.Duel){
+			Player2Controller = Player2Obj.GetComponent<PlayerController>();
+		}
 
 		if(PauseModal){
 			PauseModal.SetActive(false);
@@ -85,6 +94,11 @@ public class GameController : MonoBehaviour {
 		//--load the chosen player dynamically based on what was chosen
 		string playerToLoad = "Characters/P" + playerNum;
 
+		if(!dummyObj){
+			Debug.Log("-------return false");
+			return null;
+		}
+
 		//--we should get the chosen player from playerSelection screen, if not load a default
 		if((LevelsController.p1SelectedCharString.Length > 0) && (LevelsController.p2SelectedCharString.Length > 0))
 		{
@@ -95,7 +109,7 @@ public class GameController : MonoBehaviour {
 				playerToLoad += LevelsController.p2SelectedCharString;
 			}
 		}else{
-			Debug.Log("No player to load, use default");
+			Debug.Log("No player to load for p"+playerNum+", use default");
 			playerToLoad = "Characters/P" + playerNum + defaultPlayer;
 		}
 		

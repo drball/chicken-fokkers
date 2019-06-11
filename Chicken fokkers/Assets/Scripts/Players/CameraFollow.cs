@@ -81,6 +81,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     public void SwitchFollow(GameObject other){
+        Debug.Log("camer switch to follow "+other.name);
 
 		target = other.transform;
 
@@ -97,6 +98,7 @@ public class CameraFollow : MonoBehaviour
 
     public void CenterInScreen(){
         //--center on the player 
+        Debug.Log("center camera");
         damping = 1;
         lookAheadFactor = 0;
         

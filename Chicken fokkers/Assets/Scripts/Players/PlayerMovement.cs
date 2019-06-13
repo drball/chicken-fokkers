@@ -36,7 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 		GameController = SceneControllerObj.GetComponent<GameController>();
 		cam = GameController.cam;
 
-		if(PlayerResetAtEdge){
+		// if(PlayerResetAtEdge){
+		if(GameController.gameMode == GameController.GameModes.Duel){
 			//--if duel mode
 			topConstraint = cam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - 0.5f;
 		} else {
@@ -95,6 +96,7 @@ public class PlayerMovement : MonoBehaviour {
 				//--moving right to left
 
 				if(TouchControls.RightPressed) {
+					Debug.Log("right pressed");
 
 					if(transform.position.y < topConstraint){
 						movingUp = true;
@@ -110,6 +112,7 @@ public class PlayerMovement : MonoBehaviour {
 			} else {
 				//--moving left to right
 				if(TouchControls.LeftPressed) {
+					Debug.Log("left pressed");
 
 					if(transform.position.y < topConstraint){
 						movingUp = true;
@@ -145,6 +148,9 @@ public class PlayerMovement : MonoBehaviour {
     			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     		}
      	}
+
+     	Debug.Log("upforce = "+upForce);
+     	Debug.Log("topConstraint = "+topConstraint);
 
      	if(Input.GetKey("m")){
 			//-- move to end (cheat)
